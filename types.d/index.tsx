@@ -1,0 +1,1 @@
+export type tailwindcss = string;

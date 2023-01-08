@@ -1,6 +1,8 @@
 import React from 'react';
 import { tailwindcss } from '../../types.d';
 import Icon from '../icon/Icon';
+import MousePointedShuriken from '../shuriken/MousePointedShuriken';
+import { motion } from "framer-motion";
 
 type ShurikenMenuProps = {
     className: tailwindcss;
@@ -8,43 +10,91 @@ type ShurikenMenuProps = {
 
 const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
 
-    const [mouseXCord, setMouseXCord] = React.useState<number>(-1);
-    const [mouseYCord, setMouseYCord] = React.useState<number>(-1);
-    const iconRef = React.useRef<HTMLDivElement>(null);
-
-    const onMouseMove = (event: MouseEvent) => {
-        setMouseXCord(event.clientX);
-        setMouseYCord(event.clientY);
-    };
+    const menuRef = React.useRef<HTMLDivElement>(null);
+    const [animation1, setAnimation1] = React.useState<any>({
+        y: ["0%", "-100%"],
+        fontSize: ["2rem", "1rem"],
+        fontWeight: 800,
+        color: "#D19E18"
+    });
+    const [animation2, setAnimation2] = React.useState<any>({
+        y: ["0%", "-100%"],
+        fontSize: ["3rem", "2rem"],
+        fontWeight: 800,
+        color: "#D19E18"
+    });
+    const [animation3, setAnimation3] = React.useState<any>({
+        y: ["0%", "-100%"],
+        fontSize: ["2rem", "3rem"],
+        fontWeight: 800,
+        color: "#D19E18"
+    });
+    const [duration, setDuration] = React.useState<any>(0.5);
 
     React.useEffect(() => {
-        document.addEventListener('mousemove', onMouseMove);
-    }, []);
-
-    React.useEffect(() => {
-        if (iconRef && iconRef.current) {
-            let iconRect = iconRef.current.getBoundingClientRect();
-            let iconX = (iconRect.left + iconRect.right) / 2;
-            let iconY = (iconRect.top + iconRect.bottom) / 2;
-            let opposite = iconY - mouseYCord;
-            let adjacent = iconX - mouseXCord;
-            let hypotenuse = Math.sqrt(Math.pow(opposite, 2) + Math.pow(adjacent, 2));
-            let sinAlpha = opposite / hypotenuse;
-            let alpha = Math.asin(sinAlpha) * (180 / Math.PI);
-            if (mouseXCord > iconX) {
-                if (alpha > 0) {
-                    alpha = 180 - alpha;
-                } else {
-                    alpha = -180 - alpha;
-                }
-            }
-            iconRef.current.style.transform = `rotate(${alpha}deg)`;
+        if (menuRef && menuRef.current) {
+            menuRef.current.addEventListener("wheel", (event: any) => {
+                event.preventDefault();
+                console.log(event);
+            });
         }
-    }, [mouseXCord, mouseYCord]);
+    }, []);
 
     let content = (
         <div className={props.className}>
-            <Icon iconRef={iconRef} className="" src='/icons/shuriken.svg' dim="100" priority={true} />
+            <div className="h-full w-full flex flex-row items-center">
+                <div ref={menuRef} className="flex flex-col items-end">
+                    <motion.p
+                        className="h-24 flex items-center"
+                        transition={{ duration: duration }}
+                        animate={animation1}
+                        onAnimationComplete={() => {
+                            setDuration(0);
+                            setAnimation1({
+                                y: "0%",
+                                fontSize: "2rem",
+                                fontWeight: 800,
+                                color: "#D19E18"
+                            });
+                        }}
+                    >
+                        Home
+                    </motion.p>
+                    <motion.p
+                        className="h-24 flex items-center"
+                        transition={{ duration: duration }}
+                        animate={animation2}
+                        onAnimationComplete={() => {
+                            setDuration(0);
+                            setAnimation2({
+                                y: "0%",
+                                fontSize: "3rem",
+                                fontWeight: 800,
+                                color: "#D19E18"
+                            });
+                        }}
+                    >
+                        Home
+                    </motion.p>
+                    <motion.p
+                        className="h-24 flex items-center"
+                        transition={{ duration: duration }}
+                        animate={animation3}
+                        onAnimationComplete={() => {
+                            setDuration(0);
+                            setAnimation3({
+                                y: "0%",
+                                fontSize: "2rem",
+                                fontWeight: 800,
+                                color: "#D19E18"
+                            });
+                        }}
+                    >
+                        Home
+                    </motion.p>
+                </div>
+                <MousePointedShuriken className='ml-4' />
+            </div>
         </div>
     );
 

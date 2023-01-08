@@ -7,6 +7,12 @@ module.exports = {
     "./ui/**/*.{html,js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      roboto: ["Roboto"],
+      montserrat: ["Montserrat"],
+      sans: ["Montserrat"], //, "Roboto", "Helvetica", "Arial", "sans-serif"],
+      serif: ["Montserrat"], //["Merriweather", "serif"],
+    },
     extend: {},
   },
   plugins: [],

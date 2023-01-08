@@ -16,8 +16,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                     <div className="grow">
                         {props.children}
                     </div>
-                    <div className="flex content-center items-center">
-                        <ShurikenMenu className='' />
+                    <div className="h-full flex content-center items-center">
+                        <ShurikenMenu className='h-full' />
                     </div>
                 </div>
             </div>

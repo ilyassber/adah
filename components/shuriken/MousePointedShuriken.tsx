@@ -44,7 +44,7 @@ const MousePointedShuriken: React.FC<MousePointedShurikenProps> = (props) => {
 
     let content = (
         <div className={props.className}>
-            <Icon iconRef={iconRef} className="" src='/icons/shuriken.svg' dim="100" priority={true} />
+            <Icon iconRef={iconRef} className="" src='/icons/shuriken.svg' dim="80" priority={true} />
         </div>
     );
 

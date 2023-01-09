@@ -4,6 +4,7 @@ import Icon from '../icon/Icon';
 
 type MousePointedShurikenProps = {
     className: tailwindcss;
+    elementId?: string;
 };
 
 const MousePointedShuriken: React.FC<MousePointedShurikenProps> = (props) => {
@@ -17,8 +18,35 @@ const MousePointedShuriken: React.FC<MousePointedShurikenProps> = (props) => {
         setMouseYCord(event.clientY);
     };
 
+    const onMouseLeave = (event: MouseEvent) => {
+        if (iconRef && iconRef.current) {
+            iconRef.current.style.transitionDuration = "0.5s";
+            iconRef.current.style.transform = `rotate(0deg)`;
+        }
+    };
+
     React.useEffect(() => {
-        document.addEventListener('mousemove', onMouseMove);
+        if (props.elementId) {
+            let element = document.getElementById(props.elementId);
+            if (element) {
+                element.addEventListener('mousemove', onMouseMove);
+                element.addEventListener('mouseleave', onMouseLeave);
+            }
+        } else {
+            document.addEventListener('mousemove', onMouseMove);
+        }
+
+        return () => {
+            if (props.elementId) {
+                let element = document.getElementById(props.elementId);
+                if (element) {
+                    element.removeEventListener('mousemove', onMouseMove);
+                    element.removeEventListener('mouseleave', onMouseLeave);
+                }
+            } else {
+                document.removeEventListener('mousemove', onMouseMove);
+            }
+        };
     }, []);
 
     React.useEffect(() => {
@@ -38,6 +66,7 @@ const MousePointedShuriken: React.FC<MousePointedShurikenProps> = (props) => {
                     alpha = -180 - alpha;
                 }
             }
+            iconRef.current.style.transitionDuration = "0.1s";
             iconRef.current.style.transform = `rotate(${alpha}deg)`;
         }
     }, [mouseXCord, mouseYCord]);

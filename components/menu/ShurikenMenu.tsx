@@ -176,7 +176,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
 
     let content = (
         <div className={props.className}>
-            <div className="h-full w-full flex flex-row items-center">
+            <div id="shurikenmenu" className="h-full w-full flex flex-row items-center">
                 <div ref={menuRef} className="flex flex-col items-end">
                     {
                         places
@@ -204,7 +204,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
                             : null
                     }
                 </div>
-                <MousePointedShuriken className='ml-4' />
+                <MousePointedShuriken className='ml-4' elementId='shurikenmenu' />
             </div>
         </div>
     );

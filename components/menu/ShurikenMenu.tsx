@@ -20,7 +20,11 @@ type ShurikenMenuProps = {
 
 const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
     const [animation, setAnimation] = React.useState<any>(props.animate ? {
-        y: ["0%", "-100%"],
+        y: ["0%", (props.animationDirection == "up" ? "-100%" : "100%")],
+        x: [
+            `${10 * (Math.abs(props.index - 4))}px`,
+            `${props.animationDirection == "up" ? 10 * Math.abs(props.index - 5) : 10 * Math.abs(props.index - 3)}px`
+        ],
         fontSize: [
             `${2 / (Math.abs(props.index - 4) + 1)}rem`,
             `${props.animationDirection == "up" ? 2 / (Math.abs(props.index - 5) + 1) : 2 / (Math.abs(props.index - 3) + 1)}rem`
@@ -28,18 +32,52 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
         fontWeight: 800,
         color: ((props.index == 5 && props.animationDirection == "up") || (props.index == 3 && props.animationDirection == "down") ? "#D19E18" : "#9197A0"),
         opacity: [
-            `${100 / (Math.abs(props.index - 4) + 1)}%`,
-            `${props.animationDirection == "up" ? 100 / (Math.abs(props.index - 5) + 1) : 100 / (Math.abs(props.index - 3) + 1)}%`
+            `${100 - (30 * (Math.abs(props.index - 4)))}%`,
+            `${props.animationDirection == "up" ? 100 - (30 * Math.abs(props.index - 5)) : 100 - (30 * Math.abs(props.index - 3))}%`
         ],
     } : {
         y: "0%",
+        x: `${10 * (Math.abs(props.index - 4))}px`,
         fontSize: `${2 / (Math.abs(props.index - 3) + 1)}rem`,
         fontWeight: 800,
         color: (props.index == 4 ? "#D19E18" : "#9197A0"),
-        opacity: `${100 / (Math.abs(props.index - 4) + 1)}%`,
+        opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
     });
     const [duration, setDuration] = React.useState<any>(0.5);
     const [value, setValue] = React.useState<string>(props.animate ? props.startItem : props.stopItem);
+
+    React.useEffect(() => {
+        console.log(props.startItem, props.stopItem);
+    }, []);
+
+    React.useEffect(() => {
+        setValue(props.animate ? props.startItem : props.stopItem);
+        setDuration(0.5);
+        setAnimation(props.animate ? {
+            y: ["0%", (props.animationDirection == "up" ? "-100%" : "100%")],
+            x: [
+                `${10 * (Math.abs(props.index - 4))}px`,
+                `${props.animationDirection == "up" ? 10 * Math.abs(props.index - 5) : 10 * Math.abs(props.index - 3)}px`
+            ],
+            fontSize: [
+                `${2 / (Math.abs(props.index - 4) + 1)}rem`,
+                `${props.animationDirection == "up" ? 2 / (Math.abs(props.index - 5) + 1) : 2 / (Math.abs(props.index - 3) + 1)}rem`
+            ],
+            fontWeight: 800,
+            color: ((props.index == 5 && props.animationDirection == "up") || (props.index == 3 && props.animationDirection == "down") ? "#D19E18" : "#9197A0"),
+            opacity: [
+                `${100 - (30 * (Math.abs(props.index - 4)))}%`,
+                `${props.animationDirection == "up" ? 100 - (30 * Math.abs(props.index - 5)) : 100 - (30 * Math.abs(props.index - 3))}%`
+            ],
+        } : {
+            y: "0%",
+            x: `${10 * (Math.abs(props.index - 4))}px`,
+            fontSize: `${2 / (Math.abs(props.index - 3) + 1)}rem`,
+            fontWeight: 800,
+            color: (props.index == 4 ? "#D19E18" : "#9197A0"),
+            opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
+        });
+    }, [props.startItem, props.stopItem]);
 
     let content = (
         <motion.div
@@ -51,10 +89,11 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
                 setDuration(0);
                 setAnimation({
                     y: "0%",
+                    x: `${10 * (Math.abs(props.index - 4))}px`,
                     fontSize: `${2 / (Math.abs(props.index - 4) + 1)}rem`,
                     fontWeight: 800,
                     color: (props.index == 4 ? "#D19E18" : "#9197A0"),
-                    opacity: `${100 / (Math.abs(props.index - 4) + 1)}%`,
+                    opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
                 });
             }}
         >
@@ -75,6 +114,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     const menuRef = React.useRef<HTMLDivElement>(null);
 
     const [selectedIndex, setSelectedIndex] = React.useState<number>(2);
+    const [animationDirection, setAnimationDirection] = React.useState<string>("up");
     const [places, setPlaces] = React.useState<any[] | null>(null);
     const items = [
         {
@@ -118,44 +158,51 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        setPlaces(null);
+        let newPlacesList = [];
+        for (let i = 0; i < 7; i++) {
+            if (selectedIndex - 4 + i >= 0 && selectedIndex - 4 + i < 5) {
+                newPlacesList.push(items[selectedIndex - 4 + i]);
+            } else {
+                newPlacesList.push(null);
+            }
+        }
+        console.log(newPlacesList);
+        setPlaces(newPlacesList);
     }, [selectedIndex]);
 
     React.useEffect(() => {
-        if (!places) {
-            let newPlacesList = [];
-            for (let i = 0; i < 7; i++) {
-                if (selectedIndex - 4 + i >= 0 && selectedIndex - 4 + i < 5) {
-                    newPlacesList.push(items[selectedIndex - 4 + i]);
-                } else {
-                    newPlacesList.push(null);
-                }
-            }
-            console.log(newPlacesList);
-            setPlaces(newPlacesList);
-        }
+        console.log(places);
     }, [places]);
 
     let content = (
         <div className={props.className}>
             <div className="h-full w-full flex flex-row items-center">
                 <div ref={menuRef} className="flex flex-col items-end">
-                    {places ? places.map((place, index) => {
-                        return (<ShurikenMenuItem
-                            key={index + 1}
-                            index={index + 1}
-                            className=""
-                            startItem={places[index - 1] ? places[index - 1].name : ""}
-                            stopItem={place ? place.name : ""}
-                            animate
-                            animationDirection='up'
-                            onClick={() => {
-                                if (place) {
-                                    setSelectedIndex(place.id);
-                                }
-                            }}
-                        />)
-                    }) : null}
+                    {
+                        places
+                            ? places.map((place, index) => {
+                                return (<ShurikenMenuItem
+                                    key={index + 1}
+                                    index={index + 1}
+                                    className=""
+                                    startItem={animationDirection == "up" ? (places[index - 1] ? places[index - 1].name : "") : (places[index + 1] ? places[index + 1].name : "")}
+                                    stopItem={place ? place.name : ""}
+                                    animate={true}
+                                    animationDirection={animationDirection}
+                                    onClick={() => {
+                                        if (place) {
+                                            if (place.id > selectedIndex) {
+                                                setAnimationDirection("up");
+                                            } else {
+                                                setAnimationDirection("down");
+                                            }
+                                            setSelectedIndex(place.id);
+                                        }
+                                    }}
+                                />)
+                            })
+                            : null
+                    }
                 </div>
                 <MousePointedShuriken className='ml-4' />
             </div>

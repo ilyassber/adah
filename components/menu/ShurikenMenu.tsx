@@ -49,7 +49,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
     const [value, setValue] = React.useState<string>(props.animate ? props.startItem : props.stopItem);
 
     React.useEffect(() => {
-        console.log("Render");
+        //console.log("Render");
     }, []);
 
     React.useEffect(() => {
@@ -57,7 +57,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
     }, [props.speedUp]);
 
     React.useEffect(() => {
-        //console.log("duration: ", duration);
+        console.log("duration: ", duration);
     }, [duration]);
 
     React.useEffect(() => {
@@ -65,7 +65,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
     }, [props.animate]);
 
     React.useEffect(() => {
-        console.log(props.startItem, props.stopItem, duration, props.speedUp, props.animate);
+        //console.log(props.startItem, props.stopItem, duration, props.speedUp, props.animate);
         setValue(props.animate ? props.startItem : props.stopItem);
         setDuration(props.animate ? (props.speedUp ? 0.2 : 0.4) : 0);
         setAnimation(props.animate ? {
@@ -136,8 +136,10 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
 
     const [selectedIndex, setSelectedIndex] = React.useState<number>(1);
     const [prevIndex, setPrevIndex] = React.useState<number>(1);
+    const [wheelDelta, setWheelDelta] = React.useState<number>(0);
     const [currentIndex, setCurrentIndex] = React.useState<number>(1);
     const [animate, setAnimate] = React.useState<boolean>(false);
+    const [animation, setAnimation] = React.useState<boolean>(false);
     const [speedUp, setSpeedUp] = React.useState<boolean>(false);
     const [animationDirection, setAnimationDirection] = React.useState<string>("up");
     const [places, setPlaces] = React.useState<any[] | null>(null);
@@ -164,6 +166,26 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
         }
     ];
 
+    const incrementIndex = () => {
+        if (selectedIndex < 5 && !animation) {
+            setAnimation(true);
+            setSelectedIndex(selectedIndex + 1);
+        }
+    };
+
+    const decrementIndex = () => {
+        if (selectedIndex > 1 && !animation) {
+            setAnimation(true);
+            setSelectedIndex(selectedIndex - 1);
+        }
+    };
+
+    const onWheel = (event: any) => {
+        console.log(selectedIndex);
+        event.preventDefault();
+        setWheelDelta(event.deltaY);
+    };
+
     React.useEffect(() => {
         let newPlacesList = [];
         for (let i = 0; i < 7; i++) {
@@ -175,13 +197,30 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
         }
         setPlaces(newPlacesList);
         if (menuRef && menuRef.current) {
-            menuRef.current.addEventListener("wheel", (event: any) => {
-                event.preventDefault();
-            });
+            menuRef.current.addEventListener("wheel", onWheel);
         }
+
+        return () => {
+            if (menuRef && menuRef.current) {
+                menuRef.current.removeEventListener("wheel", onWheel);
+            }
+        };
     }, []);
 
     React.useEffect(() => {
+        console.log(animation, selectedIndex);
+    }, [animation]);
+
+    React.useEffect(() => {
+        if (wheelDelta > 10) {
+            incrementIndex();
+        } else if (wheelDelta < -10) {
+            decrementIndex();
+        }
+    }, [wheelDelta]);
+
+    React.useEffect(() => {
+        console.log(selectedIndex);
         if (currentIndex < selectedIndex) {
             setPrevIndex(currentIndex);
             setCurrentIndex(currentIndex + 1);
@@ -216,11 +255,11 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, [currentIndex]);
 
     React.useEffect(() => {
-        console.log("places are changed");
+        //console.log("places are changed");
     }, [places]);
 
     React.useEffect(() => {
-        console.log(speedUp);
+        //console.log(speedUp);
     }, [speedUp]);
 
     const onClick = (id: number) => {
@@ -228,6 +267,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     };
 
     const onAnimationComplete = () => {
+        setAnimation(false);
         if (currentIndex < selectedIndex) {
             setCurrentIndex(currentIndex + 1);
         } else if (currentIndex > selectedIndex) {

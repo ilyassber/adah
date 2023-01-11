@@ -12,6 +12,29 @@ const paramsReducer = (params: any, data: { key: string; value: any }) => {
 };
 
 let defaultParams = {
+  sections: [
+    {
+      id: 1,
+      name: "Home"
+    },
+    {
+      id: 2,
+      name: "About"
+    },
+    {
+      id: 3,
+      name: "Experience"
+    },
+    {
+      id: 4,
+      name: "Projects"
+    },
+    {
+      id: 5,
+      name: "Get in Touch"
+    }
+  ],
+  selectedSectionId: 1,
 };
 
 export default function App({ Component, pageProps }: AppProps) {

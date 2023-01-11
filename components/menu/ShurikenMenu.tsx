@@ -212,9 +212,9 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, [animation]);
 
     React.useEffect(() => {
-        if (wheelDelta > 10) {
+        if (wheelDelta > 15) {
             incrementIndex();
-        } else if (wheelDelta < -10) {
+        } else if (wheelDelta < -15) {
             decrementIndex();
         }
     }, [wheelDelta]);

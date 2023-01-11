@@ -1,4 +1,5 @@
 import React from 'react';
+import { GlobalContext } from '../context/Context';
 import { tailwindcss } from '../../types.d';
 import Icon from '../icon/Icon';
 import MousePointedShuriken from '../shuriken/MousePointedShuriken';
@@ -132,6 +133,8 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
 
 const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
 
+    const { params, dispatchParams } = React.useContext(GlobalContext);
+
     const menuRef = React.useRef<HTMLDivElement>(null);
 
     const [selectedIndex, setSelectedIndex] = React.useState<number>(1);
@@ -143,28 +146,6 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     const [speedUp, setSpeedUp] = React.useState<boolean>(false);
     const [animationDirection, setAnimationDirection] = React.useState<string>("up");
     const [places, setPlaces] = React.useState<any[] | null>(null);
-    const items = [
-        {
-            id: 1,
-            name: "Home"
-        },
-        {
-            id: 2,
-            name: "About"
-        },
-        {
-            id: 3,
-            name: "Experience"
-        },
-        {
-            id: 4,
-            name: "Projects"
-        },
-        {
-            id: 5,
-            name: "Get in Touch"
-        }
-    ];
 
     const incrementIndex = () => {
         if (selectedIndex < 5 && !animation) {
@@ -190,7 +171,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
         let newPlacesList = [];
         for (let i = 0; i < 7; i++) {
             if (selectedIndex - 4 + i >= 0 && selectedIndex - 4 + i < 5) {
-                newPlacesList.push(items[selectedIndex - 4 + i]);
+                newPlacesList.push(params.sections[selectedIndex - 4 + i]);
             } else {
                 newPlacesList.push(null);
             }
@@ -246,7 +227,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
         }
         for (let i = 0; i < 7; i++) {
             if (currentIndex - 4 + i >= 0 && currentIndex - 4 + i < 5) {
-                newPlacesList.push(items[currentIndex - 4 + i]);
+                newPlacesList.push(params.sections[currentIndex - 4 + i]);
             } else {
                 newPlacesList.push(null);
             }
@@ -272,6 +253,8 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
             setCurrentIndex(currentIndex + 1);
         } else if (currentIndex > selectedIndex) {
             setCurrentIndex(currentIndex - 1);
+        } else {
+            dispatchParams({ key: "seelectedSectionId", value: selectedIndex });
         }
     };
 

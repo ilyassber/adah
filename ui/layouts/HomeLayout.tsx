@@ -1,6 +1,7 @@
 import React from 'react';
 import ShurikenMenu from '../../components/menu/ShurikenMenu';
 import { tailwindcss } from '../../types.d';
+import ContactLayout from './ContactLayout';
 
 type HomeLayoutProps = {
     className: tailwindcss;
@@ -11,8 +12,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     let content = (
         <div className={props.className}>
-            <div className="h-full w-full flex flex-col">
-                <div className="grow flex flex-row">
+            <ContactLayout className="w-full h-full">
+                <div className="h-full w-full flex flex-row">
                     <div className="grow">
                         {props.children}
                     </div>
@@ -20,7 +21,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                         <ShurikenMenu className='h-full' />
                     </div>
                 </div>
-            </div>
+            </ContactLayout>
         </div>
     );
 

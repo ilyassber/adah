@@ -50,23 +50,6 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
     const [value, setValue] = React.useState<string>(props.animate ? props.startItem : props.stopItem);
 
     React.useEffect(() => {
-        //console.log("Render");
-    }, []);
-
-    React.useEffect(() => {
-        //console.log("speed up: ", props.speedUp);
-    }, [props.speedUp]);
-
-    React.useEffect(() => {
-        console.log("duration: ", duration);
-    }, [duration]);
-
-    React.useEffect(() => {
-        //console.log("animate: ", props.animate);
-    }, [props.animate]);
-
-    React.useEffect(() => {
-        //console.log(props.startItem, props.stopItem, duration, props.speedUp, props.animate);
         setValue(props.animate ? props.startItem : props.stopItem);
         setDuration(props.animate ? (props.speedUp ? 0.2 : 0.4) : 0);
         setAnimation(props.animate ? {
@@ -162,7 +145,6 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     };
 
     const onWheel = (event: any) => {
-        console.log(selectedIndex);
         event.preventDefault();
         setWheelDelta(event.deltaY);
     };
@@ -189,10 +171,6 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        console.log(animation, selectedIndex);
-    }, [animation]);
-
-    React.useEffect(() => {
         if (wheelDelta > 15) {
             incrementIndex();
         } else if (wheelDelta < -15) {
@@ -201,7 +179,6 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, [wheelDelta]);
 
     React.useEffect(() => {
-        console.log(selectedIndex);
         if (currentIndex < selectedIndex) {
             setPrevIndex(currentIndex);
             setCurrentIndex(currentIndex + 1);

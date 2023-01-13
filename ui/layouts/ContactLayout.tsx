@@ -1,7 +1,9 @@
 import React from 'react';
 import { tailwindcss } from '../../types.d';
+import { GlobalContext } from '../../components/context/Context';
 import SocialMedia from '../../components/navigation/SocialMedia';
 import PhoneAndMail from '../cards/contact/PhoneAndMail';
+import { motion } from "framer-motion";
 
 type ContactLayoutProps = {
     className: tailwindcss;
@@ -10,16 +12,38 @@ type ContactLayoutProps = {
 
 const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
 
+    const { params, dispatchParams } = React.useContext(GlobalContext);
+
     let content = (
         <div className={props.className}>
             <div className="h-full w-full flex flex-col">
-                <div className="w-full p-4">
+                <motion.div
+                    className="w-full p-4"
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeOut"
+                    }}
+                    animate={{
+                        y: ["-50%", "0%"],
+                        opacity: ["0%", "100%"],
+                    }}
+                >
                     <PhoneAndMail className="" />
-                </div>
+                </motion.div>
                 <div className="grow w-full">
                     {props.children}
                 </div>
-                <div className="w-full p-4">
+                <motion.div
+                    className="w-full p-4"
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeOut"
+                    }}
+                    animate={{
+                        y: ["50%", "0%"],
+                        opacity: ["0%", "100%"],
+                    }}
+                >
                     <SocialMedia className="" data={[
                         {
                             iconSrc: "/icons/github.svg",
@@ -38,7 +62,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                             url: "https://twitter.com/berchida_ilyass"
                         },
                     ]} />
-                </div>
+                </motion.div>
             </div>
         </div>
     );

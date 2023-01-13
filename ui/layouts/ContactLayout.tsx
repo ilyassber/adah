@@ -1,6 +1,7 @@
 import React from 'react';
 import { tailwindcss } from '../../types.d';
 import SocialMedia from '../../components/navigation/SocialMedia';
+import PhoneAndMail from '../cards/contact/PhoneAndMail';
 
 type ContactLayoutProps = {
     className: tailwindcss;
@@ -12,7 +13,9 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
     let content = (
         <div className={props.className}>
             <div className="h-full w-full flex flex-col">
-                <div className="w-full"></div>
+                <div className="w-full p-4">
+                    <PhoneAndMail className="" />
+                </div>
                 <div className="grow w-full">
                     {props.children}
                 </div>

@@ -19,7 +19,7 @@ const SocialMedia: React.FC<SocialMediaProps> = (props) => {
                 {
                     props.data.map((media: Media, index: number) => {
                         return (<Link className="mx-6" href={media.url} target="_blank">
-                            <Icon key={index} className="" src={media.iconSrc} alt="" dim="24" />
+                            <Icon key={index} className="" src={media.iconSrc} alt="" dim="22" />
                         </Link>);
                     })
                 }

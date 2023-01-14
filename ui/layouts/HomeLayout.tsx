@@ -15,7 +15,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
 
-    const [duration, setDuration] = React.useState<number>(0.2);
+    const [duration, setDuration] = React.useState<number>(0.4);
     const [rotation, setRotation] = React.useState<number[]>([0, 180]);
     const [step, setStep] = React.useState<number>(0);
     const xSteps: number[] = [0, -10, -15, -18, -15, 0, 100, 200, 300, 400, 500, 600, 700];
@@ -67,6 +67,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                                 }
                             } else {
                                 setRotation([rotation[1], 360]);
+                                dispatchParams({ key: "initAnimation", value: true });
                             }
                         }}
                     >

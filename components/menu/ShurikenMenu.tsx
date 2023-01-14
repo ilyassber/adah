@@ -124,7 +124,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     const [prevIndex, setPrevIndex] = React.useState<number>(1);
     const [wheelDelta, setWheelDelta] = React.useState<number>(0);
     const [currentIndex, setCurrentIndex] = React.useState<number>(1);
-    const [animate, setAnimate] = React.useState<boolean>(false);
+    const [animate, setAnimate] = React.useState<boolean>(true);
     const [animation, setAnimation] = React.useState<boolean>(false);
     const [speedUp, setSpeedUp] = React.useState<boolean>(false);
     const [animationDirection, setAnimationDirection] = React.useState<string>("up");

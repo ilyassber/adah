@@ -20,7 +20,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                 <motion.div
                     className="w-full p-4"
                     transition={{
-                        duration: 0.5,
+                        duration: 0.6,
                         ease: "easeOut"
                     }}
                     animate={{
@@ -36,7 +36,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                 <motion.div
                     className="w-full p-4"
                     transition={{
-                        duration: 0.5,
+                        duration: 0.6,
                         ease: "easeOut"
                     }}
                     animate={{

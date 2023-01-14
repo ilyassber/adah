@@ -12,6 +12,7 @@ const paramsReducer = (params: any, data: { key: string; value: any }) => {
 };
 
 let defaultParams = {
+  initAnimation: false,
   sections: [
     {
       id: 1,

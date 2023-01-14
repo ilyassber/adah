@@ -50,7 +50,7 @@ const MousePointedShuriken: React.FC<MousePointedShurikenProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        if (iconRef && iconRef.current) {
+        if (mouseXCord != -1 && mouseYCord != -1 && iconRef && iconRef.current) {
             let iconRect = iconRef.current.getBoundingClientRect();
             let iconX = (iconRect.left + iconRect.right) / 2;
             let iconY = (iconRect.top + iconRect.bottom) / 2;

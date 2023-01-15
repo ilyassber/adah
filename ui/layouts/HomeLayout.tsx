@@ -17,25 +17,58 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     const [duration, setDuration] = React.useState<number>(0.4);
     const [rotation, setRotation] = React.useState<number[]>([0, 180]);
+    const [screenHeight, setScreenHeight] = React.useState<number>(0);
+    const [screenWidth, setScreenWidth] = React.useState<number>(0);
     const [step, setStep] = React.useState<number>(0);
-    const xSteps: number[] = [0, -10, -15, -18, -15, 0, 100, 200, 300, 400, 500, 600, 700];
+    const [xSteps, setXSteps] = React.useState<number[]>([0, -10, -15, -18, -15, 0, 100, 200, 300]);
     const ySteps: number[] = [0, 50, 100, 50, 0, -50, 0];
 
-    React.useEffect(() => { }, []);
+    React.useEffect(() => {
+        setScreenHeight(document.body.clientHeight);
+        setScreenWidth(document.body.clientWidth);
+    }, []);
+
+    React.useEffect(() => {
+        if (screenWidth > 0) {
+            let newXSteps = xSteps.concat([(screenWidth / 2) - 40]);
+            setXSteps(newXSteps);
+        }
+    }, [screenWidth]);
 
     let content = (
         <div className={props.className}>
             {params.initAnimation ? (
-                <ContactLayout className="w-full h-full">
-                    <div className="h-full w-full flex flex-row">
-                        <div className="grow">
-                            {props.children}
-                        </div>
-                        <div className="h-full flex content-center items-center">
-                            <ShurikenMenu className='h-full' />
-                        </div>
+                <div className="relative w-full h-full">
+                    <div className="absolute h-full w-full">
+                        <motion.div
+                            className="h-full w-full"
+                            animate={{
+                                rotate: -10,
+                                x: (-screenWidth / 3),
+                                y: (-screenHeight / 20),
+                                opacity: ["0%", "3%"]
+                            }}
+                            transition={{
+                                duration: 0,
+                                opacity: {
+                                    duration: 2,
+                                },
+                            }}
+                        >
+                            <Icon className="h-full w-full" src='/icons/shuriken.svg' priority={true} />
+                        </motion.div>
                     </div>
-                </ContactLayout>
+                    <ContactLayout className="w-full h-full">
+                        <div className="h-full w-full flex flex-row">
+                            <div className="grow">
+                                {props.children}
+                            </div>
+                            <div className="h-full flex content-center items-center">
+                                <ShurikenMenu className='h-full' />
+                            </div>
+                        </div>
+                    </ContactLayout>
+                </div>
             ) : (
                 <div className="w-full h-full flex justify-center items-center">
                     <motion.div

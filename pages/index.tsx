@@ -16,7 +16,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen w-screen">
-        <HomeLayout className="h-full w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]"></HomeLayout>
+        <HomeLayout className="h-full w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
+
+        </HomeLayout>
       </main>
     </>
   )

@@ -48,7 +48,7 @@ const Icon: React.FC<{
     priority?: boolean;
     color?: string;
     hoverColor?: string;
-    dim: string;
+    dim?: string;
     strokeWidth?: number;
     role?: string
 }> = (props) => {
@@ -115,12 +115,13 @@ const Icon: React.FC<{
             role={props.role}
         />) : props.src ? (<div className="w-full h-full flex justify-center items-center relative">
             <Image
-                className="object-contain"
+                className={(props.dim ? "object-contain" : "h-full w-full object-fit")}
                 alt={props.alt ? props.alt : ""}
-                height={Number(props.dim)}
-                width={Number(props.dim)}
+                height={props.dim ? Number(props.dim) : undefined}
+                width={props.dim ? Number(props.dim) : undefined}
                 src={props.src}
                 priority={props.priority ? props.priority : false}
+                fill={props.dim ? false : true}
             />
         </div>) : null}
     </div>);

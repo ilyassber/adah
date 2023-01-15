@@ -39,7 +39,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         <div className={props.className}>
             {params.initAnimation ? (
                 <div className="relative w-full h-full">
-                    <div className="absolute h-full w-full">
+                    <div className="absolute top-0 left-0 h-full w-full overflow-hidden">
                         <motion.div
                             className="h-full w-full"
                             animate={{

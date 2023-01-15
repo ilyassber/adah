@@ -124,7 +124,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     const [prevIndex, setPrevIndex] = React.useState<number>(1);
     const [wheelDelta, setWheelDelta] = React.useState<number>(0);
     const [currentIndex, setCurrentIndex] = React.useState<number>(1);
-    const [animate, setAnimate] = React.useState<boolean>(true);
+    const [animate, setAnimate] = React.useState<boolean>(false);
     const [animation, setAnimation] = React.useState<boolean>(false);
     const [speedUp, setSpeedUp] = React.useState<boolean>(false);
     const [animationDirection, setAnimationDirection] = React.useState<string>("up");
@@ -238,7 +238,17 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     let content = (
         <div className={props.className}>
             <div id="shurikenmenu" className="h-full w-full flex flex-row items-center">
-                <div ref={menuRef} className="flex flex-col items-end">
+                <motion.div
+                    ref={menuRef}
+                    className="flex flex-col items-end"
+                    animate={{
+                        opacity: ["0%", "100%"],
+                        x: [-40, 0],
+                    }}
+                    transition={{
+                        duration: 0.4,
+                    }}
+                >
                     {
                         places
                             ? places.map((place, index) => {
@@ -261,7 +271,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
                             })
                             : null
                     }
-                </div>
+                </motion.div>
                 <MousePointedShuriken className='ml-4' elementId='shurikenmenu' />
             </div>
         </div>

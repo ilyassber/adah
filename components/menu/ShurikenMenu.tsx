@@ -231,7 +231,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
         } else if (currentIndex > selectedIndex) {
             setCurrentIndex(currentIndex - 1);
         } else {
-            dispatchParams({ key: "seelectedSectionId", value: selectedIndex });
+            dispatchParams({ key: "selectedSectionId", value: selectedIndex });
         }
     };
 

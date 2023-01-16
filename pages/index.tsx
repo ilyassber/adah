@@ -1,13 +1,27 @@
+import React from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import HomeLayout from '../ui/layouts/HomeLayout';
 import HomeCard from '../ui/cards/home/HomeCard';
+import { GlobalContext } from '../components/context/Context';
+import AboutCard from '../ui/cards/about/AboutCard';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+type HomeProps = {
+  className: string;
+};
+
+const Home: React.FC<HomeProps> = (props) => {
+
+  const { params, dispatchParams } = React.useContext(GlobalContext);
+
+  React.useEffect(() => {
+    console.log(params.selectedSectionId);
+  }, [params.selectedSectionId]);
+
   return (
     <>
       <Head>
@@ -19,10 +33,16 @@ export default function Home() {
       <main className="h-screen w-screen">
         <HomeLayout className="h-full w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
           <div className="h-full w-full flex flex-col justify-center p-24">
-            <HomeCard className="w-full" />
+            {params.selectedSectionId == 1
+              ? (<HomeCard className="w-full" />)
+              : params.selectedSectionId == 2
+                ? (<AboutCard className="w-full" />)
+                : null}
           </div>
         </HomeLayout>
       </main>
     </>
   )
-}
+};
+
+export default Home;

@@ -13,19 +13,35 @@ type ContactLayoutProps = {
 const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
+    const [hideAnimation, setHideAnimation] = React.useState<boolean>(false);
+    const [hide, setHide] = React.useState<boolean>(false);
+
+    React.useEffect(() => {
+        if (params.selectedSectionId == 1) {
+            setHide(false);
+            setHideAnimation(false);
+        } else {
+            setHideAnimation(true);
+        }
+    }, [params.selectedSectionId]);
 
     let content = (
         <div className={props.className}>
             <div className="h-full w-full flex flex-col">
                 <motion.div
-                    className="w-full p-4"
+                    className={"w-full p-4" + (hide ? " hidden" : "")}
                     transition={{
                         duration: 0.6,
                         ease: "easeOut"
                     }}
                     animate={{
-                        y: ["-50%", "0%"],
-                        opacity: ["0%", "100%"],
+                        y: (hideAnimation ? ["0%", "-50%"] : ["-50%", "0%"]),
+                        opacity: (hideAnimation ? ["100%", "0%"] : ["0%", "100%"]),
+                    }}
+                    onAnimationComplete={() => {
+                        if (hideAnimation) {
+                            setHide(true);
+                        }
                     }}
                 >
                     <PhoneAndMail className="" />
@@ -34,14 +50,19 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                     {props.children}
                 </div>
                 <motion.div
-                    className="w-full p-4"
+                    className={"w-full p-4" + (hide ? " hidden" : "")}
                     transition={{
                         duration: 0.6,
                         ease: "easeOut"
                     }}
                     animate={{
-                        y: ["50%", "0%"],
-                        opacity: ["0%", "100%"],
+                        y: (hideAnimation ? ["0%", "50%"] : ["50%", "0%"]),
+                        opacity: (hideAnimation ? ["100%", "0%"] : ["0%", "100%"]),
+                    }}
+                    onAnimationComplete={() => {
+                        if (hideAnimation) {
+                            setHide(true);
+                        }
                     }}
                 >
                     <SocialMedia className="" data={[

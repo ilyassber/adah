@@ -29,7 +29,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
         <div className={props.className}>
             <div className="h-full w-full flex flex-col">
                 <motion.div
-                    className={"w-full p-4" + (hide ? " hidden" : "")}
+                    className={"absolute top-0 w-full p-4" + (hide ? " hidden" : "")}
                     transition={{
                         duration: 0.6,
                         ease: "easeOut"
@@ -50,7 +50,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                     {props.children}
                 </div>
                 <motion.div
-                    className={"w-full p-4" + (hide ? " hidden" : "")}
+                    className={"absolute bottom-0 w-full p-4" + (hide ? " hidden" : "")}
                     transition={{
                         duration: 0.6,
                         ease: "easeOut"

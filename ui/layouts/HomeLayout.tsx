@@ -19,6 +19,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     const [rotation, setRotation] = React.useState<number[]>([0, 180]);
     const [screenHeight, setScreenHeight] = React.useState<number>(0);
     const [screenWidth, setScreenWidth] = React.useState<number>(0);
+    const [hideAnimation, setHideAnimation] = React.useState<boolean>(false);
+    const [hide, setHide] = React.useState<boolean>(false);
     const [step, setStep] = React.useState<number>(0);
     const [xSteps, setXSteps] = React.useState<number[]>([0, -10, -15, -18, -15, 0, 100, 200, 300]);
     const ySteps: number[] = [0, 50, 100, 50, 0, -50, 0];
@@ -35,6 +37,15 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         }
     }, [screenWidth]);
 
+    React.useEffect(() => {
+        if (params.selectedSectionId == 1) {
+            setHide(false);
+            setHideAnimation(false);
+        } else {
+            setHideAnimation(true);
+        }
+    }, [params.selectedSectionId]);
+
     let content = (
         <div className={props.className}>
             {params.initAnimation ? (
@@ -46,13 +57,18 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                                 rotate: -10,
                                 x: (-screenWidth / 3),
                                 y: (-screenHeight / 20),
-                                opacity: ["0%", "3%"]
+                                opacity: (hideAnimation ? ["3%", "0%"] : ["0%", "3%"]),
                             }}
                             transition={{
                                 duration: 0,
                                 opacity: {
-                                    duration: 2,
+                                    duration: 1,
                                 },
+                            }}
+                            onAnimationComplete={() => {
+                                if (hideAnimation) {
+                                    setHide(true);
+                                }
                             }}
                         >
                             <Icon className="h-full w-full" src='/icons/shuriken.svg' priority={true} />
@@ -60,10 +76,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                     </div>
                     <ContactLayout className="w-full h-full">
                         <div className="h-full w-full flex flex-row">
-                            <div className="grow">
+                            <div className="basis-1/2">
                                 {props.children}
                             </div>
-                            <div className="h-full flex content-center items-center">
+                            <div className="basis-1/2 h-full flex justify-end items-end">
                                 <ShurikenMenu className='h-full' />
                             </div>
                         </div>

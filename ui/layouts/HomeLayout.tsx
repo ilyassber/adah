@@ -76,10 +76,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                     </div>
                     <ContactLayout className="w-full h-full">
                         <div className="h-full w-full flex flex-row">
-                            <div className="basis-1/2">
+                            <div className="basis-2/3">
                                 {props.children}
                             </div>
-                            <div className="basis-1/2 h-full flex justify-end items-end">
+                            <div className="basis-1/3 h-full flex justify-end items-end">
                                 <ShurikenMenu className='h-full' />
                             </div>
                         </div>

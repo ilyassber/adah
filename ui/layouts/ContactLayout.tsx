@@ -28,62 +28,66 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
     let content = (
         <div className={props.className}>
             <div className="h-full w-full flex flex-col">
-                <motion.div
-                    className={"absolute top-0 w-full p-4" + (hide ? " hidden" : "")}
-                    transition={{
-                        duration: 0.6,
-                        ease: "easeOut"
-                    }}
-                    animate={{
-                        y: (hideAnimation ? ["0%", "-50%"] : ["-50%", "0%"]),
-                        opacity: (hideAnimation ? ["100%", "0%"] : ["0%", "100%"]),
-                    }}
-                    onAnimationComplete={() => {
-                        if (hideAnimation) {
-                            setHide(true);
-                        }
-                    }}
-                >
-                    <PhoneAndMail className="" />
-                </motion.div>
+                <div className="absolute w-full top-0 h-16 bg-gradient-to-b from-[#182B2B] to-[#0000]">
+                    <motion.div
+                        className={"w-full flex justify-center items-center p-4" + (hide ? " hidden" : "")}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeOut"
+                        }}
+                        animate={{
+                            y: (hideAnimation ? ["0%", "-50%"] : ["-50%", "0%"]),
+                            opacity: (hideAnimation ? ["100%", "0%"] : ["0%", "100%"]),
+                        }}
+                        onAnimationComplete={() => {
+                            if (hideAnimation) {
+                                setHide(true);
+                            }
+                        }}
+                    >
+                        <PhoneAndMail className="" />
+                    </motion.div>
+                </div>
                 <div className="grow w-full">
                     {props.children}
                 </div>
-                <motion.div
-                    className={"absolute bottom-0 w-full p-4" + (hide ? " hidden" : "")}
-                    transition={{
-                        duration: 0.6,
-                        ease: "easeOut"
-                    }}
-                    animate={{
-                        y: (hideAnimation ? ["0%", "50%"] : ["50%", "0%"]),
-                        opacity: (hideAnimation ? ["100%", "0%"] : ["0%", "100%"]),
-                    }}
-                    onAnimationComplete={() => {
-                        if (hideAnimation) {
-                            setHide(true);
-                        }
-                    }}
-                >
-                    <SocialMedia className="" data={[
-                        {
-                            iconSrc: "/icons/github.svg",
-                            url: "https://github.com/ilyassber"
-                        },
-                        {
-                            iconSrc: "/icons/linkedin.svg",
-                            url: "https://www.linkedin.com/in/ilyass-berchida/"
-                        },
-                        {
-                            iconSrc: "/icons/instagram.svg",
-                            url: "https://www.instagram.com/ilyass.berchida/"
-                        },
-                        {
-                            iconSrc: "/icons/twitter.svg",
-                            url: "https://twitter.com/berchida_ilyass"
-                        },
-                    ]} />
-                </motion.div>
+                <div className="absolute bottom-0 w-full  flex items-end h-16 bg-gradient-to-b from-[#0000] to-[#2B2B2B]">
+                    <motion.div
+                        className={"w-full flex justify-center p-4" + (hide ? " hidden" : "")}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeOut"
+                        }}
+                        animate={{
+                            y: (hideAnimation ? ["0%", "50%"] : ["50%", "0%"]),
+                            opacity: (hideAnimation ? ["100%", "0%"] : ["0%", "100%"]),
+                        }}
+                        onAnimationComplete={() => {
+                            if (hideAnimation) {
+                                setHide(true);
+                            }
+                        }}
+                    >
+                        <SocialMedia className="" data={[
+                            {
+                                iconSrc: "/icons/github.svg",
+                                url: "https://github.com/ilyassber"
+                            },
+                            {
+                                iconSrc: "/icons/linkedin.svg",
+                                url: "https://www.linkedin.com/in/ilyass-berchida/"
+                            },
+                            {
+                                iconSrc: "/icons/instagram.svg",
+                                url: "https://www.instagram.com/ilyass.berchida/"
+                            },
+                            {
+                                iconSrc: "/icons/twitter.svg",
+                                url: "https://twitter.com/berchida_ilyass"
+                            },
+                        ]} />
+                    </motion.div>
+                </div>
             </div>
         </div>
     );

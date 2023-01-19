@@ -48,7 +48,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                         <PhoneAndMail className="" />
                     </motion.div>
                 </div>
-                <div className="grow w-full">
+                <div className="h-full w-full">
                     {props.children}
                 </div>
                 <div className="absolute bottom-0 w-full  flex items-end h-16 bg-gradient-to-b from-[#0000] to-[#2B2B2B]">

@@ -22,7 +22,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                     ease: "easeOut",
                 }}
             >
-                <div className="flex flex-col items-center overflow-auto">
+                <div className="grow flex flex-col items-center overflow-scroll">
                     <Icon className="rounded-full bg-[#E2E8F0] overflow-hidden mb-8" src="/images/ilyass.png" alt="" dim="150" />
                     <p className="font-semibold text-2xl text-[#E2E8F0] mb-6">
                         Ilyass Berchida
@@ -56,6 +56,10 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                         <br />
                         <br />
                         Integer aliquet fermentum ante ac efficitur. Praesent purus ex, malesuada ac sodales at, rutrum ac lacus. Ut tincidunt mauris urna, id faucibus urna mattis a. Mauris at hendrerit enim, vel malesuada ex. Vestibulum quis nisi laoreet, venenatis nibh eget, posuere dui. Donec luctus, ante nec molestie tincidunt, urna elit luctus dui, vel porttitor nibh leo in diam. Vivamus lacus elit, finibus a interdum eu, consequat non lacus. In porta ex neque, eu vulputate libero tristique at. Etiam interdum porttitor ipsum a hendrerit.
+                        <br />
+                        <br />
+                        Integer aliquet fermentum ante ac efficitur. Praesent purus ex, malesuada ac sodales at, rutrum ac lacus. Ut tincidunt mauris urna, id faucibus urna mattis a. Mauris at hendrerit enim, vel malesuada ex. Vestibulum quis nisi laoreet, venenatis nibh eget, posuere dui. Donec luctus, ante nec molestie tincidunt, urna elit luctus dui, vel porttitor nibh leo in diam. Vivamus lacus elit, finibus a interdum eu, consequat non lacus. In porta ex neque, eu vulputate libero tristique at. Etiam interdum porttitor ipsum a hendrerit.
+
                     </p>
                 </div>
             </motion.div>

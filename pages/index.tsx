@@ -31,8 +31,8 @@ const Home: React.FC<HomeProps> = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen w-screen">
-        <HomeLayout className="h-full w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
-          <div className="h-full w-full flex flex-col justify-center p-24">
+        <HomeLayout className="h-screen w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
+          <div className="w-full flex flex-col justify-center p-24">
             {params.selectedSectionId == 1
               ? (<HomeCard className="w-full" />)
               : params.selectedSectionId == 2

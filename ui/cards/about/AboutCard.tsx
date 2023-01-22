@@ -14,10 +14,6 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
         y: [-20, 0],
         opacity: ["0%", "100%"],
     };
-    const transition = {
-        duration: 0.6,
-        ease: "easeOut",
-    };
 
     let content = (
         <div className={props.className}>
@@ -78,7 +74,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 opacity: ["0%", "0%", "100%"],
                             }}
                             transition={{
-                                duration: 1.6,
+                                duration: 1.4,
                                 ease: "easeOut",
                             }}
                         >

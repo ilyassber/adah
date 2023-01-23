@@ -25,8 +25,10 @@ const SocialMedia: React.FC<SocialMediaProps> = (props) => {
                             {media.iconSrc ? (
                                 <Icon key={index} className="" src={media.iconSrc} alt="" dim="22" />
                             ) : media.iconName ? (
-                                <Icon key={index} className="" name={media.iconName} color={media.iconColor} hoverColor={media.iconHoverColor} alt="" dim="18" />
-                            ) : null}
+                                <Icon key={index} className="flex justify-center" name={media.iconName} color={media.iconColor} hoverColor={media.iconHoverColor} alt="" dim="25" />
+                            ) : (
+                                null
+                            )}
                         </Link>);
                     })
                 }

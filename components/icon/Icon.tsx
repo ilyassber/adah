@@ -36,6 +36,10 @@ import SouthIcon from '@mui/icons-material/South';
 import Co2Icon from '@mui/icons-material/Co2';
 import ReportIcon from '@mui/icons-material/Report';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import Image from 'next/image';
 
 
@@ -89,9 +93,14 @@ const Icon: React.FC<{
         ['Co2Icon', Co2Icon],
         ['ReportIcon', ReportIcon],
         ['ErrorOutlineIcon', ErrorOutlineIcon],
+        ['GitHubIcon', GitHubIcon],
+        ['LinkedInIcon', LinkedInIcon],
+        ['TwitterIcon', TwitterIcon],
+        ['InstagramIcon', InstagramIcon],
     ];
 
     const [IC, setIC] = React.useState<any>(null);
+    const [color, setColor] = React.useState<any>(props.color);
 
     React.useEffect(() => {
         if (props.name) {
@@ -103,13 +112,32 @@ const Icon: React.FC<{
         }
     }, [props.name]);
 
-    let content = (<div ref={props.iconRef ? props.iconRef : undefined} className={props.className}>
+    let content = (<div
+        ref={props.iconRef ? props.iconRef : undefined}
+        className={props.className}
+        onMouseEnter={() => {
+            if (color) {
+                if (props.hoverColor) {
+                    setColor(props.hoverColor);
+                }
+            }
+        }}
+        onMouseLeave={() => {
+            if (color) {
+                if (props.color) {
+                    setColor(props.color);
+                } else {
+                    setColor(null);
+                }
+            }
+        }}
+    >
         {IC ? (<IC
             style={{
-                color: `${props.color ? props.color : "white"}`,
+                color: `${color ? color : "white"}`,
                 height: `${props.dim}`,
                 width: `${props.dim}`,
-                stroke: `${props.color && props.strokeWidth ? props.color : ""}`,
+                stroke: `${color && props.strokeWidth ? color : ""}`,
                 strokeWidth: `${props.strokeWidth ? props.strokeWidth : 0}`,
             }}
             role={props.role}

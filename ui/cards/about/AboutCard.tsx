@@ -51,19 +51,27 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                             </p>
                             <SocialMedia className="mb-12" data={[
                                 {
-                                    iconSrc: "/icons/github.svg",
+                                    iconName: "GitHubIcon",
+                                    iconColor: "#9197A0",
+                                    iconHoverColor: "#D19E18",
                                     url: "https://github.com/ilyassber"
                                 },
                                 {
-                                    iconSrc: "/icons/linkedin.svg",
+                                    iconName: "LinkedInIcon",
+                                    iconColor: "#9197A0",
+                                    iconHoverColor: "#D19E18",
                                     url: "https://www.linkedin.com/in/ilyass-berchida/"
                                 },
                                 {
-                                    iconSrc: "/icons/instagram.svg",
+                                    iconName: "InstagramIcon",
+                                    iconColor: "#9197A0",
+                                    iconHoverColor: "#D19E18",
                                     url: "https://www.instagram.com/ilyass.berchida/"
                                 },
                                 {
-                                    iconSrc: "/icons/twitter.svg",
+                                    iconName: "TwitterIcon",
+                                    iconColor: "#9197A0",
+                                    iconHoverColor: "#D19E18",
                                     url: "https://twitter.com/berchida_ilyass"
                                 },
                             ]} />

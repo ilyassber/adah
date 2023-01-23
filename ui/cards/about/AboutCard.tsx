@@ -11,8 +11,13 @@ type AboutCardProps = {
 const AboutCard: React.FC<AboutCardProps> = (props) => {
 
     const animation = {
-        y: [-20, 0],
+        y: [20, 0],
         opacity: ["0%", "100%"],
+    };
+
+    const transition = {
+        duration: 0.6,
+        ease: "easeOut",
     };
 
     let content = (
@@ -23,22 +28,17 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                 <div className="flex flex-col items-center overflow-auto p-24">
                     <div className="w-full flex flex-col items-center">
                         <motion.div
-                            className=""
+                            className="relative rounded-full mb-8"
                             animate={animation}
-                            transition={{
-                                duration: 0.4,
-                                ease: "easeOut",
-                            }}
+                            transition={transition}
                         >
-                            <Icon className="rounded-full bg-[#E2E8F0] overflow-hidden mb-8" src="/images/ilyass.png" alt="" dim="150" />
+                            <div className="absolute h-full w-full bg-[#D19E18] rounded-full -right-0 ml-2 hover:ml-0"></div>
+                            <Icon className="rounded-full bg-[#E2E8F0] overflow-hidden grayscale hover:grayscale-0 mr-2 hover:mr-0" src="/images/ilyass.png" alt="" dim="150" />
                         </motion.div>
                         <motion.div
                             className="flex flex-col items-center"
                             animate={animation}
-                            transition={{
-                                duration: 0.8,
-                                ease: "easeOut",
-                            }}
+                            transition={transition}
                         >
                             <p className="font-semibold text-2xl text-[#E2E8F0] mb-6">
                                 Ilyass Berchida
@@ -70,13 +70,8 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                         </motion.div>
                         <motion.div
                             className="flex flex-col items-center"
-                            animate={{
-                                opacity: ["0%", "0%", "100%"],
-                            }}
-                            transition={{
-                                duration: 1.4,
-                                ease: "easeOut",
-                            }}
+                            animate={animation}
+                            transition={transition}
                         >
                             <p className="font-extralight text-sm text-[#E2E8F0] text-left">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet quam a arcu vehicula ultricies. Maecenas tristique sed libero at pretium. Sed egestas lacinia velit a tristique. Curabitur mattis orci sapien, nec aliquet leo sodales in. Etiam vel erat ultrices, vestibulum lectus vel, pharetra enim. Nunc tempor, augue eget molestie maximus, massa enim sollicitudin risus, ultrices tincidunt nisi sapien quis elit. Donec lobortis nunc ut volutpat ornare. Ut et augue purus.

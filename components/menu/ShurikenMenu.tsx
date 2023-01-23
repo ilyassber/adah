@@ -78,6 +78,19 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
         });
     }, [props.startItem, props.stopItem]);
 
+    React.useEffect(() => {
+        if (!props.speedUp && duration == 0) {
+            setAnimation({
+                y: "0%",
+                x: `${10 * (Math.abs(props.index - 4))}px`,
+                fontSize: `${2 / (Math.abs(props.index - 4) + 1)}rem`,
+                fontWeight: 800,
+                color: (props.speedUp ? "#9197A0" : (props.index == 4 ? "#D19E18" : "#9197A0")),
+                opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
+            });
+        }
+    }, [props.speedUp]);
+
     let content = (
         <motion.div
             className="h-20 flex items-center align-text-top"
@@ -123,6 +136,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     const [selectedIndex, setSelectedIndex] = React.useState<number>(1);
     const [prevIndex, setPrevIndex] = React.useState<number>(1);
     const [wheelDelta, setWheelDelta] = React.useState<number>(0);
+    const [wheelEvents, setWheelEvents] = React.useState<number>(0);
     const [currentIndex, setCurrentIndex] = React.useState<number>(1);
     const [animate, setAnimate] = React.useState<boolean>(false);
     const [animation, setAnimation] = React.useState<boolean>(false);
@@ -146,6 +160,8 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
 
     const onWheel = (event: any) => {
         event.preventDefault();
+        console.log(event.wheelDeltaY, event.deltaY);
+        setWheelEvents(eventsN => eventsN + 1);
         setWheelDelta(event.deltaY);
     };
 
@@ -171,10 +187,16 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        if (wheelDelta > 15) {
-            incrementIndex();
-        } else if (wheelDelta < -15) {
-            decrementIndex();
+        if (wheelEvents > 7) {
+            if (wheelDelta > 15) {
+                incrementIndex();
+            } else if (wheelDelta < -15) {
+                decrementIndex();
+            } else {
+                dispatchParams({ key: "selectedSectionId", value: selectedIndex });
+                setSpeedUp(false);
+                setWheelEvents(0);
+            }
         }
     }, [wheelDelta]);
 
@@ -191,7 +213,11 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     React.useEffect(() => {
         let newPlacesList = [];
         if (currentIndex == selectedIndex) {
-            setSpeedUp(false);
+            if (Math.abs(wheelDelta) < 30) {
+                setSpeedUp(false);
+            } else {
+                setSpeedUp(true);
+            }
         } else {
             setSpeedUp(true);
         }
@@ -226,12 +252,15 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
 
     const onAnimationComplete = () => {
         setAnimation(false);
+        setSpeedUp(false);
         if (currentIndex < selectedIndex) {
             setCurrentIndex(currentIndex + 1);
         } else if (currentIndex > selectedIndex) {
             setCurrentIndex(currentIndex - 1);
         } else {
-            dispatchParams({ key: "selectedSectionId", value: selectedIndex });
+            if (wheelDelta <= 15 && wheelDelta >= -15) {
+                dispatchParams({ key: "selectedSectionId", value: selectedIndex });
+            }
         }
     };
 

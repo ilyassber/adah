@@ -3,7 +3,10 @@ import Link from 'next/link';
 import Icon from '../icon/Icon';
 
 type Media = {
-    iconSrc: string;
+    iconSrc?: string;
+    iconName?: string;
+    iconColor?: string;
+    iconHoverColor?: string;
     url: string;
 }
 
@@ -19,7 +22,11 @@ const SocialMedia: React.FC<SocialMediaProps> = (props) => {
                 {
                     props.data.map((media: Media, index: number) => {
                         return (<Link className="mx-6" href={media.url} target="_blank">
-                            <Icon key={index} className="" src={media.iconSrc} alt="" dim="22" />
+                            {media.iconSrc ? (
+                                <Icon key={index} className="" src={media.iconSrc} alt="" dim="22" />
+                            ) : media.iconName ? (
+                                <Icon key={index} className="" name={media.iconName} color={media.iconColor} hoverColor={media.iconHoverColor} alt="" dim="18" />
+                            ) : null}
                         </Link>);
                     })
                 }

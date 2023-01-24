@@ -81,11 +81,14 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                             animate={animation}
                             transition={transition}
                         >
-                            <p className="font-extralight text-sm text-[#E2E8F0] text-left">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet quam a arcu vehicula ultricies. Maecenas tristique sed libero at pretium. Sed egestas lacinia velit a tristique. Curabitur mattis orci sapien, nec aliquet leo sodales in. Etiam vel erat ultrices, vestibulum lectus vel, pharetra enim. Nunc tempor, augue eget molestie maximus, massa enim sollicitudin risus, ultrices tincidunt nisi sapien quis elit. Donec lobortis nunc ut volutpat ornare. Ut et augue purus.
+                            <p className="text-sm text-[#A1A7B0] text-left">
+                                I am Ilyass Berchida, a software developer from Casablanca, Morocco. I was born on June 10th, 1994 and have been interested in technology and coding since a young age. After completing my studies in Economics from a local university, I decided to further my education by attending <span className="font-bold text-[#B1B7C0]">1337 coding school</span>. This allowed me to gain a deeper understanding of <span className="font-bold text-[#B1B7C0]">web development</span> and the latest technologies in the field.
                                 <br />
                                 <br />
-                                Integer aliquet fermentum ante ac efficitur. Praesent purus ex, malesuada ac sodales at, rutrum ac lacus. Ut tincidunt mauris urna, id faucibus urna mattis a. Mauris at hendrerit enim, vel malesuada ex. Vestibulum quis nisi laoreet, venenatis nibh eget, posuere dui. Donec luctus, ante nec molestie tincidunt, urna elit luctus dui, vel porttitor nibh leo in diam. Vivamus lacus elit, finibus a interdum eu, consequat non lacus. In porta ex neque, eu vulputate libero tristique at. Etiam interdum porttitor ipsum a hendrerit.
+                                I have two years of experience in web development and have worked on several projects using technologies such as <span className="font-bold text-[#B1B7C0]">React</span>, <span className="font-bold text-[#B1B7C0]">Next</span>, and <span className="font-bold text-[#B1B7C0]">Django</span>. I am passionate about creating efficient and user-friendly websites that meet the users needs and solve real-world problems. I am dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.
+                                <br />
+                                <br />
+                                I have gained experience in different domains such as <span className="font-bold text-[#B1B7C0]">agri-tech</span>, <span className="font-bold text-[#B1B7C0]">tourism</span>, and <span className="font-bold text-[#B1B7C0]">e-commerce</span> through my work, and I am always looking for new challenges and opportunities to grow as a professional. I am excited to be a part of the software development community in Morocco and look forward to making a positive impact through my work.
                             </p>
                         </motion.div>
                     </div>

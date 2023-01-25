@@ -40,6 +40,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Image from 'next/image';
 
 
@@ -97,6 +99,8 @@ const Icon: React.FC<{
         ['LinkedInIcon', LinkedInIcon],
         ['TwitterIcon', TwitterIcon],
         ['InstagramIcon', InstagramIcon],
+        ['LocationOnIcon', LocationOnIcon],
+        ['CalendarMonthIcon', CalendarMonthIcon],
     ];
 
     const [IC, setIC] = React.useState<any>(null);

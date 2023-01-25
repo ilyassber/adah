@@ -7,6 +7,7 @@ import HomeLayout from '../ui/layouts/HomeLayout';
 import HomeCard from '../ui/cards/home/HomeCard';
 import { GlobalContext } from '../components/context/Context';
 import AboutCard from '../ui/cards/about/AboutCard';
+import ExperienceCard from '../ui/cards/experience/ExperienceCard';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -37,7 +38,9 @@ const Home: React.FC<HomeProps> = (props) => {
               ? (<HomeCard className="w-full" />)
               : params.selectedSectionId == 2
                 ? (<AboutCard className="w-full" />)
-                : null}
+                : params.selectedSectionId == 3
+                  ? (<ExperienceCard className="w-full" />)
+                  : null}
           </div>
         </HomeLayout>
       </main>

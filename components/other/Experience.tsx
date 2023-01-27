@@ -17,7 +17,7 @@ const Experience: React.FC<ExperienceType> = (props) => {
     let content = (<div className={props.className}>
         <div className="h-full flex flex-row">
             <div className="h-full w-[2px] bg-[#9197A0bb]"></div>
-            <div className="grow flex flex-col px-8 py-6 border-[0.5px] border-[#D19E1800] hover:bg-[#9197A022]">
+            <div className="grow flex flex-col px-8 py-6 border-[0.5px] border-[#D19E1800] hover:bg-[#9197A012]">
                 <p className="font-bold text-base text-[#B1B7C0]">{props.position}</p>
                 <div className="flex flex-row mt-1 mb-4">
                     <p className="grow font-medium text-sm text-[#D19E18]">{props.company}</p>

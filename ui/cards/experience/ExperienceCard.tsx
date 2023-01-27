@@ -29,7 +29,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
             >
                 <div className="flex flex-col items-center overflow-auto py-24">
                     <Experience
-                        className="mb-6"
+                        className=""
                         position="Software developer"
                         company="UM6P - AGE"
                         startDate="Jul 2021"
@@ -45,7 +45,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                         ]}
                     />
                     <Experience
-                        className="mb-6"
+                        className=""
                         position="Back-end Developer - Internship"
                         company="ECOM ANALYTIC"
                         startDate="Nov 2020"

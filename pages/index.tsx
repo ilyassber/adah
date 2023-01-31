@@ -34,13 +34,13 @@ const Home: React.FC<HomeProps> = (props) => {
       </Head>
       <main className="h-screen w-screen">
         <HomeLayout className="h-screen w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
-          <div className="w-full flex flex-col justify-center p-24">
+          <div className="h-screen w-full flex flex-col justify-center">
             {params.selectedSectionId == 1
               ? (<HomeCard className="w-full" />)
               : params.selectedSectionId == 2
                 ? (<AboutCard className="w-full" />)
                 : params.selectedSectionId == 3
-                  ? (<ExperienceCard className="w-full" />)
+                  ? (<ExperienceCard className="h-auto w-full" />)
                   : params.selectedSectionId == 4
                     ? (<ProjectsCard className="w-full" />)
                     : null}

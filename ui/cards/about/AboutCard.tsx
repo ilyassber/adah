@@ -23,9 +23,9 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="h-screen flex flex-col items-center"
+                className="h-screen overflow-auto"
             >
-                <div className="flex flex-col items-center overflow-auto p-24">
+                <div className="flex flex-col items-center p-24">
                     <div className="w-full flex flex-col items-center">
                         <motion.div
                             className="relative rounded-full mb-8"

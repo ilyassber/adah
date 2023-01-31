@@ -10,7 +10,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className=""
+                className="p-24"
                 animate={{
                     y: [-20, 0],
                     opacity: ["0%", "100%"],

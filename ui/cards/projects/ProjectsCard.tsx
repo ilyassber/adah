@@ -27,7 +27,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
             >
                 <div className="flex flex-col p-24">
                     <motion.div
-                        className=""
+                        className="mb-6"
                         animate={{
                             y: [20, 0],
                             opacity: ["0%", "100%"],
@@ -47,7 +47,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                                 "Incorporating dynamic data using React and TypeScript",
                                 "Adding animation using Framer Motion"
                             ]}
-                            technologies={[]}
+                            technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
                             projectLink=""
                             webLink=""
                         />

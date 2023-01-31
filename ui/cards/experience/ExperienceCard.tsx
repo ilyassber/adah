@@ -55,31 +55,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                         className=""
                         animate={animation}
                         transition={{
-                            duration: 0.3,
-                            ease: "linear",
-                        }}
-                    >
-                        <Experience
-                            className=""
-                            position="Software developer"
-                            company="UM6P - AGE"
-                            startDate="Jul 2021"
-                            endDate="Present"
-                            location="Bin Jareer, Morocco"
-                            description="AgriEdge is a business unit at UM6P that operates in the agriculture field and provides services to farmers based on data."
-                            tasks={[
-                                "Creating a cartographic web application for yield prediction based on data provided by users and satellite plus harvest management",
-                                "Creating a cartographic web application to visualize different data layers using a tiling system",
-                                "Developing backend services logic and managing databases",
-                                "Developing REST APIs and GraphQL APIs",
-                                "Ensuring access permissions and security"
-                            ]}
-                        />
-                    </motion.div>
-                    <motion.div
-                        className=""
-                        animate={animation}
-                        transition={{
                             duration: 0.6,
                             ease: "linear",
                         }}

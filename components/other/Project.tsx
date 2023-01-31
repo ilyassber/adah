@@ -15,11 +15,11 @@ const Project: React.FC<ProjectType> = (props) => {
 
     let content = (<div className={props.className}>
         <div className="h-full flex flex-row">
-            <div className="h-full w-[2px] bg-[#9197A0bb]"></div>
-            <div className="grow flex flex-col px-8 py-6 border-[0.5px] border-[#D19E1800] hover:bg-[#9197A012]">
-                <p className="font-bold text-base text-[#B1B7C0]">{props.name}</p>
-                <div className="flex flex-col">
-                    <p className="inline-block align-middle text-sm text-[#9197A0] mb-2">{props.description}</p>
+            <div className="h-full w-[2px] bg-[#9197A0bb] hidden"></div>
+            <div className="grow flex flex-col px-8 py-6 bg-[#1B1B1B66] shadow-xl rounded transition duration-200 ease-in-out transform hover:scale-[1.02]">
+                <p className="font-bold text-base text-[#9197A0] mb-4">{props.name}</p>
+                <div className="flex flex-col mb-2">
+                    <p className="inline-block align-middle text-sm text-[#9197A0] mb-4">{props.description}</p>
                     {props.tasks.map((task: string, index: number) => {
                         return (<div key={index} className="flex flex-row">
                             <p className="inline-block align-middle text-sm text-[#9197A0] mr-2">

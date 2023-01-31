@@ -23,9 +23,9 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="h-screen flex flex-col items-center justify-center"
+                className="h-screen overflow-auto"
             >
-                <div className="h-full flex flex-col items-center overflow-auto py-24">
+                <div className="flex flex-col p-24">
                     <motion.div
                         className=""
                         animate={{
@@ -38,7 +38,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                         }}
                     >
                         <Project
-                            className="h-full"
+                            className=""
                             name="Adah - Personal Protfolio"
                             description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
                             tasks={[

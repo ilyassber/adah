@@ -23,22 +23,19 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="h-screen flex flex-col items-center justify-center"
+                className="h-screen overflow-auto"
             >
-                <div className="h-full flex flex-col items-center overflow-auto py-24">
+                <div className="flex flex-col p-24">
                     <motion.div
                         className=""
-                        animate={{
-                            y: [20, 0],
-                            opacity: ["0%", "100%"],
-                        }}
+                        animate={animation}
                         transition={{
                             duration: 0.3,
                             ease: "linear",
                         }}
                     >
                         <Experience
-                            className="h-full"
+                            className=""
                             position="Software developer"
                             company="UM6P - AGE"
                             startDate="Jul 2021"
@@ -56,17 +53,39 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                     </motion.div>
                     <motion.div
                         className=""
-                        animate={{
-                            y: [20, 20, 0],
-                            opacity: ["0%", "0%", "100%"],
+                        animate={animation}
+                        transition={{
+                            duration: 0.3,
+                            ease: "linear",
                         }}
+                    >
+                        <Experience
+                            className=""
+                            position="Software developer"
+                            company="UM6P - AGE"
+                            startDate="Jul 2021"
+                            endDate="Present"
+                            location="Bin Jareer, Morocco"
+                            description="AgriEdge is a business unit at UM6P that operates in the agriculture field and provides services to farmers based on data."
+                            tasks={[
+                                "Creating a cartographic web application for yield prediction based on data provided by users and satellite plus harvest management",
+                                "Creating a cartographic web application to visualize different data layers using a tiling system",
+                                "Developing backend services logic and managing databases",
+                                "Developing REST APIs and GraphQL APIs",
+                                "Ensuring access permissions and security"
+                            ]}
+                        />
+                    </motion.div>
+                    <motion.div
+                        className=""
+                        animate={animation}
                         transition={{
                             duration: 0.6,
                             ease: "linear",
                         }}
                     >
                         <Experience
-                            className="h-full"
+                            className=""
                             position="Back-end Developer - Internship"
                             company="ECOM ANALYTIC"
                             startDate="Nov 2020"
@@ -84,17 +103,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                     </motion.div>
                     <motion.div
                         className=""
-                        animate={{
-                            y: [20, 20, 20, 0],
-                            opacity: ["0%", "0%", "0%", "100%"],
-                        }}
+                        animate={animation}
                         transition={{
                             duration: 0.9,
                             ease: "linear",
                         }}
                     >
                         <Experience
-                            className="h-full"
+                            className=""
                             position="Flutter Developer"
                             company="ETIL"
                             startDate="Jul 2019"

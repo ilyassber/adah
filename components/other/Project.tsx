@@ -16,8 +16,11 @@ const Project: React.FC<ProjectType> = (props) => {
     let content = (<div className={props.className}>
         <div className="h-full flex flex-row">
             <div className="h-full w-[2px] bg-[#9197A0bb] hidden"></div>
-            <div className="grow flex flex-col px-8 py-6 bg-[#1B1B1B00] shadow-xl rounded-md transition duration-200 ease-in-out transform hover:scale-[1.02] hover:bg-[#1B1B1B66] border border-[#A1A7B066]">
-                <p className="font-bold text-base text-[#E2E8F0] mb-4">{props.name}</p>
+            <div className="grow flex flex-col px-8 py-6 bg-[#1B1B1B00] shadow-xl rounded-md transition duration-200 ease-in-out transform hover:scale-[1.02] hover:bg-[#1B1B1B66] border-l border-[#D19E18]">
+                <div className="w-full flex flex-row">
+                    <p className="grow font-bold text-base text-[#B1B7C0] mb-4">{props.name}</p>
+                    <Icon className="flex justify-center items-center mr-2" name="GitHubIcon" color="#9197A0" alt="" dim="22" role='button' />
+                </div>
                 <div className="flex flex-col mb-6">
                     <p className="inline-block align-middle text-sm text-[#9197A0] mb-4">{props.description}</p>
                     {props.tasks.map((task: string, index: number) => {
@@ -33,7 +36,7 @@ const Project: React.FC<ProjectType> = (props) => {
                 </div>
                 <div className="flex flex-wrap">
                     {props.technologies.map((tech: string, index: number) => {
-                        return (<div key={index} className="flex items-center justify-center bg-[#A1A7B0] rounded mr-2 mb-2">
+                        return (<div key={index} className="flex items-center justify-center bg-[#A1A7B0BB] shadow rounded mr-2 mb-2">
                             <p key={index} className="inline-block align-middle font-bold text-sm text-[#182B2B] mx-2 my-1">
                                 <span className="whitespace-nowrap"></span>{tech}
                             </p>

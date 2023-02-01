@@ -22,38 +22,88 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
 
     let content = (
         <div className={props.className}>
-            <motion.div
-                className="h-screen overflow-auto"
+            <div
+                className="relative w-full h-screen flex flex-col overflow-y-auto p-24"
             >
-                <div className="flex flex-col p-24">
-                    <motion.div
-                        className="mb-6"
-                        animate={{
-                            y: [20, 0],
-                            opacity: ["0%", "100%"],
-                        }}
-                        transition={{
-                            duration: 0.3,
-                            ease: "linear",
-                        }}
-                    >
-                        <Project
-                            className=""
-                            name="Adah - Personal Protfolio"
-                            description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
-                            tasks={[
-                                "Designing and implementing the UI using TailwindCSS",
-                                "Setting up a Next.js framework for optimized performance",
-                                "Incorporating dynamic data using React and TypeScript",
-                                "Adding animation using Framer Motion"
-                            ]}
-                            technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
-                            projectLink=""
-                            webLink=""
-                        />
-                    </motion.div>
-                </div>
-            </motion.div >
+                <motion.div
+                    className="mb-6"
+                    animate={{
+                        y: [20, 0],
+                        opacity: ["0%", "100%"],
+                    }}
+                    transition={{
+                        duration: 0.3,
+                        ease: "linear",
+                    }}
+                >
+                    <Project
+                        className=""
+                        name="Adah - Personal Protfolio"
+                        description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
+                        tasks={[
+                            "Designing and implementing the UI using TailwindCSS",
+                            "Setting up a Next.js framework for optimized performance",
+                            "Incorporating dynamic data using React and TypeScript",
+                            "Adding animation using Framer Motion"
+                        ]}
+                        technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
+                        projectLink=""
+                        webLink=""
+                    />
+                </motion.div>
+                <motion.div
+                    className="mb-6"
+                    animate={{
+                        y: [20, 0],
+                        opacity: ["0%", "100%"],
+                    }}
+                    transition={{
+                        duration: 0.6,
+                        ease: "linear",
+                    }}
+                >
+                    <Project
+                        className=""
+                        name="Adah - Personal Protfolio"
+                        description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
+                        tasks={[
+                            "Designing and implementing the UI using TailwindCSS",
+                            "Setting up a Next.js framework for optimized performance",
+                            "Incorporating dynamic data using React and TypeScript",
+                            "Adding animation using Framer Motion"
+                        ]}
+                        technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
+                        projectLink=""
+                        webLink=""
+                    />
+                </motion.div>
+                <motion.div
+                    className="mb-6"
+                    animate={{
+                        y: [20, 0],
+                        opacity: ["0%", "100%"],
+                    }}
+                    transition={{
+                        duration: 0.9,
+                        ease: "linear",
+                    }}
+                >
+                    <Project
+                        className=""
+                        name="Adah - Personal Protfolio"
+                        description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
+                        tasks={[
+                            "Designing and implementing the UI using TailwindCSS",
+                            "Setting up a Next.js framework for optimized performance",
+                            "Incorporating dynamic data using React and TypeScript",
+                            "Adding animation using Framer Motion"
+                        ]}
+                        technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
+                        projectLink=""
+                        webLink=""
+                    />
+                </motion.div>
+            </div>
         </div >
     );
 

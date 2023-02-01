@@ -23,11 +23,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="h-screen overflow-auto"
+                className="relative h-screen overflow-auto p-24"
             >
-                <div className="flex flex-col p-24">
+                <div className="relative flex flex-col border-l-2 border-dashed border-[#9197A0DD]">
+                    <Icon className="absolute -left-4 -top-4 flex justify-center items-center mr-2" name="ExpandLessIcon" color="#9197A0DD" alt="" dim="30" />
                     <motion.div
-                        className=""
+                        className="border-dashed"
                         animate={animation}
                         transition={{
                             duration: 0.3,

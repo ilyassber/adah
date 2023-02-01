@@ -37,7 +37,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                     }}
                 >
                     <Project
-                        className=""
+                        className="h-full"
                         name="Adah - Personal Protfolio"
                         description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
                         tasks={[
@@ -47,8 +47,8 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                             "Adding animation using Framer Motion"
                         ]}
                         technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
-                        projectLink=""
-                        webLink=""
+                        projectLink="https://github.com/ilyassber/adah"
+                        webLink="https://github.com/ilyassber/adah"
                     />
                 </motion.div>
                 <motion.div
@@ -73,7 +73,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                             "Adding animation using Framer Motion"
                         ]}
                         technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
-                        projectLink=""
+                        projectLink="https://github.com/ilyassber/adah"
                         webLink=""
                     />
                 </motion.div>

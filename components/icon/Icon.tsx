@@ -42,6 +42,8 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PublicIcon from '@mui/icons-material/Public';
+import LaunchIcon from '@mui/icons-material/Launch';
 import Image from 'next/image';
 
 
@@ -101,6 +103,8 @@ const Icon: React.FC<{
         ['InstagramIcon', InstagramIcon],
         ['LocationOnIcon', LocationOnIcon],
         ['CalendarMonthIcon', CalendarMonthIcon],
+        ['PublicIcon', PublicIcon],
+        ['LaunchIcon', LaunchIcon],
     ];
 
     const [IC, setIC] = React.useState<any>(null);

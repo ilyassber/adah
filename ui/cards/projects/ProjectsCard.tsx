@@ -26,7 +26,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                 className="relative w-full h-screen flex flex-col overflow-y-auto p-24"
             >
                 <motion.div
-                    className="mb-6"
+                    className="mb-8"
                     animate={{
                         y: [20, 0],
                         opacity: ["0%", "100%"],
@@ -52,7 +52,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                     />
                 </motion.div>
                 <motion.div
-                    className="mb-6"
+                    className="mb-8"
                     animate={{
                         y: [20, 0],
                         opacity: ["0%", "100%"],
@@ -78,7 +78,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                     />
                 </motion.div>
                 <motion.div
-                    className="mb-6"
+                    className=""
                     animate={{
                         y: [20, 0],
                         opacity: ["0%", "100%"],

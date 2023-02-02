@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion } from "framer-motion";
 import Icon from '../../../components/icon/Icon';
 import Experience from '../../../components/other/Experience';
+import UltraExp from '../../../components/other/UltraExp';
 
 type ExperienceCardProps = {
     className: string;
@@ -25,17 +26,17 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
             <motion.div
                 className="relative h-screen overflow-auto p-24"
             >
-                <div className="relative flex flex-col border-l-2 border-dashed border-[#9197A0DD]">
-                    <Icon className="absolute -left-4 -top-4 flex justify-center items-center mr-2" name="ExpandLessIcon" color="#9197A0DD" alt="" dim="30" />
+                <div className="relative flex flex-col border-l-2 border-dashed border-[#9197A000]">
+                    <Icon className="hidden absolute -left-4 -top-4 flex justify-center items-center mr-2" name="ExpandLessIcon" color="#9197A0DD" alt="" dim="30" />
                     <motion.div
-                        className="border-dashed"
+                        className="mb-8"
                         animate={animation}
                         transition={{
                             duration: 0.3,
                             ease: "linear",
                         }}
                     >
-                        <Experience
+                        <UltraExp
                             className=""
                             position="Software developer"
                             company="UM6P - AGE"
@@ -53,14 +54,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                         />
                     </motion.div>
                     <motion.div
-                        className=""
+                        className="mb-8"
                         animate={animation}
                         transition={{
                             duration: 0.6,
                             ease: "linear",
                         }}
                     >
-                        <Experience
+                        <UltraExp
                             className=""
                             position="Back-end Developer - Internship"
                             company="ECOM ANALYTIC"
@@ -85,7 +86,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                             ease: "linear",
                         }}
                     >
-                        <Experience
+                        <UltraExp
                             className=""
                             position="Flutter Developer"
                             company="ETIL"

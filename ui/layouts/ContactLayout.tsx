@@ -17,7 +17,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
     const [hide, setHide] = React.useState<boolean>(false);
 
     React.useEffect(() => {
-        if (params.selectedSectionId == 1) {
+        if (params.selectedSectionId == 1 || params.selectedSectionId == 5) {
             setHide(false);
             setHideAnimation(false);
         } else {

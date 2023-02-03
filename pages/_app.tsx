@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/globals.css';
+import { appWithTranslation } from 'next-i18next'
 import type { AppProps } from 'next/app';
 import { GlobalContext } from '../components/context/Context';
 
@@ -38,7 +39,7 @@ let defaultParams = {
   selectedSectionId: 1,
 };
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const [params, dispatchParams] = React.useReducer(
     paramsReducer,
     defaultParams
@@ -50,3 +51,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </GlobalContext.Provider>
   )
 }
+
+export default appWithTranslation(App /*, nextI18NextConfig */)

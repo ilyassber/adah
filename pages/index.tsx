@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import HomeLayout from '../ui/layouts/HomeLayout';
@@ -11,6 +12,11 @@ import ExperienceCard from '../ui/cards/experience/ExperienceCard';
 import ProjectsCard from '../ui/cards/projects/ProjectsCard';
 import GetInTouchCard from '../ui/cards/contact/GetInTouchCard';
 
+import type { GetServerSideProps, GetStaticProps, InferGetStaticPropsType } from 'next'
+
+import { useTranslation, Trans } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 const inter = Inter({ subsets: ['latin'] })
 
 type HomeProps = {
@@ -18,6 +24,16 @@ type HomeProps = {
 };
 
 const Home: React.FC<HomeProps> = (props) => {
+
+  const router = useRouter()
+  const { t } = useTranslation('common')
+
+  const onToggleLanguageClick = (newLocale: string) => {
+    const { pathname, asPath, query } = router;
+    router.push({ pathname, query }, asPath, { locale: newLocale })
+  }
+
+  const changeTo = router.locale === 'en' ? 'de' : 'en'
 
   const { params, dispatchParams } = React.useContext(GlobalContext);
 
@@ -53,5 +69,13 @@ const Home: React.FC<HomeProps> = (props) => {
     </>
   )
 };
+
+export const getServerSideProps: GetServerSideProps = async ({
+  locale,
+}) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+  },
+})
 
 export default Home;

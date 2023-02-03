@@ -21,11 +21,11 @@ const SocialMedia: React.FC<SocialMediaProps> = (props) => {
             <div className="flex flex-row items-center justify-center">
                 {
                     props.data.map((media: Media, index: number) => {
-                        return (<Link className="mx-6" href={media.url} target="_blank">
+                        return (<Link key={index} className="mx-6" href={media.url} target="_blank">
                             {media.iconSrc ? (
-                                <Icon key={index} className="" src={media.iconSrc} alt="" dim="22" />
+                                <Icon className="" src={media.iconSrc} alt="" dim="22" />
                             ) : media.iconName ? (
-                                <Icon key={index} className="flex justify-center" name={media.iconName} color={media.iconColor} hoverColor={media.iconHoverColor} alt="" dim="25" />
+                                <Icon className="flex justify-center" name={media.iconName} color={media.iconColor} hoverColor={media.iconHoverColor} alt="" dim="25" />
                             ) : (
                                 null
                             )}

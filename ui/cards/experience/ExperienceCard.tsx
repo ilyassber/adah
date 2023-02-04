@@ -24,9 +24,9 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="relative h-screen overflow-auto p-24"
+                className="relative flex h-screen overflow-auto p-24"
             >
-                <div className="relative flex flex-col border-l-2 border-dashed border-[#9197A000]">
+                <div className="w-full relative flex flex-col justify-center border-l-2 border-dashed border-[#9197A000]">
                     <Icon className="hidden absolute -left-4 -top-4 flex justify-center items-center mr-2" name="ExpandLessIcon" color="#9197A0DD" alt="" dim="30" />
                     <motion.div
                         className="mb-8"

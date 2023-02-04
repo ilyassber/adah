@@ -23,7 +23,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <div
-                className="relative w-full h-screen flex flex-col overflow-y-auto p-24"
+                className="relative w-full h-screen flex flex-col justify-center overflow-y-auto p-24"
             >
                 <motion.div
                     className="mb-8"

@@ -23,9 +23,9 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="h-screen overflow-auto"
+                className="relative flex h-screen overflow-auto"
             >
-                <div className="flex flex-col items-center p-24">
+                <div className="flex flex-col items-center justify-center p-24">
                     <div className="w-full flex flex-col items-center">
                         <motion.div
                             className="relative rounded-full mb-8"
@@ -44,7 +44,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 Ilyass Berchida
                             </p>
                             <p className="font-medium text-sm text-[#9197A0] mb-2">
-                                Software Developer at UM6P  /  Web developer
+                                Software Developer at UM6P - AGE / Web Developer
                             </p>
                             <p className="font-medium text-sm text-[#9197A0] mb-6">
                                 Bin Jareer, Marrakesh-Safi, Morocco

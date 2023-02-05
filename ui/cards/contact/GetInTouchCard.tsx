@@ -21,17 +21,25 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="relative h-screen overflow-auto p-24"
+                className="flex h-screen items-center justify-center"
             >
-                <div className="flex flex-col">
+                <div className="relative w-full max-h-screen overflow-auto">
                     <motion.div
-                        className="border-dashed"
+                        className="w-full flex flex-col items-center justify-center p-24"
                         animate={animation}
-                        transition={{
-                            duration: 0.3,
-                            ease: "linear",
-                        }}
+                        transition={transition}
                     >
+                        <textarea
+                            className="w-full h-24 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] text-[#9197A0] caret-[#9197A0]"
+                            autoFocus
+                            spellCheck="false"
+                        />
+                        <div className="flex w-full justify-end mt-4">
+                            <div className="flex flex-row justify-center items-center bg-[#9197A0] hover:bg-[#D19E18] rounded px-4 py-1" role="button">
+                                <Icon className="flex justify-center items-center mr-2" name="SendIcon" color="#182B2B" alt="" dim="18" />
+                                <p className="h-full font-bold text-base text-[#182B2B] text-center">Send</p>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </motion.div >

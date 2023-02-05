@@ -44,6 +44,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PublicIcon from '@mui/icons-material/Public';
 import LaunchIcon from '@mui/icons-material/Launch';
+import SendIcon from '@mui/icons-material/Send';
 import Image from 'next/image';
 
 
@@ -105,6 +106,7 @@ const Icon: React.FC<{
         ['CalendarMonthIcon', CalendarMonthIcon],
         ['PublicIcon', PublicIcon],
         ['LaunchIcon', LaunchIcon],
+        ['SendIcon', SendIcon],
     ];
 
     const [IC, setIC] = React.useState<any>(null);

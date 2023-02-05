@@ -25,20 +25,17 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
             >
                 <div className="relative w-full max-h-screen overflow-auto">
                     <motion.div
-                        className="w-full flex flex-col items-center justify-center p-24"
+                        className="w-full flex flex-row items-end justify-center p-24"
                         animate={animation}
                         transition={transition}
                     >
                         <textarea
-                            className="w-full h-24 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] text-[#9197A0] caret-[#9197A0]"
+                            className="grow h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-[#D19E18] text-[#9197A0] caret-[#9197A0]"
                             autoFocus
                             spellCheck="false"
                         />
-                        <div className="flex w-full justify-end mt-4">
-                            <div className="flex flex-row justify-center items-center bg-[#9197A0] hover:bg-[#D19E18] rounded px-4 py-1" role="button">
-                                <Icon className="flex justify-center items-center mr-2" name="SendIcon" color="#182B2B" alt="" dim="18" />
-                                <p className="h-full font-bold text-base text-[#182B2B] text-center">Send</p>
-                            </div>
+                        <div className="h-24 w-24 flex flex-row justify-center items-center border shadow-xl border-[#9197A011] hover:bg-[#9197A011] rounded px-4 py-1 ml-2" role="button">
+                            <Icon className="flex justify-center items-center" name="SendIcon" color="#9197A0" alt="" dim="40" />
                         </div>
                     </motion.div>
                 </div>

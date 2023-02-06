@@ -78,7 +78,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                         <div className="h-8 w-[2px] flex flex-col bg-[#9197A055]" />
                         <p className="py-4 text-[#9197A077] text-sm" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>
                             {/* Shuriken 手裏剣: Hidden hand blade */}
-                            Not like everything else - Unusual
+                            Not like most - Unusual
                         </p>
                         <div className="h-24 w-[2px] flex flex-col bg-[#9197A055]" />
                     </div>

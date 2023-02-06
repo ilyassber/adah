@@ -82,11 +82,11 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 animate={animation}
                                 transition={transition}
                             >
-                                <p className="font-solitreo text-base text-[#A1A7B0] mb-2">
-                                    "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
+                                <p className="font-solitreo text-base text-[#A1A7B0] text-center mb-2">
+                                    "The details are not the details. They make the design."
                                 </p>
                                 <p className="font-normal text-xs text-[#818790] mb-2">
-                                    - Antoine de Saint-Exupéry
+                                    - Charles Eames
                                 </p>
                             </motion.div>
                             <motion.div
@@ -95,7 +95,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 transition={transition}
                             >
                                 <p className="text-sm text-[#A1A7B0] text-left max-w-4xl">
-                                    Hi, my name is Ilyass Berchida, a software developer from Casablanca, Morocco. I was born on June 10th, 1994, and have been interested in technology and coding since a young age. After completing my studies in Economics at a local university, I decided to follow my passion and further my education by attending <span className="font-bold text-[#B1B7C0]">1337 coding school</span>. This allowed me to gain a deeper understanding of <span className="font-bold text-[#B1B7C0]">Web development</span> and the latest technologies in the field.
+                                    Hi, my name is Ilyass Berchida, a Software developer from Casablanca, Morocco. I was born on June 10th, 1994, and have been interested in technology and coding since a young age. After completing my studies in Economics at a local university, I decided to follow my passion and further my education by attending <span className="font-bold text-[#B1B7C0]">1337 coding school</span>. This allowed me to gain a deeper understanding of <span className="font-bold text-[#B1B7C0]">Web development</span> and the latest technologies in the field.
                                     <br />
                                     <br />
                                     I have two years of experience in web development and have worked on several projects using technologies such as <span className="font-bold text-[#B1B7C0]">React</span>, <span className="font-bold text-[#B1B7C0]">Next</span>, and <span className="font-bold text-[#B1B7C0]">Django</span>. I am passionate about creating efficient and user-friendly websites that meet users' needs and solve real-world problems. I'm dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.

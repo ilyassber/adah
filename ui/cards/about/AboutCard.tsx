@@ -83,10 +83,10 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 transition={transition}
                             >
                                 <p className="font-solitreo text-base text-[#A1A7B0] mb-2">
-                                    "Success is not final, failure is not fatal: it is the courage to continue that counts."
+                                    "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away."
                                 </p>
                                 <p className="font-normal text-xs text-[#818790] mb-2">
-                                    - Winston Churchill
+                                    - Antoine de Saint-Exupéry
                                 </p>
                             </motion.div>
                             <motion.div

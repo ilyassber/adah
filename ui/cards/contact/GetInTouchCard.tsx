@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { TextareaHTMLAttributes } from 'react';
 import { motion } from "framer-motion";
 import Icon from '../../../components/icon/Icon';
 
@@ -8,15 +8,34 @@ type GetInTouchCardProps = {
 
 const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
 
-    const animation = {
-        y: [20, 0],
-        opacity: ["0%", "100%"],
-    };
+    const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+    const [textareaState, setTextareaState] = React.useState<string>("open");
+
+    const textareaVariants = {
+        open: { height: "24rem" },
+        closed: { height: "6rem" },
+    }
 
     const transition = {
-        duration: 0.6,
-        ease: "easeOut",
+        duration: 0.4,
+        ease: "linear",
     };
+
+    React.useEffect(() => {
+        document.addEventListener(
+            "click",
+            (event: any) => {
+                if (textareaRef && textareaRef.current && event.target) {
+                    if (textareaRef.current.contains(event.target)) {
+                        setTextareaState("open");
+                    } else {
+                        setTextareaState("closed");
+                    }
+                }
+            },
+            false
+        );
+    }, []);
 
     let content = (
         <div className={props.className}>
@@ -26,11 +45,13 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                 <div className="relative w-full max-h-screen overflow-auto">
                     <motion.div
                         className="w-full flex flex-row items-end justify-center p-24"
-                        animate={animation}
-                        transition={transition}
                     >
-                        <textarea
-                            className="grow h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-[#D19E18] text-[#9197A0] caret-[#9197A0]"
+                        <motion.textarea
+                            ref={textareaRef}
+                            variants={textareaVariants}
+                            animate={textareaState}
+                            transition={transition}
+                            className="grow h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-[#D19E18] text-[#9197A0] caret-[#9197A0] resize-none"
                             autoFocus
                             spellCheck="false"
                         />

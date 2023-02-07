@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
-import Icon from '../../../components/icon/Icon';
-import SocialMedia from '../../../components/navigation/SocialMedia';
+import Icon from '../../components/icon/Icon';
+import SocialMedia from '../../components/navigation/SocialMedia';
 
 type AboutCardProps = {
     className: string;

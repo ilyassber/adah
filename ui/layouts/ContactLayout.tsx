@@ -2,7 +2,7 @@ import React from 'react';
 import { tailwindcss } from '../../types.d';
 import { GlobalContext } from '../../components/context/Context';
 import SocialMedia from '../../components/navigation/SocialMedia';
-import PhoneAndMail from '../cards/contact/PhoneAndMail';
+import PhoneAndMail from '../cards/PhoneAndMail';
 import { motion } from "framer-motion";
 
 type ContactLayoutProps = {

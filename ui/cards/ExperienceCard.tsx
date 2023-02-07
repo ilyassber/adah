@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
-import Icon from '../../../components/icon/Icon';
-import Experience from '../../../components/other/Experience';
-import UltraExp from '../../../components/other/UltraExp';
+import Icon from '../../components/icon/Icon';
+import Experience from '../../components/other/Experience';
+import UltraExp from '../../components/other/UltraExp';
 
 type ExperienceCardProps = {
     className: string;

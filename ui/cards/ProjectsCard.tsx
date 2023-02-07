@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
-import Icon from '../../../components/icon/Icon';
-import Project from '../../../components/other/Project';
+import Icon from '../../components/icon/Icon';
+import Project from '../../components/other/Project';
 
 type ProjectsCardProps = {
     className: string;

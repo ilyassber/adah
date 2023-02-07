@@ -1,6 +1,6 @@
 import React, { TextareaHTMLAttributes } from 'react';
 import { motion } from "framer-motion";
-import Icon from '../../../components/icon/Icon';
+import Icon from '../../components/icon/Icon';
 
 type GetInTouchCardProps = {
     className: string;

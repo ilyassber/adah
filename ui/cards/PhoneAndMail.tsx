@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Icon from '../../../components/icon/Icon';
+import Icon from '../../components/icon/Icon';
 
 type PhoneAndMailProps = {
     className: string;

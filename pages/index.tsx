@@ -5,12 +5,12 @@ import { useRouter } from 'next/router'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import HomeLayout from '../ui/layouts/HomeLayout';
-import HomeCard from '../ui/cards/home/HomeCard';
+import HomeCard from '../ui/cards/HomeCard';
 import { GlobalContext } from '../components/context/Context';
-import AboutCard from '../ui/cards/about/AboutCard';
-import ExperienceCard from '../ui/cards/experience/ExperienceCard';
-import ProjectsCard from '../ui/cards/projects/ProjectsCard';
-import GetInTouchCard from '../ui/cards/contact/GetInTouchCard';
+import AboutCard from '../ui/cards/AboutCard';
+import ExperienceCard from '../ui/cards/ExperienceCard';
+import ProjectsCard from '../ui/cards/ProjectsCard';
+import GetInTouchCard from '../ui/cards/GetInTouchCard';
 
 import type { GetServerSideProps, GetStaticProps, InferGetStaticPropsType } from 'next'
 

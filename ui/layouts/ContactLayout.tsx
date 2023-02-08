@@ -78,25 +78,25 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                             {
                                 iconName: "GitHubIcon",
                                 iconColor: "#9197A0",
-                                iconHoverColor: "#D19E18",
+                                iconHoverColor: "#D5A72F",
                                 url: "https://github.com/ilyassber"
                             },
                             {
                                 iconName: "LinkedInIcon",
                                 iconColor: "#9197A0",
-                                iconHoverColor: "#D19E18",
+                                iconHoverColor: "#D5A72F",
                                 url: "https://www.linkedin.com/in/ilyass-berchida/"
                             },
                             {
                                 iconName: "InstagramIcon",
                                 iconColor: "#9197A0",
-                                iconHoverColor: "#D19E18",
+                                iconHoverColor: "#D5A72F",
                                 url: "https://www.instagram.com/ilyass.berchida/"
                             },
                             {
                                 iconName: "TwitterIcon",
                                 iconColor: "#9197A0",
-                                iconHoverColor: "#D19E18",
+                                iconHoverColor: "#D5A72F",
                                 url: "https://twitter.com/berchida_ilyass"
                             },
                         ]} />

@@ -15,18 +15,18 @@ type ProjectType = {
 const Project: React.FC<ProjectType> = (props) => {
 
     let content = (<div className={props.className}>
-        <div className="h-full flex flex-col bg-[#1B1B1B00] shadow-xl rounded-md transition duration-200 ease-in-out transform hover:scale-[1.02] hover:bg-[#1B1B1B66] border-l border-[#D19E18BB]">
+        <div className="h-full flex flex-col bg-[#1B1B1B00] shadow-xl rounded-md transition duration-200 ease-in-out transform hover:scale-[1.02] hover:bg-[#1B1B1B66] border-l border-[#D5A72FBB]">
             <div className="flex flex-col px-8 py-6">
                 <div className="w-full flex flex-row items-center mb-4">
                     <p className="grow font-bold text-base text-[#B1B7C0] inline-block align-middle">{props.name}</p>
                     {props.projectLink ? (
                         <Link href={props.projectLink} target="_blank">
-                            <Icon className="flex justify-center items-center" name="GitHubIcon" color="#9197A0" hoverColor="#D19E18" alt="" dim="25" role='button' />
+                            <Icon className="flex justify-center items-center" name="GitHubIcon" color="#9197A0" hoverColor="#D5A72F" alt="" dim="25" role='button' />
                         </Link>
                     ) : null}
                     {props.webLink ? (
                         <Link href={props.webLink} target="_blank">
-                            <Icon className="flex justify-center items-center ml-4" name="PublicIcon" color="#9197A0" hoverColor="#D19E18" alt="" dim="25" role='button' />
+                            <Icon className="flex justify-center items-center ml-4" name="PublicIcon" color="#9197A0" hoverColor="#D5A72F" alt="" dim="25" role='button' />
                         </Link>
                     ) : null}
                 </div>

@@ -33,7 +33,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
             `${props.animationDirection == "up" ? 2 / (Math.abs(props.index - 5) + 1) : 2 / (Math.abs(props.index - 3) + 1)}rem`
         ],
         fontWeight: 800,
-        color: (props.speedUp ? "#9197A0" : ((props.index == 5 && props.animationDirection == "up") || (props.index == 3 && props.animationDirection == "down") ? "#D19E18" : "#9197A0")),
+        color: (props.speedUp ? "#9197A0" : ((props.index == 5 && props.animationDirection == "up") || (props.index == 3 && props.animationDirection == "down") ? "#D5A72F" : "#9197A0")),
         opacity: [
             `${100 - (30 * (Math.abs(props.index - 4)))}%`,
             `${props.animationDirection == "up" ? 100 - (30 * Math.abs(props.index - 5)) : 100 - (30 * Math.abs(props.index - 3))}%`
@@ -43,7 +43,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
         x: `${10 * (Math.abs(props.index - 4))}px`,
         fontSize: `${2 / (Math.abs(props.index - 4) + 1)}rem`,
         fontWeight: 800,
-        color: (props.index == 4 ? "#D19E18" : "#9197A0"),
+        color: (props.index == 4 ? "#D5A72F" : "#9197A0"),
         opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
     });
     const [duration, setDuration] = React.useState<any>(props.animate ? (props.speedUp ? 0.2 : 0.4) : 0);
@@ -63,7 +63,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
                 `${props.animationDirection == "up" ? 2 / (Math.abs(props.index - 5) + 1) : 2 / (Math.abs(props.index - 3) + 1)}rem`
             ],
             fontWeight: 800,
-            color: (props.speedUp ? "#9197A0" : ((props.index == 5 && props.animationDirection == "up") || (props.index == 3 && props.animationDirection == "down") ? "#D19E18" : "#9197A0")),
+            color: (props.speedUp ? "#9197A0" : ((props.index == 5 && props.animationDirection == "up") || (props.index == 3 && props.animationDirection == "down") ? "#D5A72F" : "#9197A0")),
             opacity: [
                 `${100 - (30 * (Math.abs(props.index - 4)))}%`,
                 `${props.animationDirection == "up" ? 100 - (30 * Math.abs(props.index - 5)) : 100 - (30 * Math.abs(props.index - 3))}%`
@@ -73,7 +73,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
             x: `${10 * (Math.abs(props.index - 4))}px`,
             fontSize: `${2 / (Math.abs(props.index - 4) + 1)}rem`,
             fontWeight: 800,
-            color: (props.index == 4 ? "#D19E18" : "#9197A0"),
+            color: (props.index == 4 ? "#D5A72F" : "#9197A0"),
             opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
         });
     }, [props.startItem, props.stopItem]);
@@ -85,7 +85,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
                 x: `${10 * (Math.abs(props.index - 4))}px`,
                 fontSize: `${2 / (Math.abs(props.index - 4) + 1)}rem`,
                 fontWeight: 800,
-                color: (props.speedUp ? "#9197A0" : (props.index == 4 ? "#D19E18" : "#9197A0")),
+                color: (props.speedUp ? "#9197A0" : (props.index == 4 ? "#D5A72F" : "#9197A0")),
                 opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
             });
         }
@@ -109,7 +109,7 @@ const ShurikenMenuItem: React.FC<ShurikenMenuItemProps> = (props) => {
                         x: `${10 * (Math.abs(props.index - 4))}px`,
                         fontSize: `${2 / (Math.abs(props.index - 4) + 1)}rem`,
                         fontWeight: 800,
-                        color: (props.speedUp ? "#9197A0" : (props.index == 4 ? "#D19E18" : "#9197A0")),
+                        color: (props.speedUp ? "#9197A0" : (props.index == 4 ? "#D5A72F" : "#9197A0")),
                         opacity: `${100 - (30 * (Math.abs(props.index - 4)))}%`,
                     });
                 }

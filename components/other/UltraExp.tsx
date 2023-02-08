@@ -32,19 +32,19 @@ const UltraExp: React.FC<UltraExpType> = (props) => {
                 <div
                     className={"absolute -top-4 -right-4 rounded shadow p-0.5"}
                     style={{
-                        background: `${props.endDate == "Present" ? "conic-gradient(from " + degree + "deg, #9197A044, #9197A044, #D19E18)" : "#9197A044"}`
+                        background: `${props.endDate == "Present" ? "conic-gradient(from " + degree + "deg, #9197A044, #9197A044, #D5A72F)" : "#9197A044"}`
                     }}
                 >
                     <div
                         className={"flex justify-center w-24 bg-[#182B2B] font-bold text-sm rounded px-3 py-2 "
-                            + (props.endDate == "Present" ? " text-[#D19E18]" : " text-[#9197A077]")}
+                            + (props.endDate == "Present" ? " text-yano-500" : " text-[#9197A077]")}
                     >
                         {props.endDate == "Present" ? "Ongoing" : "Ended"}
                     </div>
                 </div>
                 <p className="font-bold text-base text-[#B1B7C0]">{props.position}</p>
                 <div className="flex flex-row mt-1 mb-4">
-                    <p className="grow font-medium text-sm text-[#D19E18]">{props.company}</p>
+                    <p className="grow font-medium text-sm text-yano-500">{props.company}</p>
                     <div className="flex flex-row justify-center items-center mr-6">
                         <Icon className="flex justify-center items-center mr-2" name="CalendarMonthIcon" color="#9197A0" alt="" dim="18" />
                         <p className="inline-block align-middle text-sm text-[#9197A0]">{props.startDate + " - " + props.endDate}</p>

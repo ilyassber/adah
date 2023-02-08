@@ -33,8 +33,8 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 animate={animation}
                                 transition={transition}
                             >
-                                <div className="absolute h-full w-full bg-gradient-to-br from-yano to-yano rounded-full -right-0 ml-2 hover:ml-0"></div>
-                                <Icon className="rounded-full bg-[#E2E8F0] overflow-hidden grayscale hover:grayscale-0 mr-2 hover:mr-0" src="/images/ilyass.png" alt="" dim="150" />
+                                <div className="absolute h-full w-full bg-yano-500 rounded-full -right-0 ml-[6px] hover:ml-0"></div>
+                                <Icon className="rounded-full bg-[#E2E8F0] overflow-hidden grayscale hover:grayscale-0 mr-[6px] hover:mr-0" src="/images/ilyass.png" alt="" dim="150" />
                             </motion.div>
                             <motion.div
                                 className="flex flex-col items-center mb-12"

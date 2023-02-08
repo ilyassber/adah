@@ -20,7 +20,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                     ease: "easeOut",
                 }}
             >
-                <p className="font-semibold text-xl text-[#D19E18] mb-8">
+                <p className="font-semibold text-xl text-yano-500 mb-8">
                     Hi, I'm
                 </p>
                 <p className="font-montserrat font-bold text-5xl text-[#E2E8F0] mb-8">
@@ -30,7 +30,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                     I build things & ensure<br />functionality.
                 </p>
                 <p className="font-normal text-lg text-[#9197A0] leading-relaxed">
-                    I'm a <span className="font-semibold text-[#D19E18]">Software developer</span> specialized in creating digital<br />experiences mainly for the web. Currently focusing on building<br />digital tools that enhance agriculture at <span className="font-semibold text-[#D19E18]">AgriEdge</span>.
+                    I'm a <span className="font-semibold text-yano-500">Software developer</span> specialized in creating digital<br />experiences mainly for the web. Currently focusing on building<br />digital tools that enhance agriculture at <span className="font-semibold text-yano-500">AgriEdge</span>.
                 </p>
             </motion.div>
         </div>

@@ -15,6 +15,19 @@ module.exports = {
       solitreo: ["Solitreo"],
     },
     extend: {
+      colors: {
+        yano: {
+          900: "#684f0c",
+          800: "#926e10",
+          700: "#bc8e15",
+          600: "#d19e18",
+          500: "#d5a72f",
+          400: "#debb5d",
+          300: "#e8ce8b",
+          200: "#f1e1b9",
+          100: "#faf5e7",
+        },
+      },
       minHeight: {
         1: "0.25rem",
         2: "0.5rem",

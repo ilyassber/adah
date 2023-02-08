@@ -31,7 +31,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                         <Icon className="hidden absolute -left-4 -top-4 flex justify-center items-center mr-2" name="ExpandLessIcon" color="#9197A0DD" alt="" dim="30" />
                         <motion.div
                             className="mb-8"
-                            animate={animation}
+                            animate={{
+                                y: [20, 0],
+                                opacity: ["0%", "100%"],
+                            }}
                             transition={{
                                 duration: 0.3,
                                 ease: "linear",
@@ -56,7 +59,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                         </motion.div>
                         <motion.div
                             className="mb-8"
-                            animate={animation}
+                            animate={{
+                                y: [20, 0],
+                                opacity: ["0%", "0%", "100%"],
+                            }}
                             transition={{
                                 duration: 0.6,
                                 ease: "linear",
@@ -81,7 +87,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                         </motion.div>
                         <motion.div
                             className=""
-                            animate={animation}
+                            animate={{
+                                y: [20, 0],
+                                opacity: ["0%", "0%", "0%", "100%"],
+                            }}
                             transition={{
                                 duration: 0.9,
                                 ease: "linear",

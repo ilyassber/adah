@@ -57,7 +57,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                             className="mb-8"
                             animate={{
                                 y: [20, 0],
-                                opacity: ["0%", "100%"],
+                                opacity: ["0%", "0%", "100%"],
                             }}
                             transition={{
                                 duration: 0.6,
@@ -83,7 +83,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                             className=""
                             animate={{
                                 y: [20, 0],
-                                opacity: ["0%", "100%"],
+                                opacity: ["0%", "0%", "0%", "100%"],
                             }}
                             transition={{
                                 duration: 0.9,

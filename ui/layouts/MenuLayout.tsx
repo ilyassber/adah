@@ -15,7 +15,7 @@ const MenuLayout: React.FC<MenuLayoutProps> = (props) => {
     let content = (
         <div className={props.className}>
             <div className="relative h-full w-full flex flex-row">
-                <div className="absolute top-0 right-0 z-[100]">
+                <div className="absolute block xl:hidden top-0 right-0 z-[100]">
                     <BurgerMenu className="" />
                 </div>
                 <div className="grow xl:basis-2/3 flex items-center">

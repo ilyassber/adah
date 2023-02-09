@@ -5,6 +5,7 @@ import { tailwindcss } from '../../types.d';
 import ContactLayout from './ContactLayout';
 import Icon from '../../components/icon/Icon';
 import { motion } from "framer-motion";
+import MenuLayout from './MenuLayout';
 
 type HomeLayoutProps = {
     className: tailwindcss;
@@ -83,14 +84,9 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                         <div className="h-24 w-[2px] flex flex-col bg-[#9197A055]" />
                     </div>
                     <ContactLayout className="w-full h-full">
-                        <div className="h-full w-full flex flex-row">
-                            <div className="grow xl:basis-2/3 flex items-center">
-                                {props.children}
-                            </div>
-                            <div className="hidden xl:basis-1/3 h-full xl:flex flex-col items-end justify-center ">
-                                <ShurikenMenu className='h-full' />
-                            </div>
-                        </div>
+                        <MenuLayout className="w-full h-full">
+                            {props.children}
+                        </MenuLayout>
                     </ContactLayout>
                 </div>
             ) : (

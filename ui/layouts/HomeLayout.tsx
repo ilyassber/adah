@@ -75,9 +75,9 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                             <Icon className="h-full w-full" src='/icons/shuriken.svg' priority={true} />
                         </motion.div>
                     </div>
-                    <div className={"absolute bottom-0 left-0 h-full flex flex-col flex-col-reverse justify-start items-center py-8 pl-3" + (hide || hideAnimation ? " hidden" : "")}>
+                    <div className={"absolute bottom-0 left-0 h-full flex flex-col flex-col-reverse justify-start items-center py-8 pl-1 sm:pl-2 md:pl-3" + (hide || hideAnimation ? " hidden" : "")}>
                         <div className="h-8 w-[2px] flex flex-col bg-[#9197A055]" />
-                        <p className="py-4 text-[#9197A077] text-sm" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>
+                        <p className="py-4 text-[#9197A077] text-xs md:text-sm" style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}>
                             {/* INFO: Shuriken 手裏剣; Hidden hand blade */}
                             くそー。 とても珍しい
                         </p>

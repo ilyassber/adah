@@ -21,7 +21,7 @@ const SocialMedia: React.FC<SocialMediaProps> = (props) => {
             <div className="flex flex-row items-center justify-center">
                 {
                     props.data.map((media: Media, index: number) => {
-                        return (<Link key={index} className="mx-6" href={media.url} target="_blank">
+                        return (<Link key={index} className="mx-4 sm:mx-6" href={media.url} target="_blank">
                             {media.iconSrc ? (
                                 <Icon className="" src={media.iconSrc} alt="" dim="22" />
                             ) : media.iconName ? (

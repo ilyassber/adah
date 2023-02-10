@@ -33,7 +33,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     React.useEffect(() => {
         if (screenWidth > 0) {
-            let newXSteps = xSteps.concat([(screenWidth / 2) - 40]);
+            let newXSteps = xSteps.concat([(screenWidth / 2) + 80]);
             setXSteps(newXSteps);
         }
     }, [screenWidth]);

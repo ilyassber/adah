@@ -33,7 +33,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                     + (hide ? " pointer-events-none" : "")
                 }>
                     <motion.div
-                        className={"h-full w-full flex justify-center items-center p-4" + (hide ? " hidden" : "")}
+                        className={"h-full w-full flex justify-start sm:justify-center items-center p-4" + (hide ? " hidden" : "")}
                         transition={{
                             duration: 0.6,
                             ease: "easeOut"

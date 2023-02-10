@@ -26,7 +26,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                 className="h-screen flex items-center justify-center"
             >
                 <div className="relative max-h-screen w-full overflow-auto">
-                    <div className="w-full flex flex-col items-center justify-center p-24">
+                    <div className="w-full flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 lg:p-24">
                         <div className="w-full flex flex-col items-center">
                             <motion.div
                                 className="relative rounded-full mb-8"
@@ -44,10 +44,13 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 <p className="font-semibold text-2xl text-[#E2E8F0] mb-6">
                                     Ilyass Berchida
                                 </p>
-                                <p className="font-medium text-sm text-[#9197A0] mb-2">
-                                    Software Developer at UM6P - AGE / Web Developer
+                                <p className="font-medium text-sm text-[#9197A0] text-center mb-2">
+                                    <span className="inline-block whitespace-nowrap">Software Developer at UM6P - AGE</span>
+                                    <span className="hidden sm:inline sm:whitespace-pre">  /  </span>
+                                    <span className="block sm:hidden whitespace-pre-line"> </span>
+                                    <span>Web Developer</span>
                                 </p>
-                                <p className="font-medium text-sm text-[#9197A0] mb-6">
+                                <p className="font-medium text-sm text-[#9197A0] text-center mb-6">
                                     Bin Jareer, Marrakesh-Safi, Morocco
                                 </p>
                                 <SocialMedia className="" data={[

@@ -14,10 +14,21 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
     const { params, dispatchParams } = React.useContext(GlobalContext);
 
     const [closed, setClosed] = React.useState<boolean>(true);
+    const [init, setInit] = React.useState<boolean>(false);
 
     const menuVariants = {
-        open: { rotate: -90 },
-        closed: { rotate: 0 },
+        init: {
+            x: [50, 0],
+            rotate: [360, 0]
+        },
+        open: {
+            x: 0,
+            rotate: -90
+        },
+        closed: {
+            x: 0,
+            rotate: 0
+        },
     }
 
     let content = (
@@ -25,9 +36,14 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
             <div className="relative">
                 <div className="absolute top-0 right-0 h-16 w-16 flex items-center justify-center p-4 z-[200]">
                     <motion.div
-                        animate={closed ? "closed" : "open"}
+                        animate={init ? closed ? "closed" : "open" : "init"}
                         variants={menuVariants}
                         role="button"
+                        onAnimationComplete={(animation: any) => {
+                            if (animation == "init") {
+                                setInit(true);
+                            }
+                        }}
                         onClick={() => {
                             if (closed) {
                                 setClosed(false);
@@ -62,7 +78,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                             {
                                 params.sections.map((section: any, index: number) => {
                                     return (
-                                        <div className="w-full px-6 py-4">
+                                        <div key={index} className="w-full px-6 py-4">
                                             <p
                                                 className={"text-xl" + (params.selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
                                                 role="button"

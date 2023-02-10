@@ -26,7 +26,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                 className="h-screen flex items-center justify-center"
             >
                 <div className="relative max-h-screen w-full overflow-auto">
-                    <div className="w-full flex flex-col items-center justify-center p-8 sm:p-12 md:p-20 lg:p-24">
+                    <div className="w-full flex flex-col items-center justify-center px-8 py-16 sm:px-12 sm:py-16 md:p-20 lg:p-24">
                         <div className="w-full flex flex-col items-center">
                             <motion.div
                                 className="relative rounded-full mb-8"
@@ -34,7 +34,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 transition={transition}
                             >
                                 <div className="absolute h-full w-full bg-yano-500 rounded-full -right-0 ml-[6px] hover:ml-0"></div>
-                                <Icon className="rounded-full bg-[#E2E8F0] overflow-hidden grayscale hover:grayscale-0 mr-[6px] hover:mr-0" src="/images/ilyass.png" alt="" dim="150" />
+                                <Icon className="h-28 sm:h-36 w-28 sm:w-36 rounded-full bg-[#E2E8F0] overflow-hidden grayscale hover:grayscale-0 mr-[6px] hover:mr-0" src="/images/ilyass.png" alt="" />
                             </motion.div>
                             <motion.div
                                 className="flex flex-col items-center mb-12"

@@ -3,6 +3,7 @@ import { GlobalContext } from '../context/Context';
 import { tailwindcss } from '../../types.d';
 import Icon from '../icon/Icon';
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 type BurgerMenuProps = {
     className: tailwindcss;
@@ -56,7 +57,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                 return (
                                     <div className="w-full px-6 py-4">
                                         <p
-                                            className={"text-2xl" + (params.selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
+                                            className={"text-xl" + (params.selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
                                             role="button"
                                             onClick={() => {
                                                 dispatchParams({ key: "selectedSectionId", value: section.id });
@@ -69,6 +70,72 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                 );
                             })
                         }
+                        <div className="w-full p-12">
+                            <hr className="border-[#9197A055]" />
+                        </div>
+                        <div className="w-full px-6 py-4">
+                            <Link
+                                className="flex flex-row items-center"
+                                href="tel:+212-628-666599"
+                                target="_blank"
+                            >
+                                <Icon className="mr-4" src="/icons/phone.svg" alt="" dim="24" />
+                                <div>
+                                    <p
+                                        className="text-lg font-medium text-[#9197A0] leading-none"
+                                    >
+                                        Call
+                                    </p>
+                                    <p
+                                        className="text-sm font-thin text-[#9197A099] leading-none"
+                                    >
+                                        +212 628 666599
+                                    </p>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="w-full px-6 py-4">
+                            <Link
+                                className="flex flex-row items-center"
+                                href="mailto:ilyass.berchida@gmail.com"
+                                target="_blank"
+                            >
+                                <Icon className="mr-4" src="/icons/mail.svg" alt="" dim="24" />
+                                <div>
+                                    <p
+                                        className="text-lg font-medium text-[#9197A0] leading-none"
+                                    >
+                                        Send an email
+                                    </p>
+                                    <p
+                                        className="text-sm font-thin text-[#9197A099] leading-none"
+                                    >
+                                        ilyass.berchida@gmail.com
+                                    </p>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="w-full px-6 py-4">
+                            <Link
+                                className="flex flex-row items-center"
+                                href="/files/BERCHIDA-ILYASS-CV.pdf"
+                                target="_blank"
+                            >
+                                <Icon className="mr-4" name="DownloadIcon" color="#9197A0" alt="" dim="24" />
+                                <div>
+                                    <p
+                                        className="text-lg font-medium text-[#9197A0] leading-none"
+                                    >
+                                        Resume
+                                    </p>
+                                    <p
+                                        className="text-sm font-thin text-[#9197A099] leading-none"
+                                    >
+                                        Download as pdf
+                                    </p>
+                                </div>
+                            </Link>
+                        </div>
                     </motion.div>
                 </motion.div>
             )}

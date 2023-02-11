@@ -10,6 +10,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
 
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
     const [textareaState, setTextareaState] = React.useState<string>("open");
+    const [init, setInit] = React.useState<boolean>(false);
 
     const textareaVariants = {
         open: { height: "24rem" },
@@ -21,7 +22,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
         ease: "linear",
     };
 
-    React.useEffect(() => {
+    const initClickListener = () => {
         document.addEventListener(
             "click",
             (event: any) => {
@@ -35,7 +36,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
             },
             false
         );
-    }, []);
+    };
 
     let content = (
         <div className={props.className}>
@@ -43,22 +44,28 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                 className="flex h-screen items-center justify-center"
             >
                 <div className="relative w-full max-h-screen overflow-auto">
-                    <motion.div
-                        className="w-full flex flex-row items-end justify-center p-24"
+                    <div
+                        className="flex flex-col sm:flex-row items-end justify-center p-8 sm:p-12 md:p-20 lg:p-24"
                     >
                         <motion.textarea
                             ref={textareaRef}
                             variants={textareaVariants}
                             animate={textareaState}
                             transition={transition}
-                            className="grow h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
+                            onAnimationComplete={() => {
+                                if (!init) {
+                                    setInit(true);
+                                    initClickListener();
+                                }
+                            }}
+                            className="w-full h-96 sm:h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
                             autoFocus
                             spellCheck="false"
                         />
-                        <div className="h-24 w-24 flex flex-row justify-center items-center border shadow-xl border-[#9197A011] hover:bg-[#9197A011] rounded px-4 py-1 ml-2" role="button">
+                        <div className="h-24 w-24 flex flex-row justify-center items-center border shadow-xl border-[#9197A011] hover:bg-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0" role="button">
                             <Icon className="flex justify-center items-center" name="SendIcon" color="#9197A0" alt="" dim="40" />
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </motion.div >
         </div >

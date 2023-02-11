@@ -58,7 +58,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                                     initClickListener();
                                 }
                             }}
-                            className="w-full h-96 sm:h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
+                            className="w-full h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
                             autoFocus
                             spellCheck="false"
                         />

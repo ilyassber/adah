@@ -39,7 +39,7 @@ const UltraExp: React.FC<UltraExpType> = (props) => {
                         className={"flex justify-center w-24 bg-[#182B2B] font-bold text-sm rounded px-3 py-2 "
                             + (props.endDate == "Present" ? " text-yano-500" : " text-[#9197A077]")}
                     >
-                        {props.endDate == "Present" ? "Ongoing" : "Ended"}
+                        {props.endDate == "Present" ? "Ongoing" : "Done"}
                     </div>
                 </div>
                 <p className="font-bold text-base text-[#B1B7C0]">{props.position}</p>

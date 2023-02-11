@@ -26,7 +26,12 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                 className="h-screen flex items-center justify-center"
             >
                 <div className="relative w-full max-h-screen overflow-auto">
-                    <div className="w-full flex flex-col items-center justify-center p-24">
+                    <div className="w-full flex flex-col items-center justify-center px-8 pb-8 sm:px-12 sm:pb-12 md:px-20 md:pb-20 lg:px-24 lg:pb-24 xl:p-24">
+                        <div className="w-full h-16 flex flex-row items-center mb-8">
+                            <div className="w-3 h-[2px] bg-gradient-to-r from-[#9197A000] to-[#9197A077] rounded mr-3" />
+                            <p className="font-black align-bottom text-2xl text-yano-500 leading-none">PROJECTS</p>
+                            <div className="grow h-[2px] bg-gradient-to-r from-[#9197A077] to-[#9197A000] rounded ml-3 mr-8" />
+                        </div>
                         <motion.div
                             className="mb-8"
                             animate={{

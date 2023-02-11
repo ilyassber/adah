@@ -43,13 +43,13 @@ const UltraExp: React.FC<UltraExpType> = (props) => {
                     </div>
                 </div>
                 <p className="font-bold text-base text-[#B1B7C0]">{props.position}</p>
-                <div className="flex flex-row mt-1 mb-4">
-                    <p className="grow font-medium text-sm text-yano-500">{props.company}</p>
-                    <div className="flex flex-row justify-center items-center mr-6">
+                <div className="flex flex-col md:flex-row mt-1 mb-4">
+                    <p className="grow font-medium text-sm text-yano-500 mb-2 md:mb-0">{props.company}</p>
+                    <div className="flex flex-row justify-start items-center mr-0 md:mr-6 mb-2 md:mb-0">
                         <Icon className="flex justify-center items-center mr-2" name="CalendarMonthIcon" color="#9197A0" alt="" dim="18" />
                         <p className="inline-block align-middle text-sm text-[#9197A0]">{props.startDate + " - " + props.endDate}</p>
                     </div>
-                    <div className="flex flex-row justify-center items-center">
+                    <div className="flex flex-row justify-start items-center">
                         <Icon className="flex justify-center items-center mr-2" name="LocationOnIcon" color="#9197A0" alt="" dim="18" />
                         <p className="inline-block align-middle text-sm text-[#9197A0]">{props.location}</p>
                     </div>

@@ -37,10 +37,6 @@ const Home: React.FC<HomeProps> = (props) => {
 
   const { params, dispatchParams } = React.useContext(GlobalContext);
 
-  React.useEffect(() => {
-    console.log(params.selectedSectionId);
-  }, [params.selectedSectionId]);
-
   return (
     <>
       <Head>

@@ -22,7 +22,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
 
     let content = (
         <div className={props.className}>
-            <motion.div
+            <div
                 className="h-screen flex items-center justify-center"
             >
                 <div className="relative max-h-screen w-full overflow-auto">
@@ -110,7 +110,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                         </div>
                     </div>
                 </div>
-            </motion.div >
+            </div >
         </div >
     );
 

@@ -40,7 +40,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                             }}
                         >
                             <div className="w-3 h-[2px] bg-gradient-to-r from-[#9197A000] to-[#9197A077] rounded mr-3" />
-                            <p className="font-black align-bottom text-2xl text-yano-500 leading-none">EXPERIENCE</p>
+                            <p className="font-bold align-bottom text-xl text-[#9197A0] leading-none">EXPERIENCE</p>
                             <div className="grow h-[2px] bg-gradient-to-r from-[#9197A077] to-[#9197A000] rounded ml-3 mr-8" />
                         </motion.div>
                         <motion.div

@@ -20,10 +20,11 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
         if (params.selectedSectionId == 1 || params.selectedSectionId == 5) {
             setHide(false);
             setHideAnimation(false);
-        } else {
+        }
+        if (!(params.nextSectionId == 1 || params.nextSectionId == 5)) {
             setHideAnimation(true);
         }
-    }, [params.selectedSectionId]);
+    }, [params.selectedSectionId, params.nextSectionId]);
 
     let content = (
         <div className={props.className}>

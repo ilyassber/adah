@@ -1,12 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
+import { GlobalContext } from '../../components/context/Context';
 
 type HomeCardProps = {
     className: string;
 };
 
 const HomeCard: React.FC<HomeCardProps> = (props) => {
+
+    const { params, dispatchParams } = React.useContext(GlobalContext);
+
+    const [animation, setAnimation] = React.useState<string>("initAnimation");
+
+    const variants = {
+        initAnimation: {
+            y: [-20, 0],
+            opacity: ["0%", "100%"],
+        },
+        exitAnimation: {
+            y: [0, -20],
+            opacity: ["100%", "0%"],
+        },
+    }
+
+    React.useEffect(() => {
+        console.log(params.nextSectionId);
+        if (params.nextSectionId != params.selectedSectionId) {
+            setAnimation("exitAnimation");
+        }
+    }, [params.nextSectionId]);
+
     let content = (
         <div className={props.className}>
             <motion.div
@@ -15,13 +39,17 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                 <div className="relative max-h-screen w-full overflow-auto">
                     <motion.div
                         className="h-screen flex flex-col justify-center p-8 sm:p-12 md:p-20 lg:p-24"
-                        animate={{
-                            y: [-20, 0],
-                            opacity: ["0%", "100%"],
-                        }}
+                        variants={variants}
+                        animate={animation}
                         transition={{
-                            duration: 0.6,
+                            duration: 0.4,
                             ease: "easeOut",
+                        }}
+                        onAnimationComplete={(animation: string) => {
+                            console.log(animation);
+                            if (animation == "exitAnimation") {
+                                dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+                            }
                         }}
                     >
                         <p className="font-semibold text-base sm:text-lg md:text-xl text-yano-500 mb-4 sm:mb-4 md:mb-6 lg:mb-8">

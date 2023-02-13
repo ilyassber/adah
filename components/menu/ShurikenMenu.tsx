@@ -201,6 +201,10 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, [wheelDelta]);
 
     React.useEffect(() => {
+        setSelectedIndex(params.selectedSectionId);
+    }, [params.selectedSectionId]);
+
+    React.useEffect(() => {
         if (currentIndex < selectedIndex) {
             setPrevIndex(currentIndex);
             setCurrentIndex(currentIndex + 1);
@@ -237,18 +241,6 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
         }
         setPlaces(newPlacesList);
     }, [currentIndex]);
-
-    React.useEffect(() => {
-        //console.log("places are changed");
-    }, [places]);
-
-    React.useEffect(() => {
-        //console.log(speedUp);
-    }, [speedUp]);
-
-    const onClick = (id: number) => {
-        setSelectedIndex(id);
-    };
 
     const onAnimationComplete = () => {
         setAnimation(false);
@@ -292,7 +284,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
                                     speedUp={speedUp}
                                     onClick={() => {
                                         if (place) {
-                                            onClick(place.id);
+                                            setSelectedIndex(place.id);
                                         }
                                     }}
                                     onAnimationComplete={onAnimationComplete}

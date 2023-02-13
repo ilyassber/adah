@@ -37,6 +37,7 @@ let defaultParams = {
     }
   ],
   selectedSectionId: 1,
+  nextSectionId: 1,
 };
 
 const App = ({ Component, pageProps }: AppProps) => {

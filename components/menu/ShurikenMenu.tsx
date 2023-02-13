@@ -193,7 +193,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
             } else if (wheelDelta < -15) {
                 decrementIndex();
             } else {
-                dispatchParams({ key: "selectedSectionId", value: selectedIndex });
+                dispatchParams({ key: "nextSectionId", value: selectedIndex });
                 setSpeedUp(false);
                 setWheelEvents(0);
             }
@@ -251,7 +251,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
             setCurrentIndex(currentIndex - 1);
         } else {
             if (wheelDelta <= 15 && wheelDelta >= -15) {
-                dispatchParams({ key: "selectedSectionId", value: selectedIndex });
+                dispatchParams({ key: "nextSectionId", value: selectedIndex });
             }
         }
     };

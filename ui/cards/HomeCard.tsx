@@ -42,7 +42,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                         variants={variants}
                         animate={animation}
                         transition={{
-                            duration: 0.4,
+                            duration: (animation == "initAnimation" ? 0.5 : 0.3),
                             ease: "easeOut",
                         }}
                         onAnimationComplete={(animation: string) => {

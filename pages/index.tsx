@@ -53,7 +53,7 @@ const Home: React.FC<HomeProps> = (props) => {
               : params.selectedSectionId == 2
                 ? (<AboutCard className="w-full" />)
                 : params.selectedSectionId == 3
-                  ? (<ExperienceCard className="h-auto w-full" />)
+                  ? (<ExperienceCard className="w-full" />)
                   : params.selectedSectionId == 4
                     ? (<ProjectsCard className="w-full" />)
                     : params.selectedSectionId == 5

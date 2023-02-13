@@ -18,7 +18,6 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     const homeLayoutRef = React.useRef<HTMLDivElement>(null);
     const [scrollTop, setScrollTop] = React.useState<number>(1);
-    const [isScrolling, setIsScrolling] = React.useState<boolean>(false);
 
     const [duration, setDuration] = React.useState<number>(0.4);
     const [rotation, setRotation] = React.useState<number[]>([0, 180]);
@@ -43,19 +42,13 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     };
 
-    const preventWheel = (event: WheelEvent) => {
-        event.preventDefault();
-    };
-
-    const disableWheel = () => {
+    const onScroll = (event: any) => {
         if (homeLayoutRef && homeLayoutRef.current) {
-            homeLayoutRef.current.addEventListener("wheel", preventWheel);
-        }
-    };
-
-    const onScroll = (event: Event) => {
-        if (homeLayoutRef && homeLayoutRef.current) {
-            setScrollTop(homeLayoutRef.current?.scrollTop);
+            if (event.target?.scrollTop == 2) {
+                setScrollTop(2);
+            } else if (event.target?.scrollTop == 0) {
+                setScrollTop(0);
+            }
             homeLayoutRef.current?.scroll({
                 top: 1,
             });
@@ -75,15 +68,11 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         }
     }, [scrollTop]);
 
-    // React.useEffect(() => {
-    //     if (homeLayoutRef && homeLayoutRef.current) {
-    //         homeLayoutRef.current.removeEventListener("wheel", disableWheel);
-    //     }
-    // }, [params.selectedSectionId]);
-
     React.useEffect(() => {
-        console.log(isScrolling);
-    }, [isScrolling]);
+        setTimeout(() => {
+            setScrollTop(1);
+        }, 1200);
+    }, [params.selectedSectionId]);
 
     React.useEffect(() => {
         if (homeLayoutRef && homeLayoutRef.current) {
@@ -114,10 +103,11 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         <div className={props.className}>
             {params.initAnimation ? (
                 <div
+                    id="homeLayout"
                     ref={homeLayoutRef}
                     className="relative h-screen w-full overflow-auto"
                 >
-                    <div className="w-full h-[1px] bg-red-900" />
+                    <div className="w-full h-[1px] bg-transparent" />
                     <div className="relative w-full h-full">
                         <div className="absolute top-0 left-0 h-full w-full overflow-hidden">
                             <motion.div
@@ -157,7 +147,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                             </MenuLayout>
                         </ContactLayout>
                     </div>
-                    <div className="w-full h-[1px] bg-red-900" />
+                    <div className="w-full h-[1px] bg-transparent" />
                 </div>
             ) : (
                 <div className="w-full h-full flex justify-center items-center">

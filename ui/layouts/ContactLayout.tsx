@@ -27,9 +27,9 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
 
     let content = (
         <div className={props.className}>
-            <div className="h-full w-full flex flex-col">
+            <div className="relative h-full w-full flex flex-col">
                 <div className={
-                    "absolute flex items-start h-16 w-full bg-gradient-to-b from-[#182B2B] to-[#0000] z-10"
+                    "fixed flex items-start h-16 w-full bg-gradient-to-b from-[#182B2B] to-[#0000] z-10"
                     + (hide ? " pointer-events-none" : "")
                 }>
                     <motion.div
@@ -55,7 +55,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                     {props.children}
                 </div>
                 <div className={
-                    "absolute bottom-0 w-full flex items-end h-16 bg-gradient-to-b from-[#0000] to-[#2B2B2B] z-10"
+                    "fixed bottom-0 w-full flex items-end h-16 bg-gradient-to-b from-[#0000] to-[#2B2B2B] z-10"
                     + (hide ? " pointer-events-none" : "")
                 }>
                     <motion.div

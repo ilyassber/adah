@@ -201,8 +201,8 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     }, [wheelDelta]);
 
     React.useEffect(() => {
-        setSelectedIndex(params.selectedSectionId);
-    }, [params.selectedSectionId]);
+        setSelectedIndex(params.nextSectionId);
+    }, [params.nextSectionId]);
 
     React.useEffect(() => {
         if (currentIndex < selectedIndex) {
@@ -212,12 +212,17 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
             setPrevIndex(currentIndex);
             setCurrentIndex(currentIndex - 1);
         }
+        if (Math.abs(currentIndex - selectedIndex) == 1) {
+            if (Math.abs(wheelDelta) < 15) {
+                dispatchParams({ key: "nextSectionId", value: selectedIndex });
+            }
+        }
     }, [selectedIndex]);
 
     React.useEffect(() => {
         let newPlacesList = [];
         if (currentIndex == selectedIndex) {
-            if (Math.abs(wheelDelta) < 30) {
+            if (Math.abs(wheelDelta) < 15) {
                 setSpeedUp(false);
             } else {
                 setSpeedUp(true);

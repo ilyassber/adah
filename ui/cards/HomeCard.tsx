@@ -25,7 +25,6 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
     }
 
     React.useEffect(() => {
-        console.log(params.nextSectionId);
         if (params.nextSectionId != params.selectedSectionId) {
             setAnimation("exitAnimation");
         }

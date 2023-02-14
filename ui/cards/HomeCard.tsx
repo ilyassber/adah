@@ -58,8 +58,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                             Ilyass BERCHIDA
                         </p>
                         <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#9197A0] leading-normal mb-4 sm:mb-4 md:mb-6 lg:mb-8">
-                            {/* I build things & ensure<br />functionality. */}
-                            I create outstanding<br />products.
+                            I build things & ensure<br />functionality.
                         </p>
                         <p className="max-w-lg font-normal text-xs sm:text-sm md:text-base text-[#9197A0] leading-relaxed">
                             I'm a <span className="font-semibold text-yano-500">Software developer</span> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture at <span className="font-semibold text-yano-500">AgriEdge</span>.

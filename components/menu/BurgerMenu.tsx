@@ -115,7 +115,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                 })
                             }
                             <div className="w-full p-12">
-                                <hr className="border-[#9197A033]" />
+                                <hr className="border-[#9197A022]" />
                             </div>
                             <div className="w-full px-6 py-4">
                                 <Link

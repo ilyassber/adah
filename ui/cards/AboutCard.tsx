@@ -21,11 +21,11 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
             opacity: ["0%", "100%"],
         },
         exitUpAnimation: {
-            y: [0, -20],
+            y: [0, -10],
             opacity: ["100%", "0%"],
         },
         exitDownAnimation: {
-            y: [0, 20],
+            y: [0, 10],
             opacity: ["100%", "0%"],
         },
     }

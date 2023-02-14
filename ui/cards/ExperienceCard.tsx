@@ -21,23 +21,15 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
             y: [20, 0],
             opacity: ["0%", "100%"],
         },
-        exitUpAnimation: {
-            y: [0, -20],
-            opacity: ["100%", "0%"],
-        },
-        exitDownAnimation: {
-            y: [0, 20],
+        exitAnimation: {
+            y: [0, -10],
             opacity: ["100%", "0%"],
         },
     }
 
     React.useEffect(() => {
         if (params.nextSectionId != params.selectedSectionId) {
-            if (params.selectedSectionId > params.nextSectionId) {
-                setAnimation("exitDownAnimation");
-            } else {
-                setAnimation("exitUpAnimation");
-            }
+            setAnimation("exitAnimation");
         }
     }, [params.nextSectionId]);
 
@@ -52,7 +44,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
                     ease: "easeOut",
                 }}
                 onAnimationComplete={(animation: string) => {
-                    if (animation == "exitUpAnimation" || animation == "exitDownAnimation") {
+                    if (animation == "exitAnimation") {
                         dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
                     }
                 }}

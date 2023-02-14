@@ -19,7 +19,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
             opacity: ["0%", "100%"],
         },
         exitAnimation: {
-            y: [0, -20],
+            y: [0, -10],
             opacity: ["100%", "0%"],
         },
     }

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
 import Experience from '../../components/other/Experience';
 import UltraExp from '../../components/other/UltraExp';
+import { GlobalContext } from '../../components/context/Context';
 
 type ExperienceCardProps = {
     className: string;
@@ -11,20 +12,50 @@ type ExperienceCardProps = {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
 
-    const animation = {
-        y: [20, 0],
-        opacity: ["0%", "100%"],
-    };
+    const { params, dispatchParams } = React.useContext(GlobalContext);
 
-    const transition = {
-        duration: 0.6,
-        ease: "easeOut",
-    };
+    const [animation, setAnimation] = React.useState<string>("initAnimation");
+
+    const variants = {
+        initAnimation: {
+            y: [20, 0],
+            opacity: ["0%", "100%"],
+        },
+        exitUpAnimation: {
+            y: [0, -20],
+            opacity: ["100%", "0%"],
+        },
+        exitDownAnimation: {
+            y: [0, 20],
+            opacity: ["100%", "0%"],
+        },
+    }
+
+    React.useEffect(() => {
+        if (params.nextSectionId != params.selectedSectionId) {
+            if (params.selectedSectionId > params.nextSectionId) {
+                setAnimation("exitDownAnimation");
+            } else {
+                setAnimation("exitUpAnimation");
+            }
+        }
+    }, [params.nextSectionId]);
 
     let content = (
         <div className={props.className}>
             <motion.div
                 className="h-screen flex items-center justify-center"
+                variants={variants}
+                animate={animation}
+                transition={{
+                    duration: 0.3,
+                    ease: "easeOut",
+                }}
+                onAnimationComplete={(animation: string) => {
+                    if (animation == "exitUpAnimation" || animation == "exitDownAnimation") {
+                        dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+                    }
+                }}
             >
                 <div className="relative w-full max-h-screen overflow-auto">
                     <div className="w-full relative flex flex-col justify-center border-l-2 border-dashed border-[#9197A000] px-8 pb-8 sm:px-12 sm:pb-12 md:px-20 md:pb-20 lg:px-24 lg:pb-24 xl:p-24">

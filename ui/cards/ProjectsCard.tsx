@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
 import Project from '../../components/other/Project';
+import { GlobalContext } from '../../components/context/Context';
 
 type ProjectsCardProps = {
     className: string;
@@ -10,15 +11,26 @@ type ProjectsCardProps = {
 
 const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
 
-    const animation = {
-        y: [20, 0],
-        opacity: ["0%", "100%"],
-    };
+    const { params, dispatchParams } = React.useContext(GlobalContext);
 
-    const transition = {
-        duration: 0.6,
-        ease: "easeOut",
-    };
+    const [animation, setAnimation] = React.useState<string>("initAnimation");
+
+    const variants = {
+        initAnimation: {
+            y: [20, 0],
+            opacity: ["0%", "100%"],
+        },
+        exitAnimation: {
+            y: [0, -10],
+            opacity: ["100%", "0%"],
+        },
+    }
+
+    React.useEffect(() => {
+        if (params.nextSectionId != params.selectedSectionId) {
+            setAnimation("exitAnimation");
+        }
+    }, [params.nextSectionId]);
 
     let content = (
         <div className={props.className}>
@@ -26,7 +38,20 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                 className="h-screen flex items-center justify-center"
             >
                 <div className="relative w-full max-h-screen overflow-auto">
-                    <div className="w-full flex flex-col items-center justify-center px-8 pb-8 sm:px-12 sm:pb-12 md:px-20 md:pb-20 lg:px-24 lg:pb-24 xl:p-24">
+                    <motion.div
+                        className="w-full flex flex-col items-center justify-center px-8 pb-8 sm:px-12 sm:pb-12 md:px-20 md:pb-20 lg:px-24 lg:pb-24 xl:p-24"
+                        variants={variants}
+                        animate={animation}
+                        transition={{
+                            duration: 0.3,
+                            ease: "easeOut",
+                        }}
+                        onAnimationComplete={(animation: string) => {
+                            if (animation == "exitAnimation") {
+                                dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+                            }
+                        }}
+                    >
                         <motion.div
                             className="w-full h-16 flex xl:hidden flex-row items-center mb-8"
                             animate={{
@@ -120,7 +145,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                                 webLink=""
                             />
                         </motion.div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div >

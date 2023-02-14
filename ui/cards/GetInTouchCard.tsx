@@ -1,6 +1,7 @@
 import React, { TextareaHTMLAttributes } from 'react';
 import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
+import { GlobalContext } from '../../components/context/Context';
 
 type GetInTouchCardProps = {
     className: string;
@@ -8,9 +9,12 @@ type GetInTouchCardProps = {
 
 const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
 
+    const { params, dispatchParams } = React.useContext(GlobalContext);
+
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
     const [textareaState, setTextareaState] = React.useState<string>("open");
     const [init, setInit] = React.useState<boolean>(false);
+    const [animating, setAnimating] = React.useState<boolean>(false);
 
     const textareaVariants = {
         open: { height: "24rem" },
@@ -38,6 +42,21 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
         );
     };
 
+    React.useEffect(() => {
+        setAnimating(true);
+    }, [textareaState]);
+
+    React.useEffect(() => {
+        if (params.nextSectionId != params.selectedSectionId) {
+            console.log(textareaState);
+            if (textareaState == "open") {
+                setTextareaState("closed");
+            } else {
+                if (!animating) dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+            }
+        }
+    }, [params.nextSectionId]);
+
     let content = (
         <div className={props.className}>
             <motion.div
@@ -52,10 +71,14 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                             variants={textareaVariants}
                             animate={textareaState}
                             transition={transition}
-                            onAnimationComplete={() => {
+                            onAnimationComplete={(animation) => {
+                                setAnimating(false);
                                 if (!init) {
                                     setInit(true);
                                     initClickListener();
+                                }
+                                if (animation == "closed" && (params.nextSectionId != params.selectedSectionId)) {
+                                    dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
                                 }
                             }}
                             className="w-full h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"

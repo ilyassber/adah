@@ -83,7 +83,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                                 className={"text-xl" + (params.selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
                                                 role="button"
                                                 onClick={() => {
-                                                    dispatchParams({ key: "selectedSectionId", value: section.id });
+                                                    dispatchParams({ key: "nextSectionId", value: section.id });
                                                     setClosed(true);
                                                 }}
                                             >

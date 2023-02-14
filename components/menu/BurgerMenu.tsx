@@ -14,6 +14,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
     const { params, dispatchParams } = React.useContext(GlobalContext);
 
     const [closed, setClosed] = React.useState<boolean>(true);
+    const [toBeClosed, setToBeClosed] = React.useState<boolean>(false);
     const [init, setInit] = React.useState<boolean>(false);
 
     const menuVariants = {
@@ -30,6 +31,23 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
             rotate: 0
         },
     }
+
+    const itemsMenuVariants = {
+        open: {
+            opacity: ["0%", "100%"],
+            y: [20, 0],
+        },
+        close: {
+            opacity: ["100%", "0%"],
+            y: [0, 10],
+        },
+    }
+
+    React.useEffect(() => {
+        if (!closed) {
+            setToBeClosed(false);
+        }
+    }, [closed]);
 
     let content = (
         <div className={props.className}>
@@ -67,12 +85,15 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                     >
                         <motion.div
                             className="flex flex-col items-end"
-                            animate={{
-                                opacity: ["0%", "100%"],
-                                y: [20, 0],
-                            }}
+                            variants={itemsMenuVariants}
+                            animate={toBeClosed ? "close" : "open"}
                             transition={{
-                                duration: 0.4,
+                                duration: (toBeClosed ? 0.3 : 0.4),
+                            }}
+                            onAnimationComplete={(animation) => {
+                                if (animation == "close") {
+                                    setClosed(true);
+                                }
                             }}
                         >
                             {
@@ -84,7 +105,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                                 role="button"
                                                 onClick={() => {
                                                     dispatchParams({ key: "nextSectionId", value: section.id });
-                                                    setClosed(true);
+                                                    setToBeClosed(true);
                                                 }}
                                             >
                                                 {section.name}

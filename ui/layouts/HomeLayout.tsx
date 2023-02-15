@@ -31,19 +31,20 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     const onScrollTop = () => {
         if (params.selectedSectionId > 1) {
-            dispatchParams({ key: "selectedSectionId", value: params.selectedSectionId - 1 });
+            dispatchParams({ key: "nextSectionId", value: params.selectedSectionId - 1 });
         }
     };
 
     const onScrollBottom = () => {
         if (params.selectedSectionId < 5) {
-            dispatchParams({ key: "selectedSectionId", value: params.selectedSectionId + 1 });
+            dispatchParams({ key: "nextSectionId", value: params.selectedSectionId + 1 });
         }
 
     };
 
     const onScroll = (event: any) => {
         if (homeLayoutRef && homeLayoutRef.current) {
+            console.log(event.target?.scrollTop);
             if (event.target?.scrollTop == 2) {
                 setScrollTop(2);
             } else if (event.target?.scrollTop == 0) {
@@ -61,17 +62,29 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        if (scrollTop == 0) {
-            onScrollTop();
-        } else if (scrollTop == 2) {
-            onScrollBottom();
+        console.log("Scroll top: ", scrollTop);
+        if (params.selectedSectionId == params.nextSectionId) {
+            console.log("Egality ...");
+            if (scrollTop == 0) {
+                onScrollTop();
+            } else if (scrollTop == 2) {
+                onScrollBottom();
+            }
+        } else {
+            //setScrollTop(1);
         }
     }, [scrollTop]);
 
     React.useEffect(() => {
+        console.log("selectedSectionId: ", params.selectedSectionId);
         setTimeout(() => {
-            setScrollTop(1);
-        }, 1200);
+            if (homeLayoutRef && homeLayoutRef.current) {
+                homeLayoutRef.current?.scroll({
+                    top: 1,
+                });
+                setScrollTop(1);
+            }
+        }, 1000);
     }, [params.selectedSectionId]);
 
     React.useEffect(() => {
@@ -102,13 +115,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     let content = (
         <div className={props.className}>
             {params.initAnimation ? (
-                <div
-                    id="homeLayout"
-                    ref={homeLayoutRef}
-                    className="relative h-screen w-full overflow-auto"
-                >
-                    <div className="w-full h-[1px] bg-transparent" />
-                    <div className="relative w-full h-full">
+                <ContactLayout className="w-full h-full">
+                    <MenuLayout className="relative w-full h-full">
                         <div className="absolute top-0 left-0 h-full w-full overflow-hidden">
                             <motion.div
                                 className="h-full w-full"
@@ -141,14 +149,19 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                             </p>
                             <div className="h-24 w-[2px] flex flex-col bg-[#9197A055]" />
                         </div>
-                        <ContactLayout className="w-full h-full">
-                            <MenuLayout className="w-full h-full">
+                        <div
+                            id="homeLayout"
+                            ref={homeLayoutRef}
+                            className="relative h-screen w-full overflow-auto"
+                        >
+                            <div className="w-full h-[1px] bg-transparent" />
+                            <div className="w-full h-screen">
                                 {props.children}
-                            </MenuLayout>
-                        </ContactLayout>
-                    </div>
-                    <div className="w-full h-[1px] bg-transparent" />
-                </div>
+                            </div>
+                            <div className="w-full h-[1px] bg-transparent" />
+                        </div>
+                    </MenuLayout>
+                </ContactLayout>
             ) : (
                 <div className="w-full h-full flex justify-center items-center">
                     <motion.div
@@ -186,8 +199,9 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                         <Icon className="" src='/icons/shuriken.svg' dim="80" priority={true} />
                     </motion.div>
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 
     return content;

@@ -17,7 +17,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     const { params, dispatchParams } = React.useContext(GlobalContext);
 
     const homeLayoutRef = React.useRef<HTMLDivElement>(null);
-    const [scrollTop, setScrollTop] = React.useState<number>(1);
+    const [segma, setSegma] = React.useState<number>(0);
+    const [direction, setDirection] = React.useState<string>("hold");
 
     const [duration, setDuration] = React.useState<number>(0.4);
     const [rotation, setRotation] = React.useState<number[]>([0, 180]);
@@ -44,11 +45,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     const onScroll = (event: any) => {
         if (homeLayoutRef && homeLayoutRef.current) {
-            console.log(event.target?.scrollTop);
-            if (event.target?.scrollTop == 2) {
-                setScrollTop(2);
-            } else if (event.target?.scrollTop == 0) {
-                setScrollTop(0);
+            if (event.target?.scrollTop == 1) {
+                setSegma(s => s / 2);
+            } else {
+                setSegma(s => s + event.target?.scrollTop - 1);
             }
             homeLayoutRef.current?.scroll({
                 top: 1,
@@ -62,30 +62,22 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        console.log("Scroll top: ", scrollTop);
-        if (params.selectedSectionId == params.nextSectionId) {
-            console.log("Egality ...");
-            if (scrollTop == 0) {
-                onScrollTop();
-            } else if (scrollTop == 2) {
-                onScrollBottom();
-            }
+        if (segma < -20) {
+            setDirection("up");
+        } else if (segma > 20) {
+            setDirection("down");
         } else {
-            //setScrollTop(1);
+            setDirection("hold");
         }
-    }, [scrollTop]);
+    }, [segma]);
 
     React.useEffect(() => {
-        console.log("selectedSectionId: ", params.selectedSectionId);
-        setTimeout(() => {
-            if (homeLayoutRef && homeLayoutRef.current) {
-                homeLayoutRef.current?.scroll({
-                    top: 1,
-                });
-                setScrollTop(1);
-            }
-        }, 1000);
-    }, [params.selectedSectionId]);
+        if (direction == "up") {
+            onScrollTop();
+        } else if (direction == "down") {
+            onScrollBottom();
+        }
+    }, [direction]);
 
     React.useEffect(() => {
         if (homeLayoutRef && homeLayoutRef.current) {

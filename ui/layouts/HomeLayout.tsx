@@ -96,13 +96,13 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, [screenWidth]);
 
     React.useEffect(() => {
-        if (params.selectedSectionId == 1) {
+        if (params.selectedSectionId == 1 && params.nextSectionId == 1) {
             setHide(false);
             setHideAnimation(false);
         } else {
             setHideAnimation(true);
         }
-    }, [params.selectedSectionId]);
+    }, [params.selectedSectionId, params.nextSectionId]);
 
     let content = (
         <div className={props.className}>

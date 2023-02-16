@@ -1,0 +1,1 @@
+export const sendMessage = (message: String) => {};

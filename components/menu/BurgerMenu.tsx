@@ -16,6 +16,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
     const [closed, setClosed] = React.useState<boolean>(true);
     const [toBeClosed, setToBeClosed] = React.useState<boolean>(false);
     const [init, setInit] = React.useState<boolean>(false);
+    const [selectedSectionId, setSelectedSectionId] = React.useState<number>(params.selectedSectionId);
 
     const menuVariants = {
         init: {
@@ -46,8 +47,17 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
     React.useEffect(() => {
         if (!closed) {
             setToBeClosed(false);
+            dispatchParams({ key: "selectedSectionId", value: 0 });
+            dispatchParams({ key: "nextSectionId", value: 0 });
+        } else {
+            dispatchParams({ key: "selectedSectionId", value: selectedSectionId });
+            dispatchParams({ key: "nextSectionId", value: selectedSectionId });
         }
     }, [closed]);
+
+    // React.useEffect(() => {
+    //     dispatchParams({ key: "selectedSectionId", value: selectedSectionId });
+    // }, [selectedSectionId]);
 
     let content = (
         <div className={props.className}>
@@ -104,7 +114,8 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                                 className={"text-xl" + (params.selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
                                                 role="button"
                                                 onClick={() => {
-                                                    dispatchParams({ key: "nextSectionId", value: section.id });
+                                                    setSelectedSectionId(section.id);
+                                                    //dispatchParams({ key: "nextSectionId", value: section.id });
                                                     setToBeClosed(true);
                                                 }}
                                             >

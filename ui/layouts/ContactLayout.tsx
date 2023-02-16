@@ -36,7 +36,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                     <motion.div
                         className={"h-full w-full flex justify-start sm:justify-center items-center p-4" + (hide ? " hidden" : "")}
                         transition={{
-                            duration: 0.5,
+                            duration: (hideAnimation ? 0.3 : 0.5),
                             ease: "easeOut"
                         }}
                         animate={{
@@ -62,7 +62,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                     <motion.div
                         className={"w-full flex justify-center p-4" + (hide ? " hidden" : "")}
                         transition={{
-                            duration: 0.5,
+                            duration: (hideAnimation ? 0.3 : 0.5),
                             ease: "easeOut"
                         }}
                         animate={{

@@ -109,9 +109,9 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                             {
                                 params.sections.map((section: any, index: number) => {
                                     return (
-                                        <div key={index} className="w-full px-6 py-4">
+                                        <div key={index} className={"w-full px-6 py-4" + (selectedSectionId == section.id ? " bg-stone-900/[.0]" : "")}>
                                             <p
-                                                className={"text-xl" + (params.selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
+                                                className={"text-xl select-none " + (selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
                                                 role="button"
                                                 onClick={() => {
                                                     setSelectedSectionId(section.id);

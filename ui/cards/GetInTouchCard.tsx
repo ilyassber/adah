@@ -2,6 +2,8 @@ import React, { TextareaHTMLAttributes } from 'react';
 import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
 import { GlobalContext } from '../../components/context/Context';
+import { Message } from '../../types.d';
+import { initFirebase, sendMessage } from '../../services/firebase';
 
 type GetInTouchCardProps = {
     className: string;
@@ -15,6 +17,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
     const [textareaState, setTextareaState] = React.useState<string>("open");
     const [init, setInit] = React.useState<boolean>(false);
     const [animating, setAnimating] = React.useState<boolean>(false);
+    const [message, setMessage] = React.useState<string>("message");
 
     const textareaVariants = {
         open: { height: "24rem" },
@@ -57,6 +60,23 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
         }
     }, [params.nextSectionId]);
 
+    const onTextAreaChange = (event: any) => {
+        if (event.target.value != null) {
+            setMessage(event.target.value);
+        }
+    };
+
+    const onSend = () => {
+        if (message != null) {
+            const messageObject: Message = {
+                message: message,
+                sendDateTime: new Date().toString(),
+            };
+            initFirebase();
+            sendMessage(messageObject);
+        }
+    }
+
     let content = (
         <div className={props.className}>
             <motion.div
@@ -85,7 +105,12 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                             autoFocus
                             spellCheck="false"
                         />
-                        <div className="h-24 w-24 flex flex-row justify-center items-center border shadow-xl border-[#9197A011] hover:bg-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0" role="button">
+                        <div
+                            className="h-24 w-24 flex flex-row justify-center items-center border shadow-xl border-[#9197A011] hover:bg-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0"
+                            role="button"
+                            onChange={onTextAreaChange}
+                            onClick={onSend}
+                        >
                             <Icon className="flex justify-center items-center" name="SendIcon" color="#9197A0" alt="" dim="40" />
                         </div>
                     </div>

@@ -20,7 +20,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 const inter = Inter({ subsets: ['latin'] })
 
 type HomeProps = {
-  className: string;
 };
 
 const Home: React.FC<HomeProps> = (props) => {

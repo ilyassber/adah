@@ -13,6 +13,7 @@ const paramsReducer = (params: any, data: { key: string; value: any }) => {
 };
 
 let defaultParams = {
+  firebaseConfig: null,
   initAnimation: false,
   sections: [
     {

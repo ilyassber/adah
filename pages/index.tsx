@@ -20,6 +20,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 const inter = Inter({ subsets: ['latin'] })
 
 type HomeProps = {
+  firebaseConfig: any,
 };
 
 const Home: React.FC<HomeProps> = (props) => {
@@ -35,6 +36,10 @@ const Home: React.FC<HomeProps> = (props) => {
   const changeTo = router.locale === 'en' ? 'de' : 'en'
 
   const { params, dispatchParams } = React.useContext(GlobalContext);
+
+  React.useEffect(() => {
+    dispatchParams({ key: "firebaseConfig", value: props.firebaseConfig });
+  }, []);
 
   return (
     <>
@@ -67,10 +72,22 @@ const Home: React.FC<HomeProps> = (props) => {
 
 export const getServerSideProps: GetServerSideProps = async ({
   locale,
-}) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['common'])),
-  },
-})
+}) => {
+  const firebaseConfig = {
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID,
+    measurementId: process.env.MEASUREMENT_ID
+  };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+      firebaseConfig: firebaseConfig
+    },
+  }
+}
 
 export default Home;

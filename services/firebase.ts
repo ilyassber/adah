@@ -3,31 +3,21 @@ import { getAnalytics, Analytics } from "firebase/analytics";
 import { Firestore, CollectionReference, getFirestore, collection, addDoc } from 'firebase/firestore/lite';
 import { Message } from "../types.d";
 
-export const initFirebase = (): FirebaseApp => {
-
-    const firebaseConfig = {
-        apiKey: process.env.API_KEY,
-        authDomain: process.env.AUTH_DOMAIN,
-        projectId: process.env.PROJECT_ID,
-        storageBucket: process.env.STORAGE_BUCKET,
-        messagingSenderId: process.env.MESSAGING_SENDER_ID,
-        appId: process.env.APP_ID,
-        measurementId: process.env.MEASUREMENT_ID
-    };
+export const initFirebase = (firebaseConfig: any): FirebaseApp => {
 
     console.log(firebaseConfig);
 
     return initializeApp(firebaseConfig);
 };
 
-export const initAnalytics = (): Analytics => {
+export const initAnalytics = (app: FirebaseApp): Analytics => {
 
-    return getAnalytics(initFirebase());
+    return getAnalytics(app);
 };
 
-export const sendMessage = (message: Message) => {
+export const sendMessage = (firebaseConfig: any, message: Message) => {
 
-    const app: FirebaseApp = initFirebase();
+    const app: FirebaseApp = initFirebase(firebaseConfig);
     const db: Firestore = getFirestore(app);
     const messagesCollection: CollectionReference = collection(db, "messages");
     addDoc(messagesCollection, message)

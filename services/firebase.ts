@@ -16,15 +16,16 @@ export const initAnalytics = (app: FirebaseApp): Analytics => {
 };
 
 export const sendMessage = (firebaseConfig: any, message: Message) => {
-
-    const app: FirebaseApp = initFirebase(firebaseConfig);
-    const db: Firestore = getFirestore(app);
-    const messagesCollection: CollectionReference = collection(db, "messages");
-    addDoc(messagesCollection, message)
-    .then((docRef) => {
-        console.log("Message sent with ID: ", docRef.id);
-    })
-    .catch((error) => {
-        console.error("Error sending message: ", error);
+    return new Promise((resolve, reject) => {
+        const app: FirebaseApp = initFirebase(firebaseConfig);
+        const db: Firestore = getFirestore(app);
+        const messagesCollection: CollectionReference = collection(db, "messages");
+        addDoc(messagesCollection, message)
+        .then((docRef) => {
+            resolve(docRef);
+        })
+        .catch((error) => {
+            reject(error);
+        });
     });
 };

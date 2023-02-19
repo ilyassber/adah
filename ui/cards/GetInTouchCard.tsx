@@ -19,10 +19,38 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
     const [init, setInit] = React.useState<boolean>(false);
     const [animating, setAnimating] = React.useState<boolean>(false);
     const [message, setMessage] = React.useState<string>("");
+    const [sendState, setSendState] = React.useState<string>("idle");
 
     const textareaVariants = {
         open: { height: "24rem" },
         closed: { height: "6rem" },
+    }
+
+    const sendButtonVariants = {
+        idle: {
+            backgroundColor: "#9197A000",
+            borderColor: "#9197A011",
+            borderWidth: "2px",
+            boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
+        },
+        sending: {
+            backgroundColor: "#d5a72f11",
+            borderColor: "#d5a72f33",
+            borderWidth: "2px",
+            boxShadow: "0 20px 25px -5px rgb(213, 167, 47 / 0.1), 0 8px 10px -6px rgb(213, 167, 47 / 0.1)"
+        },
+        success: {
+            backgroundColor: "#65a30d11",
+            borderColor: "#65a30d33",
+            borderWidth: "2px",
+            boxShadow: "0 20px 25px -5px rgb(101, 163, 13 / 0.1), 0 8px 10px -6px rgb(101, 163, 13 / 0.1)"
+        },
+        failure: {
+            backgroundColor: "#7f1d1d11",
+            borderColor: "#7f1d1d33",
+            borderWidth: "2px",
+            boxShadow: "0 20px 25px -5px rgb(127, 29, 29 / 0.1), 0 8px 10px -6px rgb(127, 29, 29 / 0.1)"
+        },
     }
 
     const transition = {
@@ -30,21 +58,25 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
         ease: "linear",
     };
 
-    const initClickListener = () => {
-        document.addEventListener(
-            "click",
-            (event: any) => {
-                if (textareaRef && textareaRef.current && sendButtonRef && sendButtonRef.current && event.target) {
-                    if (!(textareaRef.current.contains(event.target) || sendButtonRef.current.contains(event.target))) {
-                        setTextareaState("closed");
-                    } else if (textareaRef.current.contains(event.target)) {
-                        setTextareaState("open");
-                    }
-                }
-            },
-            false
-        );
+    const onClickListener = (event: any) => {
+        if (textareaRef && textareaRef.current && sendButtonRef && sendButtonRef.current && event.target) {
+            if (!(textareaRef.current.contains(event.target) || sendButtonRef.current.contains(event.target))) {
+                setTextareaState("closed");
+            } else if (textareaRef.current.contains(event.target)) {
+                setTextareaState("open");
+            }
+        }
     };
+
+    const initClickListener = () => {
+        document.addEventListener("click", onClickListener);
+    };
+
+    React.useEffect(() => {
+        return () => {
+            document.removeEventListener("click", onClickListener);
+        };
+    }, []);
 
     React.useEffect(() => {
         setAnimating(true);
@@ -68,8 +100,9 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
     };
 
     const onSend = () => {
-        if (params.firebaseConfig) {
+        if (sendState == "idle" && params.firebaseConfig) {
             if (message != null && message != "") {
+                setSendState("sending");
                 const messageObject: Message = {
                     message: message,
                     sendDateTime: new Date().toISOString(),
@@ -78,8 +111,10 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                     textareaRef!.current!.value = "";
                     setMessage("");
                     setTextareaState("closed");
+                    setSendState("success");
                 }).catch((error) => {
                     console.log(error);
+                    setSendState("failure");
                 });
             }
         }
@@ -112,19 +147,41 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                                 }
                             }}
                             onChange={onTextAreaChange}
-                            className="w-full h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
+                            className="w-full h-24 min-h-24 max-h-96 bg-transparent disabled:bg-[#9197A011] outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
                             autoFocus
                             spellCheck="false"
+                            disabled={sendState == "sending" ? true : false}
                         />
-                        <div
+                        <motion.div
                             ref={sendButtonRef}
-                            className="h-24 w-24 flex flex-row justify-center items-center border shadow-xl border-[#9197A011] hover:bg-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0"
+                            variants={sendButtonVariants}
+                            animate={sendState}
+                            whileHover={sendState == "idle" ? {
+                                backgroundColor: "#9197A011"
+                            } : {}}
+                            transition={transition}
+                            className="h-24 w-24 flex flex-row justify-center items-center border-2 border-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0"
                             role="button"
                             onChange={onTextAreaChange}
                             onClick={onSend}
+                            onAnimationComplete={(animation: string) => {
+                                if (animation == "success" || animation == "failure") {
+                                    setTimeout(() => {
+                                        setSendState("idle");
+                                    }, 1200);
+                                }
+                            }}
                         >
-                            <Icon className="flex justify-center items-center" name="SendIcon" color="#9197A0" alt="" dim="40" />
-                        </div>
+                            <div className="pointer-events-none">
+                                {sendState == "sending"
+                                    ? (<Icon key="sending" className="flex justify-center items-center" name="CircularProgress" type='animated' color="#d5a72f" alt="" dim="40" />)
+                                    : sendState == "success"
+                                        ? (<Icon key="success" className="flex justify-center items-center" name="DoneIcon" color="#65a30d" alt="" dim="40" />)
+                                        : sendState == "failure" ?
+                                            (<Icon key="failure" className="flex justify-center items-center" name="CloseIcon" color="#7f1d1d" alt="" dim="40" />)
+                                            : (<Icon key="idle" className="flex justify-center items-center" name="SendIcon" color="#9197A0" alt="" dim="40" />)}
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </motion.div >

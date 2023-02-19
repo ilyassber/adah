@@ -45,6 +45,8 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PublicIcon from '@mui/icons-material/Public';
 import LaunchIcon from '@mui/icons-material/Launch';
 import SendIcon from '@mui/icons-material/Send';
+import DoneIcon from '@mui/icons-material/Done';
+import CircularProgress from '@mui/material/CircularProgress';
 import Image from 'next/image';
 
 
@@ -53,6 +55,7 @@ const Icon: React.FC<{
     iconRef?: React.RefObject<HTMLDivElement>;
     name?: string;
     src?: string;
+    type?: string;
     alt?: string;
     priority?: boolean;
     color?: string;
@@ -107,6 +110,8 @@ const Icon: React.FC<{
         ['PublicIcon', PublicIcon],
         ['LaunchIcon', LaunchIcon],
         ['SendIcon', SendIcon],
+        ['DoneIcon', DoneIcon],
+        ['CircularProgress', CircularProgress]
     ];
 
     const [IC, setIC] = React.useState<any>(null);
@@ -142,26 +147,33 @@ const Icon: React.FC<{
             }
         }}
     >
-        {IC ? (<IC
-            style={{
-                color: `${color ? color : "white"}`,
-                height: `${props.dim}`,
-                width: `${props.dim}`,
-                stroke: `${color && props.strokeWidth ? color : ""}`,
-                strokeWidth: `${props.strokeWidth ? props.strokeWidth : 0}`,
-            }}
-            role={props.role}
-        />) : props.src ? (<div className="w-full h-full flex justify-center items-center relative">
-            <Image
-                className={(props.dim ? "object-contain" : "h-full w-full object-fit")}
-                alt={props.alt ? props.alt : ""}
-                height={props.dim ? Number(props.dim) : undefined}
-                width={props.dim ? Number(props.dim) : undefined}
-                src={props.src}
-                priority={props.priority ? props.priority : false}
-                fill={props.dim ? false : true}
-            />
-        </div>) : null}
+        {IC && props.type == "animated"
+            ? (<IC
+                style={{
+                    color: `${color ? color : "white"}`,
+                }}
+                size={Number(props.dim)}
+            />)
+            : IC ? (<IC
+                style={{
+                    color: `${color ? color : "white"}`,
+                    height: `${props.dim}`,
+                    width: `${props.dim}`,
+                    stroke: `${color && props.strokeWidth ? color : ""}`,
+                    strokeWidth: `${props.strokeWidth ? props.strokeWidth : 0}`,
+                }}
+                role={props.role}
+            />) : props.src ? (<div className="w-full h-full flex justify-center items-center relative">
+                <Image
+                    className={(props.dim ? "object-contain" : "h-full w-full object-fit")}
+                    alt={props.alt ? props.alt : ""}
+                    height={props.dim ? Number(props.dim) : undefined}
+                    width={props.dim ? Number(props.dim) : undefined}
+                    src={props.src}
+                    priority={props.priority ? props.priority : false}
+                    fill={props.dim ? false : true}
+                />
+            </div>) : null}
     </div>);
 
     return content;

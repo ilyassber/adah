@@ -14,10 +14,11 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
     const { params, dispatchParams } = React.useContext(GlobalContext);
 
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+    const sendButtonRef = React.useRef<HTMLDivElement>(null);
     const [textareaState, setTextareaState] = React.useState<string>("open");
     const [init, setInit] = React.useState<boolean>(false);
     const [animating, setAnimating] = React.useState<boolean>(false);
-    const [message, setMessage] = React.useState<string>("message");
+    const [message, setMessage] = React.useState<string>("");
 
     const textareaVariants = {
         open: { height: "24rem" },
@@ -33,11 +34,11 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
         document.addEventListener(
             "click",
             (event: any) => {
-                if (textareaRef && textareaRef.current && event.target) {
-                    if (textareaRef.current.contains(event.target)) {
-                        setTextareaState("open");
-                    } else {
+                if (textareaRef && textareaRef.current && sendButtonRef && sendButtonRef.current && event.target) {
+                    if (!(textareaRef.current.contains(event.target) || sendButtonRef.current.contains(event.target))) {
                         setTextareaState("closed");
+                    } else if (textareaRef.current.contains(event.target)) {
+                        setTextareaState("open");
                     }
                 }
             },
@@ -67,13 +68,20 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
     };
 
     const onSend = () => {
-        if (message != null) {
-            const messageObject: Message = {
-                message: message,
-                sendDateTime: new Date().toString(),
-            };
-            initFirebase();
-            sendMessage(messageObject);
+        if (params.firebaseConfig) {
+            if (message != null && message != "") {
+                const messageObject: Message = {
+                    message: message,
+                    sendDateTime: new Date().toISOString(),
+                };
+                sendMessage(params.firebaseConfig, messageObject).then((doc) => {
+                    textareaRef!.current!.value = "";
+                    setMessage("");
+                    setTextareaState("closed");
+                }).catch((error) => {
+                    console.log(error);
+                });
+            }
         }
     }
 
@@ -97,15 +105,19 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                                     setInit(true);
                                     initClickListener();
                                 }
-                                if (animation == "closed" && (params.nextSectionId != params.selectedSectionId)) {
-                                    dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+                                if (animation == "closed") {
+                                    if (params.nextSectionId != params.selectedSectionId) {
+                                        dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+                                    }
                                 }
                             }}
+                            onChange={onTextAreaChange}
                             className="w-full h-24 min-h-24 max-h-96 bg-transparent outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
                             autoFocus
                             spellCheck="false"
                         />
                         <div
+                            ref={sendButtonRef}
                             className="h-24 w-24 flex flex-row justify-center items-center border shadow-xl border-[#9197A011] hover:bg-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0"
                             role="button"
                             onChange={onTextAreaChange}

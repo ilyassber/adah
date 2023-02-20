@@ -4,18 +4,14 @@ import { Firestore, CollectionReference, getFirestore, collection, addDoc } from
 import { Message } from "../types.d";
 
 export const initFirebase = (firebaseConfig: any): FirebaseApp => {
-
-    console.log(firebaseConfig);
-
     return initializeApp(firebaseConfig);
 };
 
 export const initAnalytics = (app: FirebaseApp): Analytics => {
-
     return getAnalytics(app);
 };
 
-export const sendMessage = (firebaseConfig: any, message: Message) => {
+export const sendMessage = (firebaseConfig: any, message: Message): Promise<any> => {
     return new Promise((resolve, reject) => {
         const app: FirebaseApp = initFirebase(firebaseConfig);
         const db: Firestore = getFirestore(app);

@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head'
+import Script from 'next/script'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { Inter } from '@next/font/google'
@@ -45,6 +46,20 @@ const Home: React.FC<HomeProps> = (props) => {
     <>
       <Head>
         <title>ADAH</title>
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${params.ga_id}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', '${params.ga_id}');
+        `}
+        </Script>
         <meta name="description" content="Personal portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

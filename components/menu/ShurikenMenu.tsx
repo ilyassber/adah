@@ -222,7 +222,7 @@ const ShurikenMenu: React.FC<ShurikenMenuProps> = (props) => {
     React.useEffect(() => {
         let newPlacesList = [];
         if (currentIndex == selectedIndex) {
-            if (Math.abs(wheelDelta) < 15) {
+            if (Math.abs(wheelDelta) < 30) {
                 setSpeedUp(false);
             } else {
                 setSpeedUp(true);

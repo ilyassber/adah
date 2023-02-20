@@ -110,7 +110,6 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                 sendMessage(params.firebaseConfig, messageObject).then((doc) => {
                     textareaRef!.current!.value = "";
                     setMessage("");
-                    setTextareaState("closed");
                     setSendState("success");
                 }).catch((error) => {
                     console.log(error);
@@ -168,6 +167,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                                 if (animation == "success" || animation == "failure") {
                                     setTimeout(() => {
                                         setSendState("idle");
+                                        setTextareaState("closed");
                                     }, 1200);
                                 }
                             }}

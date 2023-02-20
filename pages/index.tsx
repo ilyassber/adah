@@ -48,7 +48,7 @@ const Home: React.FC<HomeProps> = (props) => {
         <title>ADAH</title>
         {/* Global site tag (gtag.js) - Google Analytics */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${params.ga_id}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${props.firebaseConfig.ga_id}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -57,7 +57,7 @@ const Home: React.FC<HomeProps> = (props) => {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
-          gtag('config', '${params.ga_id}');
+          gtag('config', '${props.firebaseConfig.ga_id}');
         `}
         </Script>
         <meta name="description" content="Personal portfolio" />
@@ -95,7 +95,8 @@ export const getServerSideProps: GetServerSideProps = async ({
     storageBucket: process.env.STORAGE_BUCKET,
     messagingSenderId: process.env.MESSAGING_SENDER_ID,
     appId: process.env.APP_ID,
-    measurementId: process.env.MEASUREMENT_ID
+    measurementId: process.env.MEASUREMENT_ID,
+    ga_id: process.env.GA_ID
   };
   return {
     props: {

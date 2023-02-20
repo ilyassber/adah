@@ -114,8 +114,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                                 className="h-full w-full"
                                 animate={{
                                     rotate: -10,
-                                    x: (-screenWidth / 3),
-                                    y: (-screenHeight / 20),
+                                    x: (-(screenWidth > screenHeight ? screenWidth / 3 : screenWidth / 7)),
+                                    y: (-(screenWidth > screenHeight ? screenHeight / 20 : screenHeight / 10)),
                                     opacity: (hideAnimation ? ["3%", "0%"] : ["0%", "3%"]),
                                 }}
                                 transition={{
@@ -130,7 +130,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                                     }
                                 }}
                             >
-                                <Icon className="h-full w-full" src='/icons/shuriken.svg' priority={true} />
+                                <Icon className="h-full w-full flex items-start justify-start" src='/icons/shuriken.svg' priority={true} />
                             </motion.div>
                         </div>
                         <div className={"absolute bottom-0 left-0 h-full flex flex-col flex-col-reverse justify-start items-center py-8 pl-1 sm:pl-2 md:pl-3" + (hide || hideAnimation ? " hidden" : "")}>

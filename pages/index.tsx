@@ -34,7 +34,7 @@ const Home: React.FC<HomeProps> = (props) => {
     router.push({ pathname, query }, asPath, { locale: newLocale })
   }
 
-  const changeTo = router.locale === 'en' ? 'de' : 'en'
+  const changeTo = router.locale === 'en' ? 'fr' : 'en'
 
   const { params, dispatchParams } = React.useContext(GlobalContext);
 

@@ -1,3 +1,8 @@
 {
-    "name": "Ilyass BERCHIDA"
+    "home": {
+        "hi": "Hi, I'm",
+        "name": "Ilyass BERCHIDA",
+        "slogan": "I build things & ensure</1>functionality.",
+        "intro": "I'm a <1>Software developer</1> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture at <1>AgriEdge</1>."
+    }
 }

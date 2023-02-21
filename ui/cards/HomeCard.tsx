@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import { GlobalContext } from '../../components/context/Context';
+import { useTranslation, Trans } from 'next-i18next';
 
 type HomeCardProps = {
     className: string;
@@ -10,6 +11,7 @@ type HomeCardProps = {
 const HomeCard: React.FC<HomeCardProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
+    const { t } = useTranslation('common');
 
     const [animation, setAnimation] = React.useState<string>("initAnimation");
 
@@ -52,16 +54,22 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                         }}
                     >
                         <p className="font-semibold text-base sm:text-lg md:text-xl text-yano-500 mb-4 sm:mb-4 md:mb-6 lg:mb-8">
-                            Hi, I'm
+                            {t('home.hi')}
                         </p>
                         <p className="font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#E2E8F0] mb-4 sm:mb-4 md:mb-6 lg:mb-8">
-                            Ilyass BERCHIDA
+                            {t('home.name')}
                         </p>
                         <p className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#9197A0] leading-normal mb-4 sm:mb-4 md:mb-6 lg:mb-8">
-                            I build things & ensure<br />functionality.
+                            <Trans i18nKey="home.slogan">
+                                I build things & ensure
+                                <br />
+                                functionality.
+                            </Trans>
                         </p>
                         <p className="max-w-lg font-normal text-xs sm:text-sm md:text-base text-[#9197A0] leading-relaxed">
-                            I'm a <span className="font-semibold text-yano-500">Software developer</span> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture at <span className="font-semibold text-yano-500">AgriEdge</span>.
+                            <Trans i18nKey="home.intro">
+                                I'm a <span className="font-semibold text-yano-500">Software developer</span> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture at <span className="font-semibold text-yano-500">AgriEdge</span>.
+                            </Trans>
                         </p>
                     </motion.div>
                 </div>

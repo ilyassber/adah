@@ -17,6 +17,7 @@ import type { GetServerSideProps, GetStaticProps, InferGetStaticPropsType } from
 
 import { useTranslation, Trans } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import ScrollLayout from '../ui/layouts/ScrollLayout';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -70,7 +71,9 @@ const Home: React.FC<HomeProps> = (props) => {
             {params.selectedSectionId == 1
               ? (<HomeCard className="w-full" />)
               : params.selectedSectionId == 2
-                ? (<AboutCard className="w-full" />)
+                ? (<ScrollLayout className="h-full w-full">
+                  <AboutCard className="w-full" />
+                </ScrollLayout>)
                 : params.selectedSectionId == 3
                   ? (<ExperienceCard className="w-full" />)
                   : params.selectedSectionId == 4

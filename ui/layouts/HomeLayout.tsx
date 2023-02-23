@@ -63,15 +63,18 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
+        console.log("Segma: ", segma);
         if (segma < -20) {
             setDirection("up");
         } else if (segma > 20) {
             setDirection("down");
         } else {
-            if (homeLayoutRef && homeLayoutRef.current) {
-                homeLayoutRef.current?.scroll({
-                    top: 1,
-                });
+            if (direction == "up" || direction == "down") {
+                if (homeLayoutRef && homeLayoutRef.current) {
+                    homeLayoutRef.current?.scroll({
+                        top: 1,
+                    });
+                }
             }
             setDirection("hold");
         }

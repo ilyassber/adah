@@ -68,6 +68,11 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         } else if (segma > 20) {
             setDirection("down");
         } else {
+            if (homeLayoutRef && homeLayoutRef.current) {
+                homeLayoutRef.current?.scroll({
+                    top: 1,
+                });
+            }
             setDirection("hold");
         }
     }, [segma]);

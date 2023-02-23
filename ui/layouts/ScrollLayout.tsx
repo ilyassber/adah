@@ -40,10 +40,6 @@ const ScrollLayout: React.FC<ScrollLayoutProps> = (props) => {
         }
     }, [params.selectedSectionId]);
 
-    React.useEffect(() => {
-        console.log(clientHeight, scrollHeight, scrollTop);
-    }, [clientHeight, scrollHeight, scrollTop]);
-
     let content = (
         <div className={props.className}>
             <div ref={scrollableElementRef} className="relative h-screen w-full overflow-auto">

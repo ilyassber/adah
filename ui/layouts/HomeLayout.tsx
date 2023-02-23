@@ -6,6 +6,7 @@ import ContactLayout from './ContactLayout';
 import Icon from '../../components/icon/Icon';
 import { motion } from "framer-motion";
 import MenuLayout from './MenuLayout';
+import Script from 'next/script';
 
 type HomeLayoutProps = {
     className: tailwindcss;

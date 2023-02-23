@@ -3,6 +3,8 @@ import '../styles/globals.css';
 import { appWithTranslation } from 'next-i18next'
 import type { AppProps } from 'next/app';
 import { GlobalContext } from '../components/context/Context';
+import Head from 'next/head';
+import Script from 'next/script';
 
 const paramsReducer = (params: any, data: { key: string; value: any }) => {
   let nParams = {

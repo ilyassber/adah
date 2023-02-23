@@ -47,25 +47,31 @@ const Home: React.FC<HomeProps> = (props) => {
     <>
       <Head>
         <title>ADAH</title>
-        {/* Global site tag (gtag.js) - Google Analytics */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${props.firebaseConfig.ga_id}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', '${props.firebaseConfig.ga_id}');
-        `}
-        </Script>
         <meta name="description" content="Personal portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen w-screen">
+        <>
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${props.firebaseConfig.ga_id}`}
+          />
+          <Script
+            id='google-analytics'
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${props.firebaseConfig.ga_id}', {
+                  page_path: window.location.pathname,
+                });
+              `
+            }}
+          /></>
         <HomeLayout className="h-screen w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
           <ScrollLayout className="h-screen w-full flex flex-col justify-center">
             {params.selectedSectionId == 1

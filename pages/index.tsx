@@ -67,13 +67,11 @@ const Home: React.FC<HomeProps> = (props) => {
       </Head>
       <main className="h-screen w-screen">
         <HomeLayout className="h-screen w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
-          <div className="h-screen w-full flex flex-col justify-center">
+          <ScrollLayout className="h-screen w-full flex flex-col justify-center">
             {params.selectedSectionId == 1
               ? (<HomeCard className="w-full" />)
               : params.selectedSectionId == 2
-                ? (<ScrollLayout className="h-full w-full">
-                  <AboutCard className="w-full" />
-                </ScrollLayout>)
+                ? (<AboutCard className="w-full" />)
                 : params.selectedSectionId == 3
                   ? (<ExperienceCard className="w-full" />)
                   : params.selectedSectionId == 4
@@ -81,7 +79,7 @@ const Home: React.FC<HomeProps> = (props) => {
                     : params.selectedSectionId == 5
                       ? (<GetInTouchCard className="w-full" />)
                       : null}
-          </div>
+          </ScrollLayout>
         </HomeLayout>
       </main>
     </>

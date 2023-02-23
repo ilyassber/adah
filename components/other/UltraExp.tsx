@@ -28,7 +28,7 @@ const UltraExp: React.FC<UltraExpType> = (props) => {
 
     let content = (<div className={props.className}>
         <div className="flex flex-col">
-            <div className="relative w-full flex flex-col px-8 py-6 shadow-xl rounded-md border border-[#9197A011] transition duration-200 ease-in-out transform hover:scale-[1.02] hover:bg-[#1B1B1B66]">
+            <div className="relative w-full flex flex-col px-8 py-6 shadow-xl rounded-md border border-[#9197A011] transition duration-200 ease-in-out transform hover:scale-[1.02] hover:bg-[#1B1B1B44]">
                 <div
                     className={"absolute -top-4 -right-4 rounded shadow p-0.5"}
                     style={{

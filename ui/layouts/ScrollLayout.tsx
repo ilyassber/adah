@@ -11,12 +11,19 @@ const ScrollLayout: React.FC<ScrollLayoutProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
 
+    const scrollableElementRef = React.useRef<HTMLDivElement>(null);
+
     React.useEffect(() => {
-    }, []);
+        if (scrollableElementRef && scrollableElementRef.current) {
+            scrollableElementRef.current.scroll({
+                top: 0,
+            });
+        }
+    }, [params.selectedSectionId]);
 
     let content = (
         <div className={props.className}>
-            <div className="relative h-screen w-full max-h-screen flex items-center justify-center overflow-auto">
+            <div ref={scrollableElementRef} className="relative h-screen w-full overflow-auto">
                 {props.children}
             </div>
         </div>

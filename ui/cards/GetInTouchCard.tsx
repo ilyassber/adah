@@ -124,65 +124,63 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
             <motion.div
                 className="flex h-screen items-center justify-center"
             >
-                <div className="relative w-full max-h-screen overflow-auto">
-                    <div
-                        className="flex flex-col sm:flex-row items-end justify-center p-8 sm:p-12 md:p-20 lg:p-24"
+                <div
+                    className="w-full flex flex-col sm:flex-row items-end justify-center p-8 sm:p-12 md:p-20 lg:p-24"
+                >
+                    <motion.textarea
+                        ref={textareaRef}
+                        variants={textareaVariants}
+                        animate={textareaState}
+                        transition={transition}
+                        onAnimationComplete={(animation) => {
+                            setAnimating(false);
+                            if (!init) {
+                                setInit(true);
+                                initClickListener();
+                            }
+                            if (animation == "closed") {
+                                if (params.nextSectionId != params.selectedSectionId) {
+                                    dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+                                }
+                            }
+                        }}
+                        onChange={onTextAreaChange}
+                        className="w-full h-24 min-h-24 max-h-96 bg-transparent disabled:bg-[#9197A011] outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
+                        autoFocus
+                        spellCheck="false"
+                        disabled={sendState == "sending" ? true : false}
+                    />
+                    <motion.div
+                        ref={sendButtonRef}
+                        variants={sendButtonVariants}
+                        animate={sendState}
+                        whileHover={sendState == "idle" ? {
+                            backgroundColor: "#9197A011"
+                        } : {}}
+                        transition={transition}
+                        className="h-24 w-24 flex flex-row justify-center items-center border-2 border-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0"
+                        role="button"
+                        onChange={onTextAreaChange}
+                        onClick={onSend}
+                        onAnimationComplete={(animation: string) => {
+                            if (animation == "success" || animation == "failure") {
+                                setTimeout(() => {
+                                    setSendState("idle");
+                                    setTextareaState("closed");
+                                }, 1200);
+                            }
+                        }}
                     >
-                        <motion.textarea
-                            ref={textareaRef}
-                            variants={textareaVariants}
-                            animate={textareaState}
-                            transition={transition}
-                            onAnimationComplete={(animation) => {
-                                setAnimating(false);
-                                if (!init) {
-                                    setInit(true);
-                                    initClickListener();
-                                }
-                                if (animation == "closed") {
-                                    if (params.nextSectionId != params.selectedSectionId) {
-                                        dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
-                                    }
-                                }
-                            }}
-                            onChange={onTextAreaChange}
-                            className="w-full h-24 min-h-24 max-h-96 bg-transparent disabled:bg-[#9197A011] outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
-                            autoFocus
-                            spellCheck="false"
-                            disabled={sendState == "sending" ? true : false}
-                        />
-                        <motion.div
-                            ref={sendButtonRef}
-                            variants={sendButtonVariants}
-                            animate={sendState}
-                            whileHover={sendState == "idle" ? {
-                                backgroundColor: "#9197A011"
-                            } : {}}
-                            transition={transition}
-                            className="h-24 w-24 flex flex-row justify-center items-center border-2 border-[#9197A011] rounded px-4 py-1 ml-0 sm:ml-2 mt-2 sm:mt-0"
-                            role="button"
-                            onChange={onTextAreaChange}
-                            onClick={onSend}
-                            onAnimationComplete={(animation: string) => {
-                                if (animation == "success" || animation == "failure") {
-                                    setTimeout(() => {
-                                        setSendState("idle");
-                                        setTextareaState("closed");
-                                    }, 1200);
-                                }
-                            }}
-                        >
-                            <div className="pointer-events-none">
-                                {sendState == "sending"
-                                    ? (<Icon key="sending" className="flex justify-center items-center" name="CircularProgress" type='animated' color="#d5a72f" alt="" dim="40" />)
-                                    : sendState == "success"
-                                        ? (<Icon key="success" className="flex justify-center items-center" name="DoneIcon" color="#65a30d" alt="" dim="40" />)
-                                        : sendState == "failure" ?
-                                            (<Icon key="failure" className="flex justify-center items-center" name="CloseIcon" color="#7f1d1d" alt="" dim="40" />)
-                                            : (<Icon key="idle" className="flex justify-center items-center" name="SendIcon" color="#9197A0" alt="" dim="40" />)}
-                            </div>
-                        </motion.div>
-                    </div>
+                        <div className="pointer-events-none">
+                            {sendState == "sending"
+                                ? (<Icon key="sending" className="flex justify-center items-center" name="CircularProgress" type='animated' color="#d5a72f" alt="" dim="40" />)
+                                : sendState == "success"
+                                    ? (<Icon key="success" className="flex justify-center items-center" name="DoneIcon" color="#65a30d" alt="" dim="40" />)
+                                    : sendState == "failure" ?
+                                        (<Icon key="failure" className="flex justify-center items-center" name="CloseIcon" color="#7f1d1d" alt="" dim="40" />)
+                                        : (<Icon key="idle" className="flex justify-center items-center" name="SendIcon" color="#9197A0" alt="" dim="40" />)}
+                        </div>
+                    </motion.div>
                 </div>
             </motion.div >
         </div >

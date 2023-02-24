@@ -48,7 +48,7 @@ const ScrollLayout: React.FC<ScrollLayoutProps> = (props) => {
                         className={`fixed left-0 h-full w-1.5 md:w-2 ml-0.5 md:ml-2`}
                     >
                         <motion.div
-                            className={'w-1.5 md:w-2 bg-gradient-to-b from-[#0c151522] via-[#0c151588] to-[#0c151522]'}
+                            className={'w-1.5 md:w-2 bg-gradient-to-b from-[#0c151518] via-[#0c151588] to-[#0c151518]'}
                             animate={{
                                 marginTop: (scrollTop * (clientHeight / scrollHeight)) + 30,
                                 height: `${(clientHeight * (clientHeight / scrollHeight)) - 60}px`

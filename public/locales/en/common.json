@@ -4,5 +4,17 @@
         "name": "Ilyass BERCHIDA",
         "slogan": "I build things & ensure<1/>functionality.",
         "intro": "I'm a <1>Software developer</1> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture at <1>AgriEdge</1>."
+    },
+    "about": {
+        "name": "Ilyass Berchida",
+        "position": "Software Developer at UM6P - AGE  /  Web Developer",
+        "location": "Bin Jareer, Marrakesh-Safi, Morocco",
+        "quote": "\"The details are not the details. They make the design.\"",
+        "author": "- Charles Eames",
+        "aboutme": {
+            "part1": "I'm Ilyass Berchida, a Software developer from Casablanca, Morocco. I was born on June 10th, 1994, and have been interested in technology and coding since a young age. After completing my studies in Economics at a local university, I decided to follow my passion and further my education by attending <1>1337 coding school</1>, which allowed me to gain a deeper understanding of <1>Web development</1> and the latest technologies in the field.",
+            "part2": "I have two years of experience in web development and worked on several projects using technologies such as <1>React</1>, <1>Next</1>, and <1>Django</1>. I am passionate about creating exceptional experiences and user-friendly websites that meet users' needs and solve real-world problems. I'm dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.",
+            "part3": "I have gained experience in different domains such as <1>Agri-tech</1>, <1>Tourism</1>, and <1>E-commerce</1> through my work, and I am always looking for new challenges and opportunities to grow as a professional. I am excited to be a part of the software development community in Morocco and look forward to making a positive impact."
+        }
     }
 }

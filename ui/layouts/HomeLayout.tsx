@@ -6,7 +6,7 @@ import ContactLayout from './ContactLayout';
 import Icon from '../../components/icon/Icon';
 import { motion } from "framer-motion";
 import MenuLayout from './MenuLayout';
-import Script from 'next/script';
+import { gaEvent } from '../../services/ga';
 
 type HomeLayoutProps = {
     className: tailwindcss;
@@ -103,6 +103,11 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
             homeLayoutRef.current.addEventListener("scroll", onScroll);
         }
     }, [homeLayoutRef.current]);
+
+    React.useEffect(() => {
+        let section: string = params.sections[params.selectedSectionId - 1].name;
+        gaEvent(section, section, "visite", 1);
+    }, [params.selectedSectionId]);
 
     React.useEffect(() => {
         if (screenWidth > 0) {

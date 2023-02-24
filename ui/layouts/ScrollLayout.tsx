@@ -45,10 +45,10 @@ const ScrollLayout: React.FC<ScrollLayoutProps> = (props) => {
             <div ref={scrollableElementRef} className="relative h-screen w-full overflow-auto">
                 {clientHeight == scrollHeight ? null : (
                     <div
-                        className={`fixed left-0 h-full w-1.5 md:w-2 ml-0.5 md:ml-1.5`}
+                        className={`fixed left-0 h-full w-1.5 md:w-2 ml-0.5 md:ml-2`}
                     >
                         <motion.div
-                            className={'w-1.5 md:w-2 rounded bg-gradient-to-b from-transparent via-[#0c151588] to-transparent'}
+                            className={'w-1.5 md:w-2 bg-gradient-to-b from-[#0c151522] via-[#0c151588] to-[#0c151522]'}
                             animate={{
                                 marginTop: (scrollTop * (clientHeight / scrollHeight)) + 30,
                                 height: `${(clientHeight * (clientHeight / scrollHeight)) - 60}px`

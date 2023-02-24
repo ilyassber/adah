@@ -32,14 +32,20 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     const ySteps: number[] = [0, 50, 100, 50, 0, -50, 0];
 
     const onScrollTop = () => {
-        if (params.selectedSectionId > 1) {
+        if (params.selectedSectionId > 1 && params.selectedSectionId == params.nextSectionId) {
             dispatchParams({ key: "nextSectionId", value: params.selectedSectionId - 1 });
+            setTimeout(() => {
+                setSegma(0);
+            }, 1000);
         }
     };
 
     const onScrollBottom = () => {
-        if (params.selectedSectionId < 5) {
+        if (params.selectedSectionId < 5 && params.selectedSectionId == params.nextSectionId) {
             dispatchParams({ key: "nextSectionId", value: params.selectedSectionId + 1 });
+            setTimeout(() => {
+                setSegma(0);
+            }, 1000);
         }
 
     };
@@ -49,7 +55,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
             if (event.target?.scrollTop == 1) {
                 setSegma(s => s / 2);
             } else {
-                setSegma(s => s + event.target?.scrollTop - 1);
+                setSegma(s => s + ((event.target?.scrollTop - 1) * 2));
             }
             homeLayoutRef.current?.scroll({
                 top: 1,
@@ -63,7 +69,6 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        console.log("Segma: ", segma);
         if (segma < -20) {
             setDirection("up");
         } else if (segma > 20) {
@@ -75,8 +80,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                         top: 1,
                     });
                 }
+                if (Math.abs(segma) < 5) {
+                    setDirection("hold");
+                }
             }
-            setDirection("hold");
         }
     }, [segma]);
 

@@ -105,8 +105,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, [homeLayoutRef.current]);
 
     React.useEffect(() => {
-        let section: string = params.sections[params.selectedSectionId - 1].name;
-        gaEvent(section, section, "visite", 1);
+        if (params.selectedSectionId != 0) {
+            let section: string = params.sections[params.selectedSectionId - 1].name;
+            gaEvent(section, section, "visite", 1);
+        }
     }, [params.selectedSectionId]);
 
     React.useEffect(() => {

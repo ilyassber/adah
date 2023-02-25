@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
 import ProjectCard from '../../components/other/ProjectCard';
 import { GlobalContext } from '../../components/context/Context';
+import { useTranslation, Trans } from 'next-i18next';
+import { Project } from '../../types.d';
 
 type ProjectsCardProps = {
     className: string;
@@ -12,7 +14,9 @@ type ProjectsCardProps = {
 const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
+    const { t } = useTranslation('common');
 
+    const [projects, setProjects] = React.useState<Project[]>([]);
     const [animation, setAnimation] = React.useState<string>("initAnimation");
 
     const variants = {
@@ -25,6 +29,10 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
             opacity: ["100%", "0%"],
         },
     }
+
+    React.useEffect(() => {
+        setProjects(t("projects.projects", { returnObjects: true }));
+    }, []);
 
     React.useEffect(() => {
         if (params.nextSectionId != params.selectedSectionId) {
@@ -63,84 +71,32 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                     <p className="font-bold align-bottom text-xl text-[#9197A0] leading-none">PROJECTS</p>
                     <div className="grow h-[2px] bg-gradient-to-r from-[#9197A077] to-[#9197A000] rounded ml-3 mr-8" />
                 </motion.div>
-                <motion.div
-                    className="mb-8"
-                    animate={{
-                        y: [20, 0],
-                        opacity: ["0%", "100%"],
-                    }}
-                    transition={{
-                        duration: 0.3,
-                        ease: "linear",
-                    }}
-                >
-                    <ProjectCard
-                        className="h-full"
-                        name="Adah - Personal Protfolio"
-                        description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
-                        tasks={[
-                            "Designing and implementing the UI using TailwindCSS",
-                            "Setting up a Next.js framework for optimized performance",
-                            "Incorporating dynamic data using React and TypeScript",
-                            "Adding animation using Framer Motion"
-                        ]}
-                        technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
-                        projectLink="https://github.com/ilyassber/adah"
-                        webLink="https://github.com/ilyassber/adah"
-                    />
-                </motion.div>
-                <motion.div
-                    className="mb-8"
-                    animate={{
-                        y: [20, 0],
-                        opacity: ["0%", "0%", "100%"],
-                    }}
-                    transition={{
-                        duration: 0.6,
-                        ease: "linear",
-                    }}
-                >
-                    <ProjectCard
-                        className=""
-                        name="Adah - Personal Protfolio"
-                        description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
-                        tasks={[
-                            "Designing and implementing the UI using TailwindCSS",
-                            "Setting up a Next.js framework for optimized performance",
-                            "Incorporating dynamic data using React and TypeScript",
-                            "Adding animation using Framer Motion"
-                        ]}
-                        technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
-                        projectLink="https://github.com/ilyassber/adah"
-                        webLink=""
-                    />
-                </motion.div>
-                <motion.div
-                    className=""
-                    animate={{
-                        y: [20, 0],
-                        opacity: ["0%", "0%", "0%", "100%"],
-                    }}
-                    transition={{
-                        duration: 0.9,
-                        ease: "linear",
-                    }}
-                >
-                    <ProjectCard
-                        className=""
-                        name="Adah - Personal Protfolio"
-                        description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
-                        tasks={[
-                            "Designing and implementing the UI using TailwindCSS",
-                            "Setting up a Next.js framework for optimized performance",
-                            "Incorporating dynamic data using React and TypeScript",
-                            "Adding animation using Framer Motion"
-                        ]}
-                        technologies={["Typescript", "NextJs", "React", "TailwindCSS", "Framer Motion"]}
-                        projectLink=""
-                        webLink=""
-                    />
-                </motion.div>
+                {projects && projects.length > 0 ? projects.map((project: Project, index: number) => {
+                    return (
+                        <motion.div
+                            key={index}
+                            className="mb-8"
+                            animate={{
+                                y: [20, 0],
+                                opacity: [...[...Array(index + 1).keys()].map(() => { return "0%" }), "100%"],
+                            }}
+                            transition={{
+                                duration: 0.3 * (index + 1),
+                                ease: "linear",
+                            }}
+                        >
+                            <ProjectCard
+                                className="h-full"
+                                name={project.title}
+                                description={project.description}
+                                tasks={project.tasks}
+                                technologies={project.technologies}
+                                projectLink={project.projectLink}
+                                webLink={project.webLink}
+                            />
+                        </motion.div>
+                    );
+                }) : null}
             </motion.div>
         </div >
     );

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
 import SocialMedia from '../../components/navigation/SocialMedia';
 import { GlobalContext } from '../../components/context/Context';
+import { useTranslation, Trans } from 'next-i18next';
 
 type AboutCardProps = {
     className: string;
@@ -12,6 +13,8 @@ type AboutCardProps = {
 const AboutCard: React.FC<AboutCardProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
+
+    const { t } = useTranslation('common');
 
     const [animation, setAnimation] = React.useState<string>("initAnimation");
 
@@ -67,16 +70,16 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                         className="flex flex-col items-center mb-12"
                     >
                         <p className="font-semibold text-2xl text-[#E2E8F0] mb-6">
-                            Ilyass Berchida
+                            {t('about.name')}
                         </p>
                         <p className="font-medium text-sm text-[#9197A0] text-center mb-2">
-                            <span className="inline-block whitespace-nowrap">Software Developer at UM6P - AGE</span>
+                            <span className="inline-block whitespace-nowrap">{t('about.position1')}</span>
                             <span className="hidden sm:inline sm:whitespace-pre">  /  </span>
                             <span className="block sm:hidden whitespace-pre-line"> </span>
-                            <span>Web Developer</span>
+                            <span>{t('about.position2')}</span>
                         </p>
                         <p className="font-medium text-sm text-[#9197A0] text-center mb-6">
-                            Bin Jareer, Marrakesh-Safi, Morocco
+                            {t('about.location')}
                         </p>
                         <SocialMedia className="" data={[
                             {
@@ -109,23 +112,29 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                         className="flex flex-col items-center mb-6"
                     >
                         <p className="font-solitreo text-base text-[#A1A7B0] text-center mb-2">
-                            "The details are not the details. They make the design."
+                            {t('about.quote')}
                         </p>
                         <p className="font-normal text-xs text-[#818790] mb-2">
-                            - Charles Eames
+                            {t('about.author')}
                         </p>
                     </div>
                     <div
                         className="flex flex-col items-center"
                     >
                         <p className="text-sm text-[#A1A7B0] text-left max-w-4xl">
-                            I'm Ilyass Berchida, a Software developer from Casablanca, Morocco. I was born on June 10th, 1994, and have been interested in technology and coding since a young age. After completing my studies in Economics at a local university, I decided to follow my passion and further my education by attending <span className="font-bold text-[#B1B7C0]">1337 coding school</span>, which allowed me to gain a deeper understanding of <span className="font-bold text-[#B1B7C0]">Web development</span> and the latest technologies in the field.
+                            <Trans i18nKey="about.aboutme.part1">
+                                I'm Ilyass Berchida, a Software developer from Casablanca, Morocco. I was born on June 10th, 1994, and have been interested in technology and coding since a young age. After completing my studies in Economics at a local university, I decided to follow my passion and further my education by attending <span className="font-bold text-[#B1B7C0]">1337 coding school</span>, which allowed me to gain a deeper understanding of <span className="font-bold text-[#B1B7C0]">Web development</span> and the latest technologies in the field.
+                            </Trans>
                             <br />
                             <br />
-                            I have two years of experience in web development and worked on several projects using technologies such as <span className="font-bold text-[#B1B7C0]">React</span>, <span className="font-bold text-[#B1B7C0]">Next</span>, and <span className="font-bold text-[#B1B7C0]">Django</span>. I am passionate about creating exceptional experiences and user-friendly websites that meet users' needs and solve real-world problems. I'm dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.
+                            <Trans i18nKey="about.aboutme.part2">
+                                I have two years of experience in web development and worked on several projects using technologies such as <span className="font-bold text-[#B1B7C0]">React</span>, <span className="font-bold text-[#B1B7C0]">Next</span>, and <span className="font-bold text-[#B1B7C0]">Django</span>. I am passionate about creating exceptional experiences and user-friendly websites that meet users' needs and solve real-world problems. I'm dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.
+                            </Trans>
                             <br />
                             <br />
-                            I have gained experience in different domains such as <span className="font-bold text-[#B1B7C0]">Agri-tech</span>, <span className="font-bold text-[#B1B7C0]">Tourism</span>, and <span className="font-bold text-[#B1B7C0]">E-commerce</span> through my work, and I am always looking for new challenges and opportunities to grow as a professional. I am excited to be a part of the software development community in Morocco and look forward to making a positive impact.
+                            <Trans i18nKey="about.aboutme.part3">
+                                I have gained experience in different domains such as <span className="font-bold text-[#B1B7C0]">Agri-tech</span>, <span className="font-bold text-[#B1B7C0]">Tourism</span>, and <span className="font-bold text-[#B1B7C0]">E-commerce</span> through my work, and I am always looking for new challenges and opportunities to grow as a professional. I am excited to be a part of the software development community in Morocco and look forward to making a positive impact.
+                            </Trans>
                         </p>
                     </div>
                 </motion.div>

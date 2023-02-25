@@ -7,7 +7,8 @@
     },
     "about": {
         "name": "Ilyass Berchida",
-        "position": "Software Developer at UM6P - AGE  /  Web Developer",
+        "position1": "Software Developer at UM6P - AGE",
+        "position2": "Web Developer",
         "location": "Bin Jareer, Marrakesh-Safi, Morocco",
         "quote": "\"The details are not the details. They make the design.\"",
         "author": "- Charles Eames",

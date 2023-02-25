@@ -78,24 +78,28 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                         <SocialMedia className="" data={[
                             {
                                 iconName: "GitHubIcon",
+                                iconAlt: "GitHub",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
                                 url: "https://github.com/ilyassber"
                             },
                             {
                                 iconName: "LinkedInIcon",
+                                iconAlt: "LinkedIn",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
                                 url: "https://www.linkedin.com/in/ilyass-berchida/"
                             },
                             {
                                 iconName: "InstagramIcon",
+                                iconAlt: "Instagram",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
                                 url: "https://www.instagram.com/ilyass.berchida/"
                             },
                             {
                                 iconName: "TwitterIcon",
+                                iconAlt: "Twitter",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
                                 url: "https://twitter.com/berchida_ilyass"

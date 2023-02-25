@@ -4,6 +4,7 @@ import { GlobalContext } from '../../components/context/Context';
 import SocialMedia from '../../components/navigation/SocialMedia';
 import PhoneAndMail from '../cards/PhoneAndMail';
 import { motion } from "framer-motion";
+import { gaEvent } from '@/services/ga';
 
 type ContactLayoutProps = {
     className: tailwindcss;
@@ -81,28 +82,40 @@ const ContactLayout: React.FC<ContactLayoutProps> = (props) => {
                                 iconAlt: "GitHub",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://github.com/ilyassber"
+                                url: "https://github.com/ilyassber",
+                                onClick: () => {
+                                    gaEvent("GITHUB", "CONTACT", "CLICK", 1);
+                                }
                             },
                             {
                                 iconName: "LinkedInIcon",
                                 iconAlt: "LinkedIn",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://www.linkedin.com/in/ilyass-berchida/"
+                                url: "https://www.linkedin.com/in/ilyass-berchida/",
+                                onClick: () => {
+                                    gaEvent("LINKEDIN", "CONTACT", "CLICK", 1);
+                                }
                             },
                             {
                                 iconName: "InstagramIcon",
                                 iconAlt: "Instagram",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://www.instagram.com/ilyass.berchida/"
+                                url: "https://www.instagram.com/ilyass.berchida/",
+                                onClick: () => {
+                                    gaEvent("INSTAGRAM", "CONTACT", "CLICK", 1);
+                                }
                             },
                             {
                                 iconName: "TwitterIcon",
                                 iconAlt: "Twitter",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://twitter.com/berchida_ilyass"
+                                url: "https://twitter.com/berchida_ilyass",
+                                onClick: () => {
+                                    gaEvent("TWITTER", "CONTACT", "CLICK", 1);
+                                }
                             },
                         ]} />
                     </motion.div>

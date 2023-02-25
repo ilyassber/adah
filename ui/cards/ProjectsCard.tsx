@@ -75,7 +75,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                     return (
                         <motion.div
                             key={index}
-                            className="mb-8"
+                            className="w-full mb-8"
                             animate={{
                                 y: [20, 0],
                                 opacity: [...[...Array(index + 1).keys()].map(() => { return "0%" }), "100%"],

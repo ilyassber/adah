@@ -93,6 +93,26 @@
                 ],
                 "projectLink": "https://github.com/ilyassber/adah",
                 "webLink": "https://www.ilyassberchida.com"
+            },
+            {
+                "title": "Mormade",
+                "description": "Web e-commerce and publishing platform for Moroccan artisanal products and culture",
+                "tasks": [
+                    "Designing and developing the user interface",
+                    "Implementing the backend functionalities",
+                    "Creating the necessary endpoints and business logic"
+                ],
+                "technologies": [
+                    "TypeScript",
+                    "NextJs",
+                    "React",
+                    "TailwindCSS",
+                    "Python",
+                    "Django",
+                    "Postgresql"
+                ],
+                "projectLink": "",
+                "webLink": ""
             }
         ]
     },

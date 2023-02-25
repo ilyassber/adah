@@ -15,3 +15,12 @@ export type Experience = {
     description: string;
     tasks: string[];
 };
+
+export type Project = {
+    title: string;
+    description: string;
+    tasks: string[];
+    technologies: string[];
+    projectLink: string;
+    webLink: string;
+};

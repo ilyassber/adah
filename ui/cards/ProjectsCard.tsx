@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
-import Project from '../../components/other/Project';
+import ProjectCard from '../../components/other/ProjectCard';
 import { GlobalContext } from '../../components/context/Context';
 
 type ProjectsCardProps = {
@@ -74,7 +74,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                         ease: "linear",
                     }}
                 >
-                    <Project
+                    <ProjectCard
                         className="h-full"
                         name="Adah - Personal Protfolio"
                         description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
@@ -100,7 +100,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                         ease: "linear",
                     }}
                 >
-                    <Project
+                    <ProjectCard
                         className=""
                         name="Adah - Personal Protfolio"
                         description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"
@@ -126,7 +126,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                         ease: "linear",
                     }}
                 >
-                    <Project
+                    <ProjectCard
                         className=""
                         name="Adah - Personal Protfolio"
                         description="Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner"

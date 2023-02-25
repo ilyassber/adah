@@ -36,11 +36,11 @@
                 "location": "Bin Jareer, Morocco",
                 "description": "AgriEdge is a business unit at UM6P that operates in the agriculture field and provides services to farmers based on data.",
                 "tasks": [
-                    "Creating a cartographic web application for yield prediction based on data provided by users and satellite plus harvest management",
-                    "Creating a cartographic web application to visualize different data layers using a tiling system",
-                    "Developing backend services logic and managing databases",
-                    "Developing REST APIs and GraphQL APIs",
-                    "Ensuring access permissions and security"
+                    "Planning, conceptualizing, and modeling digital solutions",
+                    "Designing and developing user-friendly solutions that meet users' needs",
+                    "Developing functionalities and services to support the front applications via APIs and store data",
+                    "Ensuring access permissions and security",
+                    "Deploying services and Implementing devOps operations based on CI/CD method"
                 ]
             },
             {

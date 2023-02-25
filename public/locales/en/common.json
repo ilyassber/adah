@@ -111,7 +111,21 @@
                     "Django",
                     "Postgresql"
                 ],
-                "projectLink": "",
+                "projectLink": "https://github.com/ilyassber/mormadeWebSite",
+                "webLink": ""
+            },
+            {
+                "title": "Corewar - 42",
+                "description": "Virtual “arena” in which programs will fight against each other along with an assembler to compile those champions from assembly code to binary code",
+                "tasks": [
+                    "Creating a virtual machine where the players can execute Assembly like instructions",
+                    "Simulating the players instructions on the virtual machine memory",
+                    "Keeping track of memory and players state over cycles"
+                ],
+                "technologies": [
+                    "C"
+                ],
+                "projectLink": "https://github.com/ilyassber/corewar",
                 "webLink": ""
             }
         ]

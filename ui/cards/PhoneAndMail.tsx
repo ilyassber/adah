@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Icon from '../../components/icon/Icon';
+import { gaEvent } from '../../services/ga';
 
 type PhoneAndMailProps = {
     className: string;
@@ -15,6 +16,9 @@ const PhoneAndMail: React.FC<PhoneAndMailProps> = (props) => {
                         className="flex flex-row items-center justify-center"
                         href="tel:+212-628-666599"
                         target="_blank"
+                        onClick={() => {
+                            gaEvent("PHONE_NUMBER", "CLICK", "CLICK", 1);
+                        }}
                     >
                         <Icon className="" src="/icons/phone.svg" alt="Phone number" dim="18" />
                         <p className="hidden lg:block font-medium text-sm text-[#9197A0] ml-2">+212 628 666599</p>
@@ -25,6 +29,9 @@ const PhoneAndMail: React.FC<PhoneAndMailProps> = (props) => {
                         className="flex flex-row items-center justify-center"
                         href="mailto:ilyass.berchida@gmail.com"
                         target="_blank"
+                        onClick={() => {
+                            gaEvent("EMAIL", "CLICK", "CLICK", 1);
+                        }}
                     >
                         <Icon className="" src="/icons/mail.svg" alt="Email" dim="18" />
                         <p className="hidden lg:block font-medium text-sm text-[#9197A0] ml-2">ilyass.berchida@gmail.com</p>
@@ -36,6 +43,9 @@ const PhoneAndMail: React.FC<PhoneAndMailProps> = (props) => {
                         className="flex flex-row items-center justify-center"
                         href="/files/BERCHIDA-ILYASS-CV.pdf"
                         target="_blank"
+                        onClick={() => {
+                            gaEvent("RESUME", "CLICK", "CLICK", 1);
+                        }}
                     >
                         <Icon className="" name="DownloadIcon" color="#9197A0" alt="Resume" dim="18" />
                         <p className="hidden sm:block font-medium text-sm text-[#9197A0] ml-2">Download my resume</p>

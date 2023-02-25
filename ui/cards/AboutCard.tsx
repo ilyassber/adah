@@ -5,6 +5,7 @@ import Icon from '../../components/icon/Icon';
 import SocialMedia from '../../components/navigation/SocialMedia';
 import { GlobalContext } from '../../components/context/Context';
 import { useTranslation, Trans } from 'next-i18next';
+import { gaEvent } from '@/services/ga';
 
 type AboutCardProps = {
     className: string;
@@ -87,28 +88,40 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                                 iconAlt: "GitHub",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://github.com/ilyassber"
+                                url: "https://github.com/ilyassber",
+                                onClick: () => {
+                                    gaEvent("GITHUB", "ABOUT", "CLICK", 1);
+                                }
                             },
                             {
                                 iconName: "LinkedInIcon",
                                 iconAlt: "LinkedIn",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://www.linkedin.com/in/ilyass-berchida/"
+                                url: "https://www.linkedin.com/in/ilyass-berchida/",
+                                onClick: () => {
+                                    gaEvent("LINKEDIN", "ABOUT", "CLICK", 1);
+                                }
                             },
                             {
                                 iconName: "InstagramIcon",
                                 iconAlt: "Instagram",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://www.instagram.com/ilyass.berchida/"
+                                url: "https://www.instagram.com/ilyass.berchida/",
+                                onClick: () => {
+                                    gaEvent("INSTAGRAM", "ABOUT", "CLICK", 1);
+                                }
                             },
                             {
                                 iconName: "TwitterIcon",
                                 iconAlt: "Twitter",
                                 iconColor: "#9197A0",
                                 iconHoverColor: "#D5A72F",
-                                url: "https://twitter.com/berchida_ilyass"
+                                url: "https://twitter.com/berchida_ilyass",
+                                onClick: () => {
+                                    gaEvent("TWITTER", "ABOUT", "CLICK", 1);
+                                }
                             },
                         ]} />
                     </div>

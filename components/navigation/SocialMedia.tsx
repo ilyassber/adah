@@ -9,6 +9,7 @@ type Media = {
     iconColor?: string;
     iconHoverColor?: string;
     url: string;
+    onClick?: Function;
 }
 
 type SocialMediaProps = {

@@ -6,6 +6,7 @@ import ProjectCard from '../../components/other/ProjectCard';
 import { GlobalContext } from '../../components/context/Context';
 import { useTranslation, Trans } from 'next-i18next';
 import { Project } from '../../types.d';
+import { gaEvent } from '@/services/ga';
 
 type ProjectsCardProps = {
     className: string;
@@ -93,6 +94,12 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                                 technologies={project.technologies}
                                 projectLink={project.projectLink}
                                 webLink={project.webLink}
+                                onProjectLinkClick={() => {
+                                    gaEvent(project.title.toUpperCase(), "PROJECT_LINK", "CLICK", 1);
+                                }}
+                                onWebLinkClick={() => {
+                                    gaEvent(project.title.toUpperCase(), "WEB_LINK", "CLICK", 1);
+                                }}
                             />
                         </motion.div>
                     );

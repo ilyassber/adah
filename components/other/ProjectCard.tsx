@@ -10,6 +10,8 @@ type ProjectCardType = {
     technologies: string[];
     projectLink: string;
     webLink: string;
+    onProjectLinkClick: Function;
+    onWebLinkClick: Function;
 };
 
 const ProjectCard: React.FC<ProjectCardType> = (props) => {
@@ -20,12 +22,20 @@ const ProjectCard: React.FC<ProjectCardType> = (props) => {
                 <div className="w-full flex flex-row items-center mb-4">
                     <p className="grow font-bold text-base text-[#B1B7C0] inline-block align-middle">{props.name}</p>
                     {props.projectLink ? (
-                        <Link href={props.projectLink} target="_blank">
+                        <Link
+                            href={props.projectLink}
+                            target="_blank"
+                            onClick={() => { props.onProjectLinkClick() }}
+                        >
                             <Icon className="flex justify-center items-center" name="GitHubIcon" color="#9197A0" hoverColor="#D5A72F" alt="" dim="25" role='button' />
                         </Link>
                     ) : null}
                     {props.webLink ? (
-                        <Link href={props.webLink} target="_blank">
+                        <Link
+                            href={props.webLink}
+                            target="_blank"
+                            onClick={() => { props.onWebLinkClick() }}
+                        >
                             <Icon className="flex justify-center items-center ml-4" name="PublicIcon" color="#9197A0" hoverColor="#D5A72F" alt="" dim="25" role='button' />
                         </Link>
                     ) : null}

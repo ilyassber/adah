@@ -4,3 +4,14 @@ export type Message = {
     message: string;
     sendDateTime: string;
 };
+
+export type Experience = {
+    title: string;
+    company: string;
+    startDate: string;
+    endDate: string;
+    state: string;
+    location: string;
+    description: string;
+    tasks: string[];
+};

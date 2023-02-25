@@ -34,28 +34,20 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     const onScrollTop = () => {
         if (params.selectedSectionId > 1 && params.selectedSectionId == params.nextSectionId) {
             dispatchParams({ key: "nextSectionId", value: params.selectedSectionId - 1 });
-            setTimeout(() => {
-                setSegma(0);
-            }, 1000);
         }
     };
 
     const onScrollBottom = () => {
         if (params.selectedSectionId < 5 && params.selectedSectionId == params.nextSectionId) {
             dispatchParams({ key: "nextSectionId", value: params.selectedSectionId + 1 });
-            setTimeout(() => {
-                setSegma(0);
-            }, 1000);
         }
 
     };
 
     const onScroll = (event: any) => {
         if (homeLayoutRef && homeLayoutRef.current) {
-            if (event.target?.scrollTop == 1) {
-                setSegma(s => s / 2);
-            } else {
-                setSegma(s => s + ((event.target?.scrollTop - 1) * 2));
+            if (event.target?.scrollTop != 1) {
+                setSegma(s => s + (event.target?.scrollTop - 1));
             }
             homeLayoutRef.current?.scroll({
                 top: 1,
@@ -69,21 +61,12 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        if (segma < -20) {
+        if (segma < -35) {
             setDirection("up");
-        } else if (segma > 20) {
+            setSegma(0);
+        } else if (segma > 35) {
             setDirection("down");
-        } else {
-            if (direction == "up" || direction == "down") {
-                if (homeLayoutRef && homeLayoutRef.current) {
-                    homeLayoutRef.current?.scroll({
-                        top: 1,
-                    });
-                }
-                if (Math.abs(segma) < 5) {
-                    setDirection("hold");
-                }
-            }
+            setSegma(0);
         }
     }, [segma]);
 
@@ -109,6 +92,11 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
             let section: string = params.sections[params.selectedSectionId - 1].name;
             gaEvent(section, section, "visite", 1);
         }
+        setDirection("hold");
+        setSegma(0);
+        setTimeout(() => {
+            setSegma(0);
+        }, 400);
     }, [params.selectedSectionId]);
 
     React.useEffect(() => {

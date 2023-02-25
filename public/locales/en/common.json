@@ -1,4 +1,11 @@
 {
+    "sections": {
+        "home": "Home",
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "getintouch": "Get in Touch"
+    },
     "home": {
         "hi": "Hi, I'm",
         "name": "Ilyass BERCHIDA",
@@ -17,5 +24,55 @@
             "part2": "I have two years of experience in web development and worked on several projects using technologies such as <1>React</1>, <1>Next</1>, and <1>Django</1>. I am passionate about creating exceptional experiences and user-friendly websites that meet users' needs and solve real-world problems. I'm dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.",
             "part3": "I have gained experience in different domains such as <1>Agri-tech</1>, <1>Tourism</1>, and <1>E-commerce</1> through my work, and I am always looking for new challenges and opportunities to grow as a professional. I am excited to be a part of the software development community in Morocco and look forward to making a positive impact."
         }
-    }
+    },
+    "experiences": {
+        "experiences": [
+            {
+                "title": "Software developer",
+                "company": "UM6P - AGE",
+                "startDate": "Jul 2021",
+                "endDate": "Present",
+                "state": "Ongoing",
+                "location": "Bin Jareer, Morocco",
+                "description": "AgriEdge is a business unit at UM6P that operates in the agriculture field and provides services to farmers based on data.",
+                "tasks": [
+                    "Creating a cartographic web application for yield prediction based on data provided by users and satellite plus harvest management",
+                    "Creating a cartographic web application to visualize different data layers using a tiling system",
+                    "Developing backend services logic and managing databases",
+                    "Developing REST APIs and GraphQL APIs",
+                    "Ensuring access permissions and security"
+                ]
+            },
+            {
+                "title": "Back-end Developer - Internship",
+                "company": "ECOM ANALYTIC",
+                "startDate": "Nov 2020",
+                "endDate": "Apr 2021",
+                "state": "Done",
+                "location": "Khouribga, Morocco",
+                "description": "1337 Startup provides ecommerce solutions.",
+                "tasks": [
+                    "Creating a web crawler for e-commerce websites and a data scraper to collect data about products in different categories",
+                    "Creating a database to store collected data",
+                    "Developing a background process that keep track on scraped product and categories, and manage scraping schedule for each item",
+                    "Developing a separated crawling and scraping as decentralized services on many servers to facilitate scaling",
+                    "Creating a REST API to link between all services"
+                ]
+            },
+            {
+                "title": "Flutter Developer - School Project",
+                "company": "ETIL",
+                "startDate": "Jul 2019",
+                "endDate": "Jan 2020",
+                "state": "Done",
+                "location": "Essaouira, Morocco",
+                "description": "Essaouira Territorial Innovation Lab (ETIL), an open innovation space serving the territorial developement of the Essaouira province.",
+                "tasks": [
+                    "Creating a digital guide as a mobile application to provide city visitors with the information about the sities they visit and their monuments, history, and culture"
+                ]
+            }
+        ]
+    },
+    "projects": {},
+    "get_in_touch": {}
 }

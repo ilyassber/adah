@@ -172,6 +172,7 @@ const Icon: React.FC<{
                     src={props.src}
                     priority={props.priority ? props.priority : false}
                     fill={props.dim ? false : true}
+                    loading={props.priority ? "eager" : "lazy"}
                 />
             </div>) : null}
     </div>);

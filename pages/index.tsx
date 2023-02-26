@@ -51,7 +51,7 @@ const Home: React.FC<HomeProps> = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen w-screen">
+      <main className="h-screen w-screen bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
         <>
           {/* Global site tag (gtag.js) - Google Analytics */}
           <Script

@@ -24,6 +24,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     const [direction, setDirection] = React.useState<string>("hold");
 
     const [duration, setDuration] = React.useState<number>(0.4);
+    const [opacity, setOpacity] = React.useState<number>(0);
     const [rotation, setRotation] = React.useState<number[]>([0, 180]);
     const [screenHeight, setScreenHeight] = React.useState<number>(0);
     const [screenWidth, setScreenWidth] = React.useState<number>(0);

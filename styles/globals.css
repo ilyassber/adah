@@ -6,6 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, #182B2B,#2B2B2B);
+}
+
 div::-webkit-scrollbar {
     display: none;
 }

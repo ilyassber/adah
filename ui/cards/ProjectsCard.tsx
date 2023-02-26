@@ -69,7 +69,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = (props) => {
                     }}
                 >
                     <div className="w-3 h-[2px] bg-gradient-to-r from-[#9197A000] to-[#9197A077] rounded mr-3" />
-                    <p className="font-bold align-bottom text-xl text-[#9197A0] leading-none">PROJECTS</p>
+                    <p className="font-bold align-bottom text-xl text-[#9197A0] leading-none">{params.sections[3].name.toUpperCase()}</p>
                     <div className="grow h-[2px] bg-gradient-to-r from-[#9197A077] to-[#9197A000] rounded ml-3 mr-8" />
                 </motion.div>
                 {projects && projects.length > 0 ? projects.map((project: Project, index: number) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Icon from '../../components/icon/Icon';
+import { useTranslation, Trans } from 'next-i18next';
 import { gaEvent } from '../../services/ga';
 
 type PhoneAndMailProps = {
@@ -8,6 +9,9 @@ type PhoneAndMailProps = {
 };
 
 const PhoneAndMail: React.FC<PhoneAndMailProps> = (props) => {
+
+    const { t } = useTranslation('common');
+
     let content = (
         <div className={props.className}>
             <div className="h-full flex flex-row items-center justify-center">
@@ -48,7 +52,7 @@ const PhoneAndMail: React.FC<PhoneAndMailProps> = (props) => {
                         }}
                     >
                         <Icon className="" name="DownloadIcon" color="#9197A0" alt="Resume" dim="18" />
-                        <p className="hidden sm:block font-medium text-sm text-[#9197A0] ml-2">Download my resume</p>
+                        <p className="hidden sm:block font-medium text-sm text-[#9197A0] ml-2">{t('contact.download_my_resume')}</p>
                     </Link>
                 </div>
             </div>

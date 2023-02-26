@@ -4,6 +4,7 @@ import { tailwindcss } from '../../types.d';
 import Icon from '../icon/Icon';
 import { motion } from "framer-motion";
 import Link from 'next/link';
+import { useTranslation, Trans } from 'next-i18next';
 
 type BurgerMenuProps = {
     className: tailwindcss;
@@ -12,6 +13,7 @@ type BurgerMenuProps = {
 const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
+    const { t } = useTranslation('common');
 
     const [closed, setClosed] = React.useState<boolean>(true);
     const [toBeClosed, setToBeClosed] = React.useState<boolean>(false);
@@ -139,7 +141,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                         <p
                                             className="text-lg font-medium text-[#9197A0] leading-none"
                                         >
-                                            Call
+                                            {t('menu.call')}
                                         </p>
                                         <p
                                             className="text-sm font-thin text-[#9197A099] leading-none"
@@ -160,7 +162,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                         <p
                                             className="text-lg font-medium text-[#9197A0] leading-none"
                                         >
-                                            Send an email
+                                            {t('menu.send_an_email')}
                                         </p>
                                         <p
                                             className="text-sm font-thin text-[#9197A099] leading-none"
@@ -181,12 +183,12 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                         <p
                                             className="text-lg font-medium text-[#9197A0] leading-none"
                                         >
-                                            Resume
+                                            {t('menu.resume')}
                                         </p>
                                         <p
                                             className="text-sm font-thin text-[#9197A099] leading-none"
                                         >
-                                            Download as pdf
+                                            {t('menu.download_as_pdf')}
                                         </p>
                                     </div>
                                 </Link>

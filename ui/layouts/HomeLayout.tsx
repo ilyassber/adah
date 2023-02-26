@@ -7,6 +7,7 @@ import Icon from '../../components/icon/Icon';
 import { motion } from "framer-motion";
 import MenuLayout from './MenuLayout';
 import { gaEvent } from '../../services/ga';
+import { useTranslation, Trans } from 'next-i18next';
 
 type HomeLayoutProps = {
     className: tailwindcss;
@@ -16,6 +17,7 @@ type HomeLayoutProps = {
 const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 
     const { params, dispatchParams } = React.useContext(GlobalContext);
+    const { t } = useTranslation('common');
 
     const homeLayoutRef = React.useRef<HTMLDivElement>(null);
     const [segma, setSegma] = React.useState<number>(0);
@@ -58,6 +60,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     React.useEffect(() => {
         setScreenHeight(document.body.clientHeight);
         setScreenWidth(document.body.clientWidth);
+        dispatchParams({ key: "sections", value: t("sections", { returnObjects: true }) });
     }, []);
 
     React.useEffect(() => {

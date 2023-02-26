@@ -24,7 +24,7 @@ const PhoneAndMail: React.FC<PhoneAndMailProps> = (props) => {
                             gaEvent("PHONE_NUMBER", "CLICK", "CLICK", 1);
                         }}
                     >
-                        <Icon className="" src="/icons/phone.svg" alt="Phone number" dim="18" />
+                        <Icon className="" name="PhoneIcon" color="#9197A0" alt="Phone Number" dim="18" />
                         <p className="hidden lg:block font-medium text-sm text-[#9197A0] ml-2">+212 628 666599</p>
                     </Link>
                 </div>
@@ -37,7 +37,7 @@ const PhoneAndMail: React.FC<PhoneAndMailProps> = (props) => {
                             gaEvent("EMAIL", "CLICK", "CLICK", 1);
                         }}
                     >
-                        <Icon className="" src="/icons/mail.svg" alt="Email" dim="18" />
+                        <Icon className="" name="EmailIcon" color="#9197A0" alt="Email address" dim="18" />
                         <p className="hidden lg:block font-medium text-sm text-[#9197A0] ml-2">ilyass.berchida@gmail.com</p>
                     </Link>
                 </div>

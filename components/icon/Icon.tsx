@@ -46,6 +46,8 @@ import PublicIcon from '@mui/icons-material/Public';
 import LaunchIcon from '@mui/icons-material/Launch';
 import SendIcon from '@mui/icons-material/Send';
 import DoneIcon from '@mui/icons-material/Done';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
 import CircularProgress from '@mui/material/CircularProgress';
 import Image, { StaticImageData } from 'next/image';
 
@@ -111,6 +113,8 @@ const Icon: React.FC<{
         ['LaunchIcon', LaunchIcon],
         ['SendIcon', SendIcon],
         ['DoneIcon', DoneIcon],
+        ['PhoneIcon', PhoneIcon],
+        ['EmailIcon', EmailIcon],
         ['CircularProgress', CircularProgress]
     ];
 

@@ -136,7 +136,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                     href="tel:+212-628-666599"
                                     target="_blank"
                                 >
-                                    <Icon className="mr-4" src="/icons/phone.svg" alt="" dim="24" />
+                                    <Icon className="mr-4" name="PhoneIcon" color="#9197A0" alt="Phone Number" dim="24" />
                                     <div>
                                         <p
                                             className="text-lg font-medium text-[#9197A0] leading-none"
@@ -157,7 +157,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                     href="mailto:ilyass.berchida@gmail.com"
                                     target="_blank"
                                 >
-                                    <Icon className="mr-4" src="/icons/mail.svg" alt="" dim="24" />
+                                    <Icon className="mr-4" name="EmailIcon" color="#9197A0" alt="Email address" dim="24" />
                                     <div>
                                         <p
                                             className="text-lg font-medium text-[#9197A0] leading-none"
@@ -178,7 +178,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                                     href="/files/BERCHIDA-ILYASS-CV.pdf"
                                     target="_blank"
                                 >
-                                    <Icon className="mr-4" name="DownloadIcon" color="#9197A0" alt="" dim="24" />
+                                    <Icon className="mr-4" name="DownloadIcon" color="#9197A0" alt="Resume" dim="24" />
                                     <div>
                                         <p
                                             className="text-lg font-medium text-[#9197A0] leading-none"

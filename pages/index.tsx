@@ -46,10 +46,10 @@ const Home: React.FC<HomeProps> = (props) => {
   return (
     <>
       <Head>
-        <title>ADAH</title>
-        <meta name="description" content="Personal portfolio" />
+        <title>Ilyass BERCHIDA</title>
+        <meta name="description" content="Ilyass BERCHIDA personal portfolio. Includes experience, personal projects, and social media links to get in touch." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icons/shuriken.svg" />
       </Head>
       <main className="h-screen w-screen bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
         <>
@@ -71,7 +71,8 @@ const Home: React.FC<HomeProps> = (props) => {
                 });
               `
             }}
-          /></>
+          />
+        </>
         <HomeLayout className="h-screen w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
           <ScrollLayout className="h-screen w-full flex flex-col justify-center">
             {params.selectedSectionId == 1

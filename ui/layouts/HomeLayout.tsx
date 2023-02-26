@@ -170,7 +170,12 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                     </MenuLayout>
                 </ContactLayout>
             ) : (
-                <div className="w-full h-full flex justify-center items-center">
+                <motion.div
+                    animate={{
+                        opacity: (step == 0 ? 0 : 1),
+                    }}
+                    className={"w-full h-full flex justify-center items-center " + (step == 0 ? "hidden" : "")}
+                >
                     <motion.div
                         animate={{
                             rotate: rotation,
@@ -205,7 +210,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                     >
                         <Icon className="" src='/icons/shuriken.svg' dim="80" priority={true} />
                     </motion.div>
-                </div>
+                </motion.div>
             )
             }
         </div >

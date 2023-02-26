@@ -47,14 +47,14 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import SendIcon from '@mui/icons-material/Send';
 import DoneIcon from '@mui/icons-material/Done';
 import CircularProgress from '@mui/material/CircularProgress';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 
 const Icon: React.FC<{
     className: string;
     iconRef?: React.RefObject<HTMLDivElement>;
     name?: string;
-    src?: string;
+    src?: string | StaticImageData;
     type?: string;
     alt?: string;
     priority?: boolean;

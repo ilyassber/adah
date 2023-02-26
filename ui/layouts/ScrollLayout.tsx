@@ -25,12 +25,14 @@ const ScrollLayout: React.FC<ScrollLayoutProps> = (props) => {
     };
 
     React.useEffect(() => {
-        if (scrollableElementRef && scrollableElementRef.current) {
-            scrollableElementRef.current.addEventListener("scroll", onScroll);
-            setClientHeight(scrollableElementRef.current.clientHeight);
-            setScrollHeight(scrollableElementRef.current.scrollHeight);
+        if (params.selectedSectionId == params.nextSectionId) {
+            if (scrollableElementRef && scrollableElementRef.current) {
+                scrollableElementRef.current.addEventListener("scroll", onScroll);
+                setClientHeight(scrollableElementRef.current.clientHeight);
+                setScrollHeight(scrollableElementRef.current.scrollHeight);
+            }
         }
-    }, [props.children]);
+    }, [props.children, params.selectedSectionId]);
 
     React.useEffect(() => {
         if (scrollableElementRef && scrollableElementRef.current) {
@@ -50,6 +52,7 @@ const ScrollLayout: React.FC<ScrollLayoutProps> = (props) => {
                         <motion.div
                             className={'w-1.5 md:w-2 bg-gradient-to-b from-[#0c151518] via-[#0c151588] to-[#0c151518]'}
                             animate={{
+                                opacity: [0, 1],
                                 marginTop: (scrollTop * (clientHeight / scrollHeight)) + 30,
                                 height: `${(clientHeight * (clientHeight / scrollHeight)) - 60}px`
                             }}

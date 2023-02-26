@@ -23,16 +23,14 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     const [segma, setSegma] = React.useState<number>(0);
     const [direction, setDirection] = React.useState<string>("hold");
 
-    const [duration, setDuration] = React.useState<number>(0.4);
-    const [opacity, setOpacity] = React.useState<number>(0);
+    const [duration, setDuration] = React.useState<number>(0.8);
     const [rotation, setRotation] = React.useState<number[]>([0, 180]);
     const [screenHeight, setScreenHeight] = React.useState<number>(0);
     const [screenWidth, setScreenWidth] = React.useState<number>(0);
     const [hideAnimation, setHideAnimation] = React.useState<boolean>(false);
     const [hide, setHide] = React.useState<boolean>(false);
     const [step, setStep] = React.useState<number>(0);
-    const [xSteps, setXSteps] = React.useState<number[]>([0, -10, -15, -18, -15, 0, 100, 200, 300]);
-    const ySteps: number[] = [0, 50, 100, 50, 0, -50, 0];
+    const [xSteps, setXSteps] = React.useState<number[]>([0, 0, -10, -15, -18, -15, 0, 100, 200, 300]);
 
     const onScrollTop = () => {
         if (params.selectedSectionId > 1 && params.selectedSectionId == params.nextSectionId) {

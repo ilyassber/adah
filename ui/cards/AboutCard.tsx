@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import Icon from '../../components/icon/Icon';
+import profilePic from '../../public/images/ilyass.png'
 import SocialMedia from '../../components/navigation/SocialMedia';
 import { GlobalContext } from '../../components/context/Context';
 import { useTranslation, Trans } from 'next-i18next';
@@ -65,7 +66,7 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                         className="relative rounded-full mb-8"
                     >
                         <div className="absolute h-full w-full bg-yano-500 rounded-full -right-0 ml-[6px] hover:ml-0"></div>
-                        <Icon className="h-28 sm:h-36 w-28 sm:w-36 rounded-full bg-[#E2E8F0] overflow-hidden grayscale hover:grayscale-0 mr-[6px] hover:mr-0" src="/images/ilyass.png" alt="" />
+                        <Icon className="h-28 sm:h-36 w-28 sm:w-36 rounded-full bg-[#E2E8F0] overflow-hidden grayscale hover:grayscale-0 mr-[6px] hover:mr-0" src={profilePic} alt="Ilyass BERCHIDA" priority />
                     </div>
                     <div
                         className="flex flex-col items-center mb-12"

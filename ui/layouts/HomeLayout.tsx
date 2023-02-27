@@ -46,6 +46,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     };
 
     const onScroll = (event: any) => {
+        event.preventDefault();
         if (homeLayoutRef && homeLayoutRef.current) {
             if (event.target?.scrollTop != 1) {
                 setSegma(s => s + (event.target?.scrollTop - 1));
@@ -56,10 +57,19 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         }
     };
 
+    const preventMobileScrollBehavior = (event: any) => {
+        event.preventDefault();
+    };
+
     React.useEffect(() => {
         setScreenHeight(document.body.clientHeight);
         setScreenWidth(document.body.clientWidth);
         dispatchParams({ key: "sections", value: t("sections", { returnObjects: true }) });
+        document.body.addEventListener('touchstart', preventMobileScrollBehavior);
+
+        return () => {
+            document.body.removeEventListener('touchstart', preventMobileScrollBehavior);
+        };
     }, []);
 
     React.useEffect(() => {
@@ -87,6 +97,12 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
             });
             homeLayoutRef.current.addEventListener("scroll", onScroll);
         }
+
+        return () => {
+            if (homeLayoutRef && homeLayoutRef.current) {
+                homeLayoutRef.current.removeEventListener("scroll", onScroll);
+            }
+        };
     }, [homeLayoutRef.current]);
 
     React.useEffect(() => {

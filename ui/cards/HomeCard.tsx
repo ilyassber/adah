@@ -64,7 +64,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                 </p>
                 <p className="max-w-lg font-normal text-xs sm:text-sm md:text-base text-[#9197A0] leading-relaxed">
                     <Trans i18nKey="home.intro">
-                        I'm a <span className="font-semibold text-yano-500">Software developer</span> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture at <span className="font-semibold text-yano-500">AgriEdge</span>.
+                        I'm a <span className="font-semibold text-yano-500">Software developer</span> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture in <span className="font-semibold text-yano-500">Morocco & Africa</span>.
                     </Trans>
                 </p>
             </motion.div>

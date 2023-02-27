@@ -3,8 +3,7 @@ import '../styles/globals.css';
 import { appWithTranslation } from 'next-i18next'
 import type { AppProps } from 'next/app';
 import { GlobalContext } from '../components/context/Context';
-import Head from 'next/head';
-import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 
 const paramsReducer = (params: any, data: { key: string; value: any }) => {
   let nParams = {
@@ -52,6 +51,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <GlobalContext.Provider value={{ params, dispatchParams }}>
       <Component {...pageProps} />
+      <Analytics />
     </GlobalContext.Provider>
   )
 }

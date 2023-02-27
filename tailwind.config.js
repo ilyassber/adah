@@ -15,6 +15,9 @@ module.exports = {
       solitreo: ["Solitreo"],
     },
     extend: {
+      height: {
+        screen: "100dvh",
+      },
       colors: {
         yano: {
           900: "#684f0c",

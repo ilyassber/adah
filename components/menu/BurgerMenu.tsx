@@ -5,6 +5,7 @@ import Icon from '../icon/Icon';
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import { useTranslation, Trans } from 'next-i18next';
+import ScrollLayout from '../../ui/layouts/ScrollLayout';
 
 type BurgerMenuProps = {
     className: tailwindcss;
@@ -86,115 +87,117 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                     </motion.div>
                 </div>
                 {closed ? (null) : (
-                    <motion.div
-                        animate={{
-                            opacity: ["0%", "100%"],
-                        }}
-                        transition={{
-                            duration: 0.2,
-                        }}
-                        className="h-screen w-screen flex flex-col bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden pt-16"
-                    >
+                    <ScrollLayout className="h-screen w-full flex flex-col justify-center">
                         <motion.div
-                            className="flex flex-col items-end"
-                            variants={itemsMenuVariants}
-                            animate={toBeClosed ? "close" : "open"}
+                            animate={{
+                                opacity: ["0%", "100%"],
+                            }}
                             transition={{
-                                duration: (toBeClosed ? 0.3 : 0.4),
+                                duration: 0.2,
                             }}
-                            onAnimationComplete={(animation) => {
-                                if (animation == "close") {
-                                    setClosed(true);
-                                }
-                            }}
+                            className="w-screen flex flex-col bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden pt-16"
                         >
-                            {
-                                params.sections.map((section: any, index: number) => {
-                                    return (
-                                        <div key={index} className={"w-full px-6 py-4" + (selectedSectionId == section.id ? " bg-stone-900/[.0]" : "")}>
+                            <motion.div
+                                className="flex flex-col items-end"
+                                variants={itemsMenuVariants}
+                                animate={toBeClosed ? "close" : "open"}
+                                transition={{
+                                    duration: (toBeClosed ? 0.3 : 0.4),
+                                }}
+                                onAnimationComplete={(animation) => {
+                                    if (animation == "close") {
+                                        setClosed(true);
+                                    }
+                                }}
+                            >
+                                {
+                                    params.sections.map((section: any, index: number) => {
+                                        return (
+                                            <div key={index} className={"w-full px-6 py-4" + (selectedSectionId == section.id ? " bg-stone-900/[.0]" : "")}>
+                                                <p
+                                                    className={"text-xl select-none " + (selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
+                                                    role="button"
+                                                    onClick={() => {
+                                                        setSelectedSectionId(section.id);
+                                                        //dispatchParams({ key: "nextSectionId", value: section.id });
+                                                        setToBeClosed(true);
+                                                    }}
+                                                >
+                                                    {section.name}
+                                                </p>
+                                            </div>
+                                        );
+                                    })
+                                }
+                                <div className="w-full p-12">
+                                    <hr className="border-[#9197A022]" />
+                                </div>
+                                <div className="w-full px-6 py-4">
+                                    <Link
+                                        className="flex flex-row items-center"
+                                        href="tel:+212-628-666599"
+                                        target="_blank"
+                                    >
+                                        <Icon className="mr-4" name="PhoneIcon" color="#9197A0" alt="Phone Number" dim="24" />
+                                        <div>
                                             <p
-                                                className={"text-xl select-none " + (selectedSectionId == section.id ? " font-bold text-yano-500" : " font-normal text-[#9197A0]")}
-                                                role="button"
-                                                onClick={() => {
-                                                    setSelectedSectionId(section.id);
-                                                    //dispatchParams({ key: "nextSectionId", value: section.id });
-                                                    setToBeClosed(true);
-                                                }}
+                                                className="text-lg font-medium text-[#9197A0] leading-none"
                                             >
-                                                {section.name}
+                                                {t('menu.call')}
+                                            </p>
+                                            <p
+                                                className="text-sm font-thin text-[#9197A099] leading-none"
+                                            >
+                                                +212 628 666599
                                             </p>
                                         </div>
-                                    );
-                                })
-                            }
-                            <div className="w-full p-12">
-                                <hr className="border-[#9197A022]" />
-                            </div>
-                            <div className="w-full px-6 py-4">
-                                <Link
-                                    className="flex flex-row items-center"
-                                    href="tel:+212-628-666599"
-                                    target="_blank"
-                                >
-                                    <Icon className="mr-4" name="PhoneIcon" color="#9197A0" alt="Phone Number" dim="24" />
-                                    <div>
-                                        <p
-                                            className="text-lg font-medium text-[#9197A0] leading-none"
-                                        >
-                                            {t('menu.call')}
-                                        </p>
-                                        <p
-                                            className="text-sm font-thin text-[#9197A099] leading-none"
-                                        >
-                                            +212 628 666599
-                                        </p>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="w-full px-6 py-4">
-                                <Link
-                                    className="flex flex-row items-center"
-                                    href="mailto:ilyass.berchida@gmail.com"
-                                    target="_blank"
-                                >
-                                    <Icon className="mr-4" name="EmailIcon" color="#9197A0" alt="Email address" dim="24" />
-                                    <div>
-                                        <p
-                                            className="text-lg font-medium text-[#9197A0] leading-none"
-                                        >
-                                            {t('menu.send_an_email')}
-                                        </p>
-                                        <p
-                                            className="text-sm font-thin text-[#9197A099] leading-none"
-                                        >
-                                            ilyass.berchida@gmail.com
-                                        </p>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="w-full px-6 py-4">
-                                <Link
-                                    className="flex flex-row items-center"
-                                    href="/files/BERCHIDA-ILYASS-CV.pdf"
-                                    target="_blank"
-                                >
-                                    <Icon className="mr-4" name="DownloadIcon" color="#9197A0" alt="Resume" dim="24" />
-                                    <div>
-                                        <p
-                                            className="text-lg font-medium text-[#9197A0] leading-none"
-                                        >
-                                            {t('menu.resume')}
-                                        </p>
-                                        <p
-                                            className="text-sm font-thin text-[#9197A099] leading-none"
-                                        >
-                                            {t('menu.download_as_pdf')}
-                                        </p>
-                                    </div>
-                                </Link>
-                            </div>
+                                    </Link>
+                                </div>
+                                <div className="w-full px-6 py-4">
+                                    <Link
+                                        className="flex flex-row items-center"
+                                        href="mailto:ilyass.berchida@gmail.com"
+                                        target="_blank"
+                                    >
+                                        <Icon className="mr-4" name="EmailIcon" color="#9197A0" alt="Email address" dim="24" />
+                                        <div>
+                                            <p
+                                                className="text-lg font-medium text-[#9197A0] leading-none"
+                                            >
+                                                {t('menu.send_an_email')}
+                                            </p>
+                                            <p
+                                                className="text-sm font-thin text-[#9197A099] leading-none"
+                                            >
+                                                ilyass.berchida@gmail.com
+                                            </p>
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className="w-full px-6 py-4">
+                                    <Link
+                                        className="flex flex-row items-center"
+                                        href="/files/BERCHIDA-ILYASS-CV.pdf"
+                                        target="_blank"
+                                    >
+                                        <Icon className="mr-4" name="DownloadIcon" color="#9197A0" alt="Resume" dim="24" />
+                                        <div>
+                                            <p
+                                                className="text-lg font-medium text-[#9197A0] leading-none"
+                                            >
+                                                {t('menu.resume')}
+                                            </p>
+                                            <p
+                                                className="text-sm font-thin text-[#9197A099] leading-none"
+                                            >
+                                                {t('menu.download_as_pdf')}
+                                            </p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
+                    </ScrollLayout>
                 )
                 }
             </div>

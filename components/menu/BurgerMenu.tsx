@@ -58,9 +58,11 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
         }
     }, [closed]);
 
-    // React.useEffect(() => {
-    //     dispatchParams({ key: "selectedSectionId", value: selectedSectionId });
-    // }, [selectedSectionId]);
+    React.useEffect(() => {
+        if (params.selectedSectionId != 0) {
+            setSelectedSectionId(params.selectedSectionId);
+        }
+    }, [params.selectedSectionId]);
 
     let content = (
         <div className={props.className}>

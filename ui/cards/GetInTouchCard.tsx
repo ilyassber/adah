@@ -145,9 +145,10 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
                             }
                         }}
                         onChange={onTextAreaChange}
-                        className="w-full h-24 min-h-24 max-h-96 bg-transparent disabled:bg-[#9197A011] outline-none text-lg p-4 rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
+                        className="w-full h-24 min-h-24 max-h-96 bg-transparent disabled:bg-[#9197A011] outline-none text-lg p-4 placeholder:text-[#9197A066] rounded-md border shadow-xl border-[#9197A011] border-l-yano-500 text-[#9197A0] caret-[#9197A0] resize-none"
                         autoFocus
                         spellCheck="false"
+                        placeholder='Get in touch ..'
                         disabled={sendState == "sending" ? true : false}
                     />
                     <motion.div

@@ -173,7 +173,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                         <div
                             id="homeLayout"
                             ref={homeLayoutRef}
-                            className="relative h-screen w-full overflow-auto"
+                            className="relative h-screen w-full overflow-auto overscroll-none"
                         >
                             <div className="w-full h-[1px] bg-transparent" />
                             <div className="w-full h-screen">

@@ -73,10 +73,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        if (segma < -35) {
+        if (segma < -10) {
             setDirection("up");
             setSegma(0);
-        } else if (segma > 35) {
+        } else if (segma > 10) {
             setDirection("down");
             setSegma(0);
         }
@@ -110,11 +110,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
             let section: string = params.sections[params.selectedSectionId - 1].name;
             gaEvent(section, section, "visite", 1);
         }
-        setDirection("hold");
-        setSegma(0);
         setTimeout(() => {
+            setDirection("hold");
             setSegma(0);
-        }, 400);
+        }, 1000);
     }, [params.selectedSectionId]);
 
     React.useEffect(() => {

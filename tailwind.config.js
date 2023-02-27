@@ -18,6 +18,9 @@ module.exports = {
       height: {
         screen: "100dvh",
       },
+      maxHeight: {
+        "1/2": "50dvh",
+      },
       colors: {
         yano: {
           900: "#684f0c",

@@ -75,15 +75,15 @@ const Home: React.FC<HomeProps> = (props) => {
       <HomeLayout className="h-full w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
         <ScrollLayout className="h-full w-full flex flex-col justify-center">
           {params.selectedSectionId == 1
-            ? (<HomeCard className="h-full w-full" />)
+            ? (<HomeCard key="home" className="h-full w-full" />)
             : params.selectedSectionId == 2
-              ? (<AboutCard className="h-full w-full" />)
+              ? (<AboutCard key="about" className="h-full w-full" />)
               : params.selectedSectionId == 3
-                ? (<ExperienceCard className="h-full w-full" />)
+                ? (<ExperienceCard key="experience" className="h-full w-full" />)
                 : params.selectedSectionId == 4
-                  ? (<ProjectsCard className="h-full w-full" />)
+                  ? (<ProjectsCard key="projects" className="h-full w-full" />)
                   : params.selectedSectionId == 5
-                    ? (<GetInTouchCard className="h-full w-full" />)
+                    ? (<GetInTouchCard key="contact" className="h-full w-full" />)
                     : null}
         </ScrollLayout>
       </HomeLayout>

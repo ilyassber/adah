@@ -65,10 +65,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         setScreenHeight(document.body.clientHeight);
         setScreenWidth(document.body.clientWidth);
         dispatchParams({ key: "sections", value: t("sections", { returnObjects: true }) });
-        document.body.addEventListener('touchstart', preventMobileScrollBehavior);
+        //document.body.addEventListener('touchstart', preventMobileScrollBehavior);
 
         return () => {
-            document.body.removeEventListener('touchstart', preventMobileScrollBehavior);
+            //document.body.removeEventListener('touchstart', preventMobileScrollBehavior);
         };
     }, []);
 

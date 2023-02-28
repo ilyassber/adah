@@ -35,7 +35,7 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="h-screen flex flex-col justify-center p-8 sm:p-12 md:p-20 lg:p-24"
+                className="h-full flex flex-col justify-center p-8 sm:p-12 md:p-20 lg:p-24"
                 variants={variants}
                 animate={animation}
                 transition={{

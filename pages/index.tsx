@@ -44,25 +44,24 @@ const Home: React.FC<HomeProps> = (props) => {
   }, []);
 
   return (
-    <>
+    <main className="h-[100%] w-screen bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
       <Head>
         <title>Ilyass BERCHIDA</title>
         <meta name="description" content="Ilyass BERCHIDA personal portfolio. Includes experience, personal projects, and social media links to get in touch." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icons/shuriken.svg" />
       </Head>
-      <main className="h-screen w-screen bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
-        <>
-          {/* Global site tag (gtag.js) - Google Analytics */}
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${props.firebaseConfig.ga_id}`}
-          />
-          <Script
-            id='google-analytics'
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+      <>
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${props.firebaseConfig.ga_id}`}
+        />
+        <Script
+          id='google-analytics'
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
@@ -70,26 +69,25 @@ const Home: React.FC<HomeProps> = (props) => {
                   page_path: window.location.pathname,
                 });
               `
-            }}
-          />
-        </>
-        <HomeLayout className="h-screen w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
-          <ScrollLayout className="h-full w-full flex flex-col justify-center">
-            {params.selectedSectionId == 1
-              ? (<HomeCard className="h-full w-full" />)
-              : params.selectedSectionId == 2
-                ? (<AboutCard className="h-full w-full" />)
-                : params.selectedSectionId == 3
-                  ? (<ExperienceCard className="h-full w-full" />)
-                  : params.selectedSectionId == 4
-                    ? (<ProjectsCard className="h-full w-full" />)
-                    : params.selectedSectionId == 5
-                      ? (<GetInTouchCard className="h-full w-full" />)
-                      : null}
-          </ScrollLayout>
-        </HomeLayout>
-      </main>
-    </>
+          }}
+        />
+      </>
+      <HomeLayout className="h-full w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
+        <ScrollLayout className="h-full w-full flex flex-col justify-center">
+          {params.selectedSectionId == 1
+            ? (<HomeCard className="h-full w-full" />)
+            : params.selectedSectionId == 2
+              ? (<AboutCard className="h-full w-full" />)
+              : params.selectedSectionId == 3
+                ? (<ExperienceCard className="h-full w-full" />)
+                : params.selectedSectionId == 4
+                  ? (<ProjectsCard className="h-full w-full" />)
+                  : params.selectedSectionId == 5
+                    ? (<GetInTouchCard className="h-full w-full" />)
+                    : null}
+        </ScrollLayout>
+      </HomeLayout>
+    </main>
   )
 };
 

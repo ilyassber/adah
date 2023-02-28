@@ -44,7 +44,7 @@ const ScrollLayout: React.FC<ScrollLayoutProps> = (props) => {
 
     let content = (
         <div className={props.className}>
-            <div ref={scrollableElementRef} className="relative h-screen w-full overflow-auto">
+            <div ref={scrollableElementRef} className="relative h-full w-full overflow-auto">
                 {clientHeight == scrollHeight ? null : (
                     <div
                         className={`fixed left-0 h-full w-1.5 md:w-2 ml-0.5 md:ml-2`}

@@ -122,7 +122,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
     let content = (
         <div className={props.className}>
             <motion.div
-                className="flex h-screen items-center justify-center"
+                className="flex h-full items-center justify-center"
             >
                 <div
                     className="w-full flex flex-col sm:flex-row items-end justify-center p-8 sm:p-12 md:p-20 lg:p-24"

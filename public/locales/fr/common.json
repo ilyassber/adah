@@ -1,9 +1,40 @@
 {
+    "contact": {
+        "download_my_resume": "Download my resume"
+    },
+    "menu": {
+        "call": "Call",
+        "send_an_email": "Send an email",
+        "resume": "Resume",
+        "download_as_pdf": "Download as pdf"
+    },
+    "sections": [
+        {
+            "id": 1,
+            "name": "Home"
+        },
+        {
+            "id": 2,
+            "name": "About"
+        },
+        {
+            "id": 3,
+            "name": "Experience"
+        },
+        {
+            "id": 4,
+            "name": "Projects"
+        },
+        {
+            "id": 5,
+            "name": "Get in Touch"
+        }
+    ],
     "home": {
-        "hi": "Bonjour,",
+        "hi": "Hi, I'm",
         "name": "Ilyass BERCHIDA",
         "slogan": "I build things & ensure<1/>functionality.",
-        "intro": "Je suis un <1>Software developer</1> spécialisé dans la création d'expériences numériques principalement pour le web. Se concentre actuellement sur la création d'outils numériques qui améliorent l'agriculture chez <1>AgriEdge</1>."
+        "intro": "I'm a <1>Software developer</1> specialized in creating digital experiences mainly for the web. Currently focusing on building digital tools that enhance agriculture in <1>Morocco & Africa</1>."
     },
     "about": {
         "name": "Ilyass Berchida",
@@ -17,5 +48,111 @@
             "part2": "I have two years of experience in web development and worked on several projects using technologies such as <1>React</1>, <1>Next</1>, and <1>Django</1>. I am passionate about creating exceptional experiences and user-friendly websites that meet users' needs and solve real-world problems. I'm dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.",
             "part3": "I have gained experience in different domains such as <1>Agri-tech</1>, <1>Tourism</1>, and <1>E-commerce</1> through my work, and I am always looking for new challenges and opportunities to grow as a professional. I am excited to be a part of the software development community in Morocco and look forward to making a positive impact."
         }
-    }
+    },
+    "experience": {
+        "experiences": [
+            {
+                "title": "Software developer",
+                "company": "UM6P - AGE",
+                "startDate": "Jul 2021",
+                "endDate": "Present",
+                "state": "Ongoing",
+                "location": "Bin Jareer, Morocco",
+                "description": "AgriEdge is a business unit at UM6P that operates in the agriculture field and provides services to farmers based on data.",
+                "tasks": [
+                    "Planning, conceptualizing, and modeling digital solutions",
+                    "Designing and developing user-friendly solutions that meet users' needs",
+                    "Developing functionalities and services to support the front applications via APIs and store data",
+                    "Ensuring access permissions and security",
+                    "Deploying services and Implementing devOps operations based on CI/CD method"
+                ]
+            },
+            {
+                "title": "Back-end Developer - Internship",
+                "company": "ECOM ANALYTIC",
+                "startDate": "Nov 2020",
+                "endDate": "Apr 2021",
+                "state": "Done",
+                "location": "Khouribga, Morocco",
+                "description": "1337 Startup provides ecommerce solutions.",
+                "tasks": [
+                    "Creating a web crawler for e-commerce websites and a data scraper to collect data about products in different categories",
+                    "Creating a database to store collected data",
+                    "Developing a background process that keep track on scraped product and categories, and manage scraping schedule for each item",
+                    "Developing a separated crawling and scraping as decentralized services on many servers to facilitate scaling",
+                    "Creating a REST API to link between all services"
+                ]
+            },
+            {
+                "title": "Flutter Developer - School Project",
+                "company": "ETIL",
+                "startDate": "Jul 2019",
+                "endDate": "Jan 2020",
+                "state": "Done",
+                "location": "Essaouira, Morocco",
+                "description": "Essaouira Territorial Innovation Lab (ETIL), an open innovation space serving the territorial developement of the Essaouira province.",
+                "tasks": [
+                    "Creating a digital guide as a mobile application to provide city visitors with the information about the sities they visit and their monuments, history, and culture"
+                ]
+            }
+        ]
+    },
+    "projects": {
+        "projects": [
+            {
+                "title": "Adah - Personal Protfolio",
+                "description": "Adah is a personal portfolio website built using modern web technologies such as TypeScript, Next.js, React, TailwindCSS, and Framer Motion. The project was created to showcase the developer's skills, projects, and experience in a visually appealing and user-friendly manner",
+                "tasks": [
+                    "Designing and implementing the UI using TailwindCSS",
+                    "Setting up a Next.js framework for optimized performance",
+                    "Incorporating dynamic data using React and TypeScript",
+                    "Adding animation using Framer Motion"
+                ],
+                "technologies": [
+                    "TypeScript",
+                    "NextJs",
+                    "React",
+                    "TailwindCSS",
+                    "Framer Motion"
+                ],
+                "projectLink": "https://github.com/ilyassber/adah",
+                "webLink": "https://www.ilyassberchida.com"
+            },
+            {
+                "title": "Mormade",
+                "description": "Web e-commerce and publishing platform for Moroccan artisanal products and culture",
+                "tasks": [
+                    "Designing and developing the user interface",
+                    "Implementing the backend functionalities",
+                    "Creating the necessary endpoints and business logic"
+                ],
+                "technologies": [
+                    "TypeScript",
+                    "NextJs",
+                    "React",
+                    "TailwindCSS",
+                    "Python",
+                    "Django",
+                    "Postgresql"
+                ],
+                "projectLink": "https://github.com/ilyassber/mormadeWebSite",
+                "webLink": ""
+            },
+            {
+                "title": "Corewar - 42",
+                "description": "Virtual “arena” in which programs will fight against each other along with an assembler to compile those champions from assembly code to binary code",
+                "tasks": [
+                    "Creating a virtual machine where the players can execute Assembly like instructions",
+                    "Simulating the players instructions on the virtual machine memory",
+                    "Keeping track of memory and players state over cycles"
+                ],
+                "technologies": [
+                    "C"
+                ],
+                "projectLink": "https://github.com/ilyassber/corewar",
+                "webLink": ""
+            }
+        ]
+    },
+    "get_in_touch": {}
 }

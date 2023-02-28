@@ -73,10 +73,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     }, []);
 
     React.useEffect(() => {
-        if (segma < -3) {
+        if (segma < -1) {
             setDirection("up");
             setSegma(0);
-        } else if (segma > 3) {
+        } else if (segma > 1) {
             setDirection("down");
             setSegma(0);
         }

@@ -97,7 +97,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                             transition={{
                                 duration: 0.2,
                             }}
-                            className="w-screen flex flex-col overflow-hidden py-16"
+                            className="w-screen flex flex-col overflow-hidden pt-16 pb-32"
                         >
                             <motion.div
                                 className="flex flex-col items-end"

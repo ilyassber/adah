@@ -48,8 +48,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
     const onScroll = (event: any) => {
         event.preventDefault();
         if (homeLayoutRef && homeLayoutRef.current) {
-            if (event.target?.scrollTop != 1) {
-                setSegma(s => s + (event.target?.scrollTop - 1));
+            if (event.target?.scrollTop < 1) {
+                setSegma(s => s - 1);
+            } else if (event.target?.scrollTop > 1) {
+                setSegma(s => s + 1);
             }
             homeLayoutRef.current?.scroll({
                 top: 1,

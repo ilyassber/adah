@@ -43,7 +43,6 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                     ease: "easeOut",
                 }}
                 onAnimationComplete={(animation: string) => {
-                    console.log(animation);
                     if (animation == "exitAnimation") {
                         dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
                     }

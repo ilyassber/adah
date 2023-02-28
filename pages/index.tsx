@@ -74,17 +74,17 @@ const Home: React.FC<HomeProps> = (props) => {
           />
         </>
         <HomeLayout className="h-screen w-full bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden">
-          <ScrollLayout className="h-screen w-full flex flex-col justify-center">
+          <ScrollLayout className="h-full w-full flex flex-col justify-center">
             {params.selectedSectionId == 1
-              ? (<HomeCard className="w-full" />)
+              ? (<HomeCard className="h-full w-full" />)
               : params.selectedSectionId == 2
-                ? (<AboutCard className="w-full" />)
+                ? (<AboutCard className="h-full w-full" />)
                 : params.selectedSectionId == 3
-                  ? (<ExperienceCard className="w-full" />)
+                  ? (<ExperienceCard className="h-full w-full" />)
                   : params.selectedSectionId == 4
-                    ? (<ProjectsCard className="w-full" />)
+                    ? (<ProjectsCard className="h-full w-full" />)
                     : params.selectedSectionId == 5
-                      ? (<GetInTouchCard className="w-full" />)
+                      ? (<GetInTouchCard className="h-full w-full" />)
                       : null}
           </ScrollLayout>
         </HomeLayout>

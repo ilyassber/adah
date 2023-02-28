@@ -89,7 +89,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                     </motion.div>
                 </div>
                 {closed ? (null) : (
-                    <ScrollLayout className="h-screen w-full flex flex-col justify-center">
+                    <ScrollLayout className="h-screen w-full flex flex-col justify-center bg-gradient-to-b from-[#182B2B] to-[#2B2B2B]">
                         <motion.div
                             animate={{
                                 opacity: ["0%", "100%"],
@@ -97,7 +97,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
                             transition={{
                                 duration: 0.2,
                             }}
-                            className="w-screen flex flex-col bg-gradient-to-b from-[#182B2B] to-[#2B2B2B] overflow-hidden py-16"
+                            className="w-screen flex flex-col overflow-hidden py-16"
                         >
                             <motion.div
                                 className="flex flex-col items-end"

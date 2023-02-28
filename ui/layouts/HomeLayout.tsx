@@ -136,7 +136,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
         <div className={props.className}>
             {params.initAnimation ? (
                 <ContactLayout className="w-full h-screen scroll-smooth">
-                    <MenuLayout className="relative w-full h-screen">
+                    <MenuLayout className="relative w-full h-full">
                         <div className="absolute top-0 left-0 h-full w-full overflow-hidden">
                             <motion.div
                                 className="h-full w-full"
@@ -172,10 +172,10 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                         <div
                             id="homeLayout"
                             ref={homeLayoutRef}
-                            className="relative h-screen w-full overflow-auto overscroll-none"
+                            className="relative h-full w-full overflow-auto overscroll-none"
                         >
                             <div className="w-full h-[1px] bg-transparent" />
-                            <div className="w-full h-screen">
+                            <div className="w-full h-full">
                                 {props.children}
                             </div>
                             <div className="w-full h-[1px] bg-transparent" />

@@ -91,7 +91,7 @@ const Home: React.FC<HomeProps> = (props) => {
   )
 };
 
-export const getServerSideProps: GetServerSideProps = async ({
+export const getStaticProps: GetStaticProps = async ({
   locale,
 }) => {
   const firebaseConfig = {

@@ -15,11 +15,11 @@ module.exports = {
       solitreo: ["Solitreo"],
     },
     extend: {
-      height: {
-        screen: "100dvh",
-      },
+      // height: {
+      //   screen: "100dvh",
+      // },
       maxHeight: {
-        "1/2": "50dvh",
+        "1/2": "50vh",
       },
       colors: {
         yano: {

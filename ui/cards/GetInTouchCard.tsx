@@ -84,7 +84,6 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = (props) => {
 
     React.useEffect(() => {
         if (params.nextSectionId != params.selectedSectionId) {
-            console.log(textareaState);
             if (textareaState == "open") {
                 setTextareaState("closed");
             } else {

@@ -19,7 +19,7 @@ const BurgerMenu: React.FC<BurgerMenuProps> = (props) => {
     const [closed, setClosed] = React.useState<boolean>(true);
     const [toBeClosed, setToBeClosed] = React.useState<boolean>(false);
     const [init, setInit] = React.useState<boolean>(false);
-    const [selectedSectionId, setSelectedSectionId] = React.useState<number>(params.selectedSectionId);
+    const [selectedSectionId, setSelectedSectionId] = React.useState<number>(1);
 
     const menuVariants = {
         init: {

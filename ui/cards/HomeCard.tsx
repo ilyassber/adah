@@ -45,6 +45,9 @@ const HomeCard: React.FC<HomeCardProps> = (props) => {
                 onAnimationComplete={(animation: string) => {
                     if (animation == "exitAnimation") {
                         dispatchParams({ key: "selectedSectionId", value: params.nextSectionId });
+                    } else {
+                        dispatchParams({ key: "selectedSectionId", value: 1 });
+                        dispatchParams({ key: "nextSectionId", value: 1 });
                     }
                 }}
             >

@@ -157,8 +157,8 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
                             <div className="h-8 w-[2px] flex flex-col bg-[#9197A055]" />
                             <p className="py-4 text-[#9197A077] text-xs md:text-sm" style={{ writingMode: "vertical-rl", textOrientation: "sideways", transform: "rotate(180deg)" }}>
                                 {/* INFO: Shuriken 手裏剣; Hidden hand blade */}
-                                {/* くそー。 とても珍しい */}
-                                {"Happy Mother's Day ❤️"}
+                                くそー。 とても珍しい
+                                {/* {"Happy Mother's Day ❤️"} */}
                             </p>
                             <div className="h-24 w-[2px] flex flex-col bg-[#9197A055]" />
                         </div>

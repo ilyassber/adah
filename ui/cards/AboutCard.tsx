@@ -141,12 +141,12 @@ const AboutCard: React.FC<AboutCardProps> = (props) => {
                     >
                         <p className="text-sm text-[#A1A7B0] text-left max-w-4xl">
                             <Trans i18nKey="about.aboutme.part1">
-                                I'm Ilyass Berchida, a Software developer from Casablanca, Morocco. I was born on June 10th, 1994, and have been interested in technology and coding since a young age. After completing my studies in Economics at a local university, I decided to follow my passion and further my education by attending <span className="font-bold text-[#B1B7C0]">1337 coding school</span>, which allowed me to gain a deeper understanding of <span className="font-bold text-[#B1B7C0]">Web development</span> and the latest technologies in the field.
+                                I&#39;m Ilyass Berchida, a Software developer from Casablanca, Morocco. I was born on June 10th, 1994, and have been interested in technology and coding since a young age. After completing my studies in Economics at a local university, I decided to follow my passion and further my education by attending <span className="font-bold text-[#B1B7C0]">1337 coding school</span>, which allowed me to gain a deeper understanding of <span className="font-bold text-[#B1B7C0]">Web development</span> and the latest technologies in the field.
                             </Trans>
                             <br />
                             <br />
                             <Trans i18nKey="about.aboutme.part2">
-                                I have two years of experience in web development and worked on several projects using technologies such as <span className="font-bold text-[#B1B7C0]">React</span>, <span className="font-bold text-[#B1B7C0]">Next</span>, and <span className="font-bold text-[#B1B7C0]">Django</span>. I am passionate about creating exceptional experiences and user-friendly websites that meet users' needs and solve real-world problems. I'm dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.
+                                I have two years of experience in web development and worked on several projects using technologies such as <span className="font-bold text-[#B1B7C0]">React</span>, <span className="font-bold text-[#B1B7C0]">Next</span>, and <span className="font-bold text-[#B1B7C0]">Django</span>. I am passionate about creating exceptional experiences and user-friendly websites that meet users&#39; needs and solve real-world problems. I&#39;m dedicated to staying current with the latest developments in the field and constantly learning new technologies and techniques.
                             </Trans>
                             <br />
                             <br />
